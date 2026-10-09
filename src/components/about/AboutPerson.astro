@@ -1,5 +1,6 @@
 ---
-
+import { Image } from "astro:assets";
+import aboutImg from "../../assets/about/about-me.png";
 ---
 
 <section class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800">
@@ -98,8 +99,8 @@
 
     <!-- Right Column: Image & Bio -->
     <div class="lg:pl-8">
-      <img
-        src="/about/about-me.png"
+      <Image
+        src={aboutImg}
         alt="Taz Burwaiss"
         class="w-full h-auto object-cover rounded shadow-2xl mb-8"
       />

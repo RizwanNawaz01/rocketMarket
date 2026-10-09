@@ -1,9 +1,14 @@
 ---
+import { Image } from "astro:assets";
+import webImg from "../../assets/services/website-planning.png";
+import brandImg from "../../assets/services/personal-branding.png";
+import socialImg from "../../assets/services/social-selling.png";
+
 const services = [
   {
     number: "01",
     title: "Web & Brand Positioning",
-    image: "/services/website-planning.png",
+    image: webImg,
     description:
       "A website that becomes the foundation for your brand positioning.",
     href: "/services/web-brand-positioning",
@@ -11,7 +16,7 @@ const services = [
   {
     number: "02",
     title: "Personal Branding",
-    image: "/services/personal-branding.png",
+    image: brandImg,
     description:
       "A content system that explains who you are, how you help, and that you're fun to follow.",
     href: "/services/personal-branding",
@@ -19,7 +24,7 @@ const services = [
   {
     number: "03",
     title: "Social Selling",
-    image: "/services/social-selling.png",
+    image: socialImg,
     description:
       "Helping you create qualified conversations with the right buyers.",
     href: "/services/social-selling",
@@ -46,7 +51,7 @@ const services = [
               href={service.href}
               class="block overflow-hidden rounded mb-6 relative group"
             >
-              <img
+              <Image
                 src={service.image}
                 alt={service.title}
                 class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"

@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Button from "../../components/Button.astro";
+import leadGenImg from "../../assets/general/leadgen-image.jpg";
 ---
 
 <section class="flex flex-col">
@@ -59,8 +61,8 @@ import Button from "../../components/Button.astro";
         </div>
       </div>
       <div class="lg:w-[45%] w-full">
-        <img
-          src="/general/leadgen-image.jpg"
+        <Image
+          src={leadGenImg}
           alt="Writing in notebook"
           class="w-full aspect-[4/3] object-cover"
         />

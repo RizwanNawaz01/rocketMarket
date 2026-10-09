@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/general/logo-1.png';
+
 const pathname = Astro.url.pathname;
 const currentPath =
   pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
@@ -17,10 +20,11 @@ const navItems = [
 >
   <!-- Logo -->
   <a href="/" class="flex items-center">
-    <img
-      src="/general/logo-1.png"
+    <Image
+      src={logoImg}
       alt="Rocket Marketing"
       class="h-10 lg:h-32 w-auto"
+      loading="eager"
     />
   </a>
 
@@ -49,6 +53,7 @@ const navItems = [
     <button
       id="menu-toggle"
       class="text-white hover:text-brand-green transition-colors focus:outline-none relative w-8 h-8"
+      aria-label="Toggle menu"
     >
       <!-- Hamburger Icon -->
       <svg
