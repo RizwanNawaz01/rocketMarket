@@ -1,0 +1,53 @@
+---
+const reasons = [
+  {
+    title: "Human focused",
+    description: "Partnering with me means choosing a human approach. It's about building genuine B2B relationships through curiosity, clarity, and value."
+  },
+  {
+    title: "Done for you",
+    description: "I handle the heavy lifting. From setup and strategy to messaging, content, and ongoing optimisation. You'll still be involved, but I take on the main bulk of the legwork."
+  },
+  {
+    title: "Lean pricing",
+    description: "I built Rocket to be accessible for growing B2B companies. You'll get a done-for-you system that would normally require hiring multiple roles in-house, at a fraction of the cost."
+  },
+  {
+    title: "Alignment",
+    description: "Everything starts with positioning, messaging, and ICP clarity — so your website, content, and messaging are in clear alignment."
+  },
+  {
+    title: "Easy to work with",
+    description: "You get full visibility into what's happening with your campaigns at every stage, including regular virtual meetings."
+  }
+];
+---
+<section class="bg-brand-navy py-24 px-8 border-b border-gray-800">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-brand-green font-heading text-4xl md:text-[3.5rem] mb-16 font-bold text-center md:text-left tracking-tight">
+      5 reasons why to work with me
+    </h2>
+
+    <div class="flex flex-col items-center gap-8">
+      <!-- Top row (2 cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full lg:w-10/12">
+        {reasons.slice(0, 2).map(r => (
+          <div class="bg-[#d2eaf1] rounded-[2rem] p-10 md:p-12 text-brand-navy flex flex-col">
+            <h3 class="font-heading text-3xl font-bold mb-6">{r.title}</h3>
+            <p class="font-body text-xl leading-relaxed font-light">{r.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom row (3 cards) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+        {reasons.slice(2, 5).map(r => (
+          <div class="bg-[#d2eaf1] rounded-[2rem] p-10 md:p-12 text-brand-navy flex flex-col">
+            <h3 class="font-heading text-3xl font-bold mb-6">{r.title}</h3>
+            <p class="font-body text-xl leading-relaxed font-light flex-grow">{r.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

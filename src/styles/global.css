@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #182540;
+  --color-brand-green: #21D789;
+  --color-brand-blue: #2563EB;
+  --color-brand-ice: #CBE4EC;
+
+  --font-heading: 'Fraunces', serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply font-body text-brand-navy bg-white;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading text-brand-navy;
+  }
+}

@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- Hero Section with Form -->
+  <section class="bg-brand-navy text-white pt-24 pb-24 px-8 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto flex flex-col items-start">
+      <h1 class="text-5xl md:text-7xl font-heading mb-6 leading-tight text-brand-green max-w-3xl">
+        The Ultimate LinkedIn<br/>
+        B2B Growth Kit
+      </h1>
+      
+      <p class="text-xl md:text-2xl font-body max-w-4xl mb-12 text-white leading-relaxed">
+        For B2B service providers, consultants, and coaches who want to attract better clients on LinkedIn without sounding salesy.
+      </p>
+
+      <div class="w-full max-w-md">
+        <form class="flex flex-col space-y-6" onsubmit="event.preventDefault();">
+          <div class="flex flex-col">
+            <label for="name" class="font-bold text-sm mb-2">What's your name?</label>
+            <input type="text" id="name" placeholder="Your full name" class="px-4 py-3 rounded bg-white text-brand-navy font-body outline-none" required />
+          </div>
+          <div class="flex flex-col">
+            <label for="email" class="font-bold text-sm mb-2">Best email to reach you?</label>
+            <input type="email" id="email" placeholder="your@email.com" class="px-4 py-3 rounded bg-white text-brand-navy font-body outline-none" required />
+          </div>
+          <button type="submit" class="bg-brand-green text-brand-navy px-8 py-4 rounded font-bold font-heading text-lg hover:bg-white transition-colors self-start mt-2">
+            Book my fit call
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 Pillars Section -->
+  <section class="bg-brand-navy py-24 px-8 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-brand-ice rounded-[2rem] p-12 text-brand-navy flex flex-col h-full">
+          <h3 class="font-heading text-4xl mb-6">1. Positioning</h3>
+          <p class="font-body text-xl leading-relaxed flex-grow">
+            Optimising your positioning is the foundation that makes you look the business and mean the part. Clean and intentional positioning signals that you're an established pro.
+          </p>
+        </div>
+        <!-- Card 2 -->
+        <div class="bg-brand-ice rounded-[2rem] p-12 text-brand-navy flex flex-col h-full">
+          <h3 class="font-heading text-4xl mb-6">2. Content</h3>
+          <p class="font-body text-xl leading-relaxed flex-grow">
+            Your LinkedIn personal brand helps your potential buyers show who you are, why you exist, how you help, & that you're fun to follow.
+          </p>
+        </div>
+        <!-- Card 3 -->
+        <div class="bg-brand-ice rounded-[2rem] p-12 text-brand-navy flex flex-col h-full">
+          <h3 class="font-heading text-4xl mb-6">3. Outreach</h3>
+          <p class="font-body text-xl leading-relaxed flex-grow">
+            When your messages focus on curiosity, value, and low-risk next steps, you can start conversations with ideal clients without feeling salesy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Inside Section -->
+  <section class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-8">What's inside?</h2>
+      <p class="font-body text-xl max-w-4xl mb-16 leading-relaxed">
+        This free E-book gives you a practical toolkit of resources to help you sharpen your brand positioning, improve your content, and present your business more professionally online. Instead of piecing things together from random advice, you get one focused bundle designed to help you build momentum on LinkedIn faster.
+      </p>
+
+      <div class="bg-brand-blue rounded-3xl p-12 lg:p-16">
+        <h3 class="font-heading text-3xl md:text-4xl mb-8">Resources include...</h3>
+        <ul class="space-y-6 font-body text-lg">
+          <li class="flex items-start"><span class="text-white mr-4 mt-1">✓</span> Free WhatsApp community, with 250+ B2B professionals supporting and learning from each other</li>
+          <li class="flex items-start"><span class="text-white mr-4 mt-1">✓</span> 33 LinkedIn Banners (Canva templates)</li>
+          <li class="flex items-start"><span class="text-white mr-4 mt-1">✓</span> 8 LinkedIn Featured Thumbnails (Canva templates)</li>
+          <li class="flex items-start"><span class="text-white mr-4 mt-1">✓</span> 13 LinkedIn Carousels (Canva templates)</li>
+          <li class="flex items-start"><span class="text-white mr-4 mt-1">✓</span> 12-page E-book (Canva template)</li>
+          <li class="flex items-start"><span class="text-white mr-4 mt-1">✓</span> 21-page Slide Deck (Canva template)</li>
+          <li class="flex items-start"><span class="text-white mr-4 mt-1">✓</span> Case Study (Canva template)</li>
+          <li class="flex items-start"><span class="text-white mr-4 mt-1">✓</span> 365 Stock Photos</li>
+          <li class="flex items-start"><span class="text-white mr-4 mt-1">✓</span> Plus More!</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs Section -->
+  <section class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-16">FAQs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-brand-green rounded-3xl p-10 text-brand-navy flex flex-col">
+          <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6">What happens after I sign up?</h3>
+          <p class="font-body text-lg leading-relaxed">
+            You'll receive access to the <strong>free toolkit</strong> and can start using the resources straight away.
+          </p>
+        </div>
+        <div class="bg-brand-green rounded-3xl p-10 text-brand-navy flex flex-col">
+          <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6">Do I need much Canva experience?</h3>
+          <p class="font-body text-lg leading-relaxed">
+            No. <strong>Basic Canva skills are enough</strong> to use and adapt the templates to your brand guidelines.
+          </p>
+        </div>
+        <div class="bg-brand-green rounded-3xl p-10 text-brand-navy flex flex-col">
+          <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6">Will this help if I'm inconsistent on LinkedIn?</h3>
+          <p class="font-body text-lg leading-relaxed">
+            Yes. It's especially useful if you need structure, prompts, and ready-made assets to <strong>make LinkedIn easier</strong> to maintain.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 ways to go further -->
+  <section class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-heading text-5xl text-brand-green mb-16">3 ways to go further</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div>
+          <p class="text-brand-green font-heading text-xl mb-2">01</p>
+          <h3 class="font-heading text-3xl mb-6">Web & Brand Positioning</h3>
+          <div class="bg-gray-800 h-48 w-full mb-6 rounded"></div>
+          <p class="font-body text-lg mb-6">A website that becomes the foundation for your brand positioning.</p>
+          <a href="/services/web-brand-positioning" class="text-brand-green font-bold hover:text-white transition-colors">Find out more</a>
+        </div>
+        <div>
+          <p class="text-brand-green font-heading text-xl mb-2">02</p>
+          <h3 class="font-heading text-3xl mb-6">Personal Branding</h3>
+          <div class="bg-gray-800 h-48 w-full mb-6 rounded"></div>
+          <p class="font-body text-lg mb-6">A content system that explains who you are, how you help, and that you're fun to follow.</p>
+          <a href="/services/personal-branding" class="text-brand-green font-bold hover:text-white transition-colors">Find out more</a>
+        </div>
+        <div>
+          <p class="text-brand-green font-heading text-xl mb-2">03</p>
+          <h3 class="font-heading text-3xl mb-6">Social Selling</h3>
+          <div class="bg-gray-800 h-48 w-full mb-6 rounded"></div>
+          <p class="font-body text-lg mb-6">Helping you create qualified conversations with the right buyers.</p>
+          <a href="/services/social-selling" class="text-brand-green font-bold hover:text-white transition-colors">Find out more</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

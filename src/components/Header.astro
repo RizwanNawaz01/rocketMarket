@@ -1,0 +1,187 @@
+---
+const pathname = Astro.url.pathname;
+const currentPath =
+  pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Case Studies", href: "/case-study" },
+  { label: "Lead Gen", href: "/leadgen" },
+];
+---
+
+<header
+  class="w-full bg-brand-navy py-6 px-8 flex items-center justify-between sticky top-0 z-[110]"
+>
+  <!-- Logo -->
+  <a href="/" class="flex items-center">
+    <img
+      src="/general/logo-1.png"
+      alt="Rocket Marketing"
+      class="h-10 lg:h-32 w-auto"
+    />
+  </a>
+
+  <!-- Right side: Contact + Button + Hamburger -->
+  <div class="flex items-center space-x-6 lg:space-x-8">
+    <!-- Contact Info (hidden on small screens) -->
+    <div
+      class="hidden lg:flex items-center space-x-6 text-white font-body text-sm font-semibold"
+    >
+      <span>0117 973 9326</span>
+      <a
+        href="mailto:hello@meetbob.co.uk"
+        class="hover:text-brand-green transition-colors">hello@meetbob.co.uk</a
+      >
+    </div>
+
+    <!-- CTA Button -->
+    <a
+      href="/leadgen"
+      class="hidden sm:inline-block bg-brand-green text-brand-navy px-6 py-3 rounded font-bold font-body hover:bg-white transition-colors"
+    >
+      Talk to Bob
+    </a>
+
+    <!-- Menu Toggle Button -->
+    <button
+      id="menu-toggle"
+      class="text-white hover:text-brand-green transition-colors focus:outline-none relative w-8 h-8"
+    >
+      <!-- Hamburger Icon -->
+      <svg
+        id="icon-menu"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-8 h-8 absolute inset-0 transition-opacity duration-300"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+      <!-- Close Icon -->
+      <svg
+        id="icon-close"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-8 h-8 absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<!-- Fullscreen Menu Overlay -->
+<div
+  id="menu-overlay"
+  class="fixed inset-0 bg-brand-navy/95 backdrop-blur-sm z-[100] opacity-0 pointer-events-none transition-opacity duration-500 flex flex-col"
+>
+  <div
+    class="flex-grow flex flex-col justify-center px-8 lg:px-24 xl:px-32 pt-20"
+  >
+    <nav
+      class="flex flex-col items-start space-y-2 lg:space-y-8 font-heading text-4xl lg:text-5xl xl:text-6xl"
+    >
+      {
+        navItems.map((item, index) => {
+          const itemHref =
+            item.href === "/"
+              ? "/"
+              : item.href.endsWith("/")
+                ? item.href.slice(0, -1)
+                : item.href;
+          const isActive =
+            currentPath === itemHref ||
+            (itemHref !== "/" && currentPath.startsWith(itemHref));
+          return (
+            <a
+              href={item.href}
+              class={`menu-item leading-none hover:text-brand-green ${isActive ? "text-brand-green" : "text-white"}`}
+              style={`--delay: ${index * 75 + 100}ms`}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+    <div
+      class="menu-item mt-16 flex flex-col items-start space-y-4 text-brand-green font-body text-lg lg:hidden"
+      style={`--delay: ${navItems.length * 75 + 100}ms`}
+    >
+      <span>0117 973 9326</span>
+      <a href="mailto:hello@meetbob.co.uk">hello@meetbob.co.uk</a>
+      <a
+        href="/contact"
+        class="bg-brand-green text-brand-navy px-8 py-4 rounded font-bold hover:bg-white transition-colors mt-4"
+      >
+        Talk to Bob
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Staggered fade-in up animation for menu items */
+  .menu-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s ease-out,
+      color 0.3s ease;
+  }
+
+  /* When the overlay has the 'open' class, trigger the animation on items with their respective delays */
+  #menu-overlay.open .menu-item {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: var(--delay, 0ms);
+  }
+</style>
+
+<script>
+  const menuToggleBtn = document.getElementById("menu-toggle");
+  const menuOverlay = document.getElementById("menu-overlay");
+  const iconMenu = document.getElementById("icon-menu");
+  const iconClose = document.getElementById("icon-close");
+
+  let isMenuOpen = false;
+
+  if (menuToggleBtn && menuOverlay && iconMenu && iconClose) {
+    menuToggleBtn.addEventListener("click", () => {
+      isMenuOpen = !isMenuOpen;
+
+      if (isMenuOpen) {
+        // Open menu
+        menuOverlay.classList.remove("opacity-0", "pointer-events-none");
+        menuOverlay.classList.add("open");
+        document.body.style.overflow = "hidden"; // Prevent background scrolling
+
+        iconMenu.classList.add("opacity-0", "pointer-events-none");
+        iconClose.classList.remove("opacity-0", "pointer-events-none");
+      } else {
+        // Close menu
+        menuOverlay.classList.remove("open");
+        menuOverlay.classList.add("opacity-0", "pointer-events-none");
+        document.body.style.overflow = ""; // Restore scrolling
+
+        iconClose.classList.add("opacity-0", "pointer-events-none");
+        iconMenu.classList.remove("opacity-0", "pointer-events-none");
+      }
+    });
+  }
+</script>

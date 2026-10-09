@@ -1,0 +1,185 @@
+---
+const companies = [
+  "London Business School",
+  "Persimmon",
+  "Business West",
+  "Redrow",
+  "Barratt Homes",
+  "London Business School",
+  "Persimmon",
+  "Business West",
+  "Redrow",
+  "Barratt Homes"
+];
+
+const testimonials = [
+  {
+    quote: "Taz took my scattered thoughts about tax and cash-flow and turned them into a clear founder story that people actually care about. Within a few weeks, I could feel the shift.",
+    author: "Adam Marsh",
+    title: "Founder - Earnly",
+    link: "/case-study"
+  },
+  {
+    quote: "A great experience working with Rocket. Their support was invaluable in helping us achieve our business goals. Brought clarity and consistency to our outreach.",
+    author: "Phil Holdcroft",
+    title: "Founder - High Performance Journey",
+    link: "/case-study"
+  },
+  {
+    quote: "Working with Rocket transformed our entire marketing approach. The attention to detail and strategic insight was exactly what we needed to scale to the next level.",
+    author: "Sarah Jenkins",
+    title: "CEO - TechNova",
+    link: "/case-study"
+  }
+];
+---
+
+<section class="bg-brand-navy text-white py-24 px-8 border-t border-gray-800">
+  <div class="max-w-7xl mx-auto overflow-hidden">
+    <h2 class="font-heading text-5xl text-brand-green mb-16 text-center md:text-left">
+      Who we have worked with
+    </h2>
+
+    <!-- Infinite Marquee for Companies -->
+    <div class="mb-32 mask-edges w-full overflow-hidden">
+      <div class="marquee-track flex items-center gap-16 md:gap-32">
+        {companies.map((company) => (
+          <span class="font-bold text-xl md:text-2xl uppercase tracking-widest text-gray-400 shrink-0">
+            {company}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Autoplaying Testimonial Slider (2 side-by-side on desktop) -->
+    <div class="relative w-full">
+      <div class="flex overflow-x-hidden gap-8 md:gap-16" id="testimonial-track">
+        {testimonials.map((t) => (
+          <div class="testimonial-item w-full md:w-[calc(50%-2rem)] shrink-0 flex items-start">
+            <div class="text-brand-green text-[5rem] md:text-[6rem] font-serif font-black leading-none mr-6 md:mr-8 mt-[-1rem] shrink-0">
+              “
+            </div>
+            <div class="flex-grow pr-4">
+              <p class="text-xl md:text-2xl font-heading mb-8 leading-snug font-bold">
+                {t.quote}
+              </p>
+              <p class="text-brand-green text-lg md:text-xl font-body mb-1">{t.author}</p>
+              <p class="text-base md:text-lg font-body mb-8 text-white">{t.title}</p>
+              <a href={t.link} class="text-brand-green underline font-bold text-base hover:text-white transition-colors">
+                Read full case study
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Slider Dots -->
+      <div class="flex justify-center mt-12 space-x-3" id="testimonial-dots">
+        {testimonials.map((_, i) => (
+          <button 
+            class="w-3 h-3 rounded-full bg-gray-600 transition-colors duration-300 dot-btn" 
+            data-index={i} 
+            aria-label={`Go to slide ${i+1}`}
+          ></button>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Edge fading for marquee */
+  .mask-edges {
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  /* Infinite scrolling animation */
+  .marquee-track {
+    width: max-content;
+    animation: scroll 20s linear infinite;
+  }
+  
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>
+
+<script>
+  // Robust JS slider handling responsive items per view
+  const track = document.getElementById('testimonial-track');
+  const items = document.querySelectorAll('.testimonial-item') as NodeListOf<HTMLElement>;
+  const dots = document.querySelectorAll('.dot-btn') as NodeListOf<HTMLElement>;
+  let currentIndex = 0;
+  let autoplayInterval: number | undefined;
+
+  function updateDots() {
+    dots.forEach((dot, i) => {
+      if (i === currentIndex) {
+        dot.classList.remove('bg-gray-600');
+        dot.classList.add('bg-brand-green');
+      } else {
+        dot.classList.add('bg-gray-600');
+        dot.classList.remove('bg-brand-green');
+      }
+    });
+  }
+
+  function goToSlide(index: number) {
+    if (!track || items.length === 0) return;
+    
+    // Dynamically calculate how many items fit in view
+    const trackWidth = track.clientWidth;
+    const itemWidth = items[0].clientWidth;
+    const itemsPerView = Math.round(trackWidth / itemWidth);
+    
+    // Calculate the maximum index we can scroll to without showing blank space at the end
+    const maxIndex = items.length - itemsPerView;
+    currentIndex = Math.min(index, maxIndex > 0 ? maxIndex : 0);
+    if (currentIndex < 0) currentIndex = 0;
+    
+    // Use native smooth scrolling for the offset
+    track.scrollTo({
+      left: items[currentIndex].offsetLeft,
+      behavior: 'smooth'
+    });
+    
+    updateDots();
+  }
+
+  function nextSlide() {
+    if (!track || items.length === 0) return;
+    
+    const trackWidth = track.clientWidth;
+    const itemWidth = items[0].clientWidth;
+    const itemsPerView = Math.round(trackWidth / itemWidth);
+    const maxIndex = items.length - itemsPerView;
+    
+    if (currentIndex >= maxIndex) {
+      goToSlide(0); // Loop back to start
+    } else {
+      goToSlide(currentIndex + 1);
+    }
+  }
+
+  if (track && items.length > 0) {
+    updateDots();
+    // Start autoplay
+    autoplayInterval = setInterval(nextSlide, 5000) as unknown as number;
+
+    // Manual navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        clearInterval(autoplayInterval);
+        goToSlide(index);
+        autoplayInterval = setInterval(nextSlide, 5000) as unknown as number;
+      });
+    });
+    
+    // Re-adjust on window resize to prevent being stuck out of bounds
+    window.addEventListener('resize', () => {
+        goToSlide(currentIndex);
+    });
+  }
+</script>

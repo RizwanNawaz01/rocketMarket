@@ -1,0 +1,87 @@
+---
+
+---
+
+<section id="stats-section" class="bg-brand-blue text-white py-24 px-8">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-heading text-5xl mb-16 text-white">Rocket in numbers</h2>
+    <div
+      class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left"
+    >
+      <div>
+        <div class="text-6xl md:text-8xl font-body font-black mb-4 text-center">
+          <span class="stat-number" data-target="20">0</span>
+        </div>
+        <p class="text-xl font-bold font-body text-center">
+          years B2B marketing <br />
+          experience
+        </p>
+      </div>
+      <div>
+        <div class="text-6xl md:text-8xl font-body font-black mb-4 text-center">
+          <span class="stat-number" data-target="50">0</span>+
+        </div>
+        <p class="text-xl font-bold font-body text-center">
+          B2B professionals and <br />
+          founders supported
+        </p>
+      </div>
+      <div>
+        <div class="text-6xl md:text-8xl font-body font-black mb-4 text-center">
+          <span class="stat-number" data-target="100">0</span>%
+        </div>
+        <p class="text-xl font-bold font-body text-center">
+          of clients reporting clearer, <br />
+          more professional messaging
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const statsSection = document.getElementById("stats-section");
+  const statNumbers = document.querySelectorAll(".stat-number");
+
+  if (statsSection && statNumbers.length > 0) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          statNumbers.forEach((stat) => {
+            const target = parseInt(
+              stat.getAttribute("data-target") || "0",
+              10,
+            );
+            const duration = 2000; // 2 seconds animation
+            const startTime = performance.now();
+
+            const updateNumber = (currentTime: DOMHighResTimeStamp) => {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+
+              // easeOutQuart for a smooth decelerating effect
+              const easeOut = 1 - Math.pow(1 - progress, 4);
+
+              const current = Math.floor(easeOut * target);
+              stat.textContent = current.toString();
+
+              if (progress < 1) {
+                requestAnimationFrame(updateNumber);
+              } else {
+                stat.textContent = target.toString();
+              }
+            };
+
+            requestAnimationFrame(updateNumber);
+          });
+
+          // Stop observing once animated so it doesn't trigger again on scroll up
+          observer.unobserve(statsSection);
+        }
+      },
+      { threshold: 0.3 }, // Trigger when 30% of the section is visible
+    );
+
+    observer.observe(statsSection);
+  }
+</script>

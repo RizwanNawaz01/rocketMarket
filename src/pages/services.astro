@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- Hero Section -->
+  <section class="bg-brand-navy text-white pt-32 pb-24 px-8 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto flex flex-col items-start">
+      <h1 class="text-5xl md:text-7xl font-heading mb-8 leading-tight text-brand-green">
+        Our Services
+      </h1>
+      
+      <p class="text-xl md:text-2xl font-body max-w-3xl mb-12 text-white leading-relaxed">
+        Everything you need to grow your B2B business — from your brand positioning to a consistent pipeline of qualified leads.
+      </p>
+
+      <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+        <a href="/contact" class="bg-brand-green text-brand-navy px-8 py-4 rounded font-bold font-heading text-lg hover:bg-white transition-colors text-center">
+          Book a fit call
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="bg-white text-brand-navy py-24 px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        
+        <!-- Web & Brand Positioning -->
+        <div class="flex flex-col h-full bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <p class="text-brand-green font-heading text-xl mb-4 font-bold">01</p>
+          <h3 class="font-heading text-3xl mb-4">Web & Brand Positioning</h3>
+          <p class="font-body text-lg mb-8 text-gray-600 flex-grow">A complete brand and web identity that makes you look credible, consistent, and worth what you charge.</p>
+          <a href="/services/web-brand-positioning" class="text-brand-blue font-bold font-heading hover:text-blue-800 transition-colors uppercase tracking-wider text-sm border-b-2 border-brand-blue pb-1 self-start">Explore Service</a>
+        </div>
+
+        <!-- Personal Branding -->
+        <div class="flex flex-col h-full bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <p class="text-brand-green font-heading text-xl mb-4 font-bold">02</p>
+          <h3 class="font-heading text-3xl mb-4">Personal Branding</h3>
+          <p class="font-body text-lg mb-8 text-gray-600 flex-grow">A content system that explains who you are, how you help, and that you're fun to follow. Be the person to know & trust.</p>
+          <a href="/services/personal-branding" class="text-brand-blue font-bold font-heading hover:text-blue-800 transition-colors uppercase tracking-wider text-sm border-b-2 border-brand-blue pb-1 self-start">Explore Service</a>
+        </div>
+
+        <!-- Social Selling -->
+        <div class="flex flex-col h-full bg-gray-50 p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+          <p class="text-brand-green font-heading text-xl mb-4 font-bold">03</p>
+          <h3 class="font-heading text-3xl mb-4">Social Selling</h3>
+          <p class="font-body text-lg mb-8 text-gray-600 flex-grow">A done-for-you LinkedIn outreach system designed to create genuine opportunities — without feeling salesy.</p>
+          <a href="/services/social-selling" class="text-brand-blue font-bold font-heading hover:text-blue-800 transition-colors uppercase tracking-wider text-sm border-b-2 border-brand-blue pb-1 self-start">Explore Service</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>

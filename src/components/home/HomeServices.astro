@@ -1,0 +1,68 @@
+---
+const services = [
+  {
+    number: "01",
+    title: "Web & Brand Positioning",
+    image: "/services/website-planning.png",
+    description:
+      "A website that becomes the foundation for your brand positioning.",
+    href: "/services/web-brand-positioning",
+  },
+  {
+    number: "02",
+    title: "Personal Branding",
+    image: "/services/personal-branding.png",
+    description:
+      "A content system that explains who you are, how you help, and that you're fun to follow.",
+    href: "/services/personal-branding",
+  },
+  {
+    number: "03",
+    title: "Social Selling",
+    image: "/services/social-selling.png",
+    description:
+      "Helping you create qualified conversations with the right buyers.",
+    href: "/services/social-selling",
+  },
+];
+---
+
+<section class="bg-brand-navy text-white py-24 px-8 border-t border-gray-800">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-heading text-5xl text-brand-green mb-16">
+      What we help you with
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {
+        services.map((service) => (
+          <div>
+            <p class="text-brand-green font-heading text-xl mb-2">
+              {service.number}
+            </p>
+            <h3 class="font-heading text-2xl mb-6 text-white">
+              {service.title}
+            </h3>
+            <a
+              href={service.href}
+              class="block overflow-hidden rounded mb-6 relative group"
+            >
+              <img
+                src={service.image}
+                alt={service.title}
+                class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-brand-green/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </a>
+            <p class="font-body text-xl mb-6">{service.description}</p>
+            <a
+              href={service.href}
+              class="text-brand-green font-bold hover:text-white transition-colors"
+            >
+              Find out more
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
