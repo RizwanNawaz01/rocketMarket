@@ -1,0 +1,432 @@
+---
+import Button from "../Button.astro";
+import CTABanner from "../CTABanner.astro";
+
+export interface Deliverable {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+export interface Step {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+export interface HeroCTA {
+  label: string;
+  href: string;
+  variant?: "primary" | "secondary";
+}
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  hero: {
+    titleHtml: string;
+    serviceName?: string;
+    description: string;
+    location?: string;
+    cta?: HeroCTA[];
+    primaryBtn?: {
+      label: string;
+      href: string;
+    };
+    secondaryBtn?: {
+      label: string;
+      href: string;
+    };
+  };
+  needThisIf: {
+    heading?: string;
+    points: string[];
+  };
+  deliverables: {
+    heading?: string;
+    items: Deliverable[];
+  };
+  ctaBanner?: {
+    heading: string;
+    subtext: string;
+    buttonText: string;
+    buttonHref: string;
+  };
+  howItWorks: {
+    heading?: string;
+    steps: Step[];
+  };
+  faqs?: {
+    heading?: string;
+    items: FAQItem[];
+  };
+}
+
+const {
+  hero,
+  needThisIf,
+  deliverables,
+  ctaBanner = {
+    heading: "Look the part. Mean business.",
+    subtext: "Tell us what you're working on. No pitch, no pressure.",
+    buttonText: "Book a fit call",
+    buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
+  },
+  howItWorks,
+  faqs,
+} = Astro.props;
+
+// Normalise CTA buttons so it can accept either hero.cta array or primaryBtn/secondaryBtn
+const ctaButtons: HeroCTA[] = hero.cta || [
+  ...(hero.primaryBtn
+    ? [{ ...hero.primaryBtn, variant: "primary" as const }]
+    : []),
+  ...(hero.secondaryBtn
+    ? [{ ...hero.secondaryBtn, variant: "secondary" as const }]
+    : []),
+];
+---
+
+<!-- 1. Hero / Value Prop Section -->
+<section class="bg-brand-navy pt-20 pb-32 px-8 border-b border-gray-800">
+  <div class="max-w-6xl mx-auto flex flex-col items-start">
+    <h1
+      class="text-5xl md:text-7xl lg:text-7xl xl:text-[88px] font-heading mb-8 font-semibold leading-[1.05] text-white"
+      set:html={hero.titleHtml}
+    />
+    {
+      hero.serviceName && (
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
+          {hero.serviceName}
+        </h2>
+      )
+    }
+    <p
+      class="text-xl md:text-2xl lg:text-3xl font-body max-w-5xl mb-4 text-white font-light lg:leading-snug"
+    >
+      {hero.description}
+    </p>
+    {
+      hero.location && (
+        <p class="text-base md:text-lg font-body text-gray-400 font-light mb-12">
+          {hero.location}
+        </p>
+      )
+    }
+    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+      {
+        ctaButtons.map((btn) => (
+          <Button
+            href={btn.href}
+            variant={(btn.variant as "primary" | "secondary") || "primary"}
+          >
+            {btn.label}
+          </Button>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 2. You'll Probably Need This If Section -->
+<section
+  id="details"
+  class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800"
+>
+  <div class="max-w-6xl mx-auto">
+    <h2
+      class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-12 leading-tight"
+    >
+      {needThisIf.heading || "You'll probably need this if..."}
+    </h2>
+    <ul class="space-y-1 text-xl font-body max-w-5xl">
+      {
+        needThisIf.points.map((point) => (
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-white  mr-4 flex-shrink-0 mt-[7px]"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M5 13l4 4L19 7"
+              />
+            </svg>
+            <span class="font-light text-gray-200">{point}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<!-- 3. What You'll Leave With Section -->
+<section class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800">
+  <div class="max-w-6xl mx-auto">
+    <h2
+      class="font-heading text-4xl md:text-5xl text-brand-green mb-12 font-bold tracking-tight"
+    >
+      {deliverables.heading || "What you'll leave with"}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        deliverables.items.map((item, index) => (
+          <div class="bg-brand-ice rounded-[10px] p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-lg">
+            <div class="mb-6 h-12 flex items-center text-brand-navy">
+              {item.icon === "logo" || (!item.icon && index === 0) ? (
+                /* 1. Signature / Logo Script */
+                <span class="font-serif italic font-extrabold text-3xl tracking-tight underline decoration-brand-navy decoration-2 underline-offset-4 select-none">
+                  Taz
+                </span>
+              ) : item.icon === "typography" || (!item.icon && index === 1) ? (
+                /* 2. Aa Typography Grid */
+                <svg
+                  class="w-11 h-11"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 34 L18 10 L30 34" />
+                  <path d="M10 26 L26 26" />
+                  <path d="M34 22 C34 20 36 18 39 18 C42 18 44 20 44 23 L44 34" />
+                  <path d="M34 27 C34 25 36 24 39 24 C44 24 44 27 44 29 C44 33 34 33 34 27" />
+                  <line
+                    x1="2"
+                    y1="18"
+                    x2="36"
+                    y2="18"
+                    stroke-dasharray="1 2"
+                    stroke-width="1.5"
+                    opacity="0.4"
+                  />
+                  <line
+                    x1="2"
+                    y1="26"
+                    x2="46"
+                    y2="26"
+                    stroke-dasharray="1 2"
+                    stroke-width="1.5"
+                    opacity="0.4"
+                  />
+                  <line
+                    x1="2"
+                    y1="34"
+                    x2="46"
+                    y2="34"
+                    stroke-width="1.5"
+                    opacity="0.5"
+                  />
+                </svg>
+              ) : item.icon === "book" || (!item.icon && index === 2) ? (
+                /* 3. Brand Book / Guidelines */
+                <svg
+                  class="w-10 h-10"
+                  viewBox="0 0 40 44"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="7" y="4" width="26" height="36" rx="3" />
+                  <line x1="12" y1="4" x2="12" y2="40" stroke-width="1.5" />
+                  <line x1="17" y1="13" x2="27" y2="13" stroke-width="2" />
+                  <line x1="17" y1="18" x2="24" y2="18" stroke-width="1.5" />
+                  <line x1="17" y1="23" x2="28" y2="23" stroke-width="1.5" />
+                </svg>
+              ) : (
+                /* 4. Ready-to-use Assets / Gallery Frame */
+                <svg
+                  class="w-10 h-10"
+                  viewBox="0 0 44 40"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="5" y="5" width="34" height="30" rx="3" />
+                  <circle cx="13" cy="13" r="2.5" fill="currentColor" />
+                  <polyline points="7,27 16,19 25,27 31,22 39,29" />
+                </svg>
+              )}
+            </div>
+            <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 text-brand-navy leading-tight">
+              {item.title}
+            </h3>
+            <p class="font-body text-base md:text-lg leading-relaxed text-brand-navy/85 font-normal">
+              {item.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 4. CTA Banner -->
+{
+  ctaBanner && (
+    <CTABanner
+      heading={ctaBanner.heading}
+      subtext={ctaBanner.subtext}
+      buttonText={ctaBanner.buttonText}
+      buttonHref={ctaBanner.buttonHref}
+    />
+  )
+}
+
+<!-- 5. How It Works Section -->
+<section class="bg-brand-navy text-white py-24 px-8">
+  <div class="max-w-6xl mx-auto">
+    <h2
+      class="font-heading text-4xl md:text-5xl text-brand-green mb-12 font-bold tracking-tight"
+    >
+      {howItWorks.heading || "How it works"}
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {
+        howItWorks.steps.map((step, index) => (
+          <div class="bg-brand-blue rounded-lg p-10 flex flex-col min-h-[350px]">
+            <div class="mb-6 h-12 flex items-center text-white">
+              {step.icon === "workshop" || (!step.icon && index === 0) ? (
+                /* 1. Workshop / Discovery: People around meeting table */
+                <svg
+                  class="w-12 h-12"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  {/* Center person */}
+                  <circle cx="24" cy="12" r="3.5" />
+                  <path d="M19 22 C19 19.5 21 18 24 18 C27 18 29 19.5 29 22" />
+                  {/* Left person */}
+                  <circle cx="13" cy="16" r="3" />
+                  <path d="M9 25 C9 23 11 22 13 22 C15 22 16.5 23 17 24.5" />
+                  {/* Right person */}
+                  <circle cx="35" cy="16" r="3" />
+                  <path d="M39 25 C39 23 37 22 35 22 C33 22 31.5 23 31 24.5" />
+                  {/* Meeting Table */}
+                  <ellipse cx="24" cy="28" rx="18" ry="5.5" />
+                  {/* Table Legs */}
+                  <path d="M12 32 L10 40" />
+                  <path d="M17 33.5 L16 41" />
+                  <path d="M31 33.5 L32 41" />
+                  <path d="M36 32 L38 40" />
+                </svg>
+              ) : step.icon === "concepts" || (!step.icon && index === 1) ? (
+                /* 2. Concepts + Refinement: Laptop / Design mockups on screen */
+                <svg
+                  class="w-12 h-12"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  {/* Laptop screen */}
+                  <rect x="8" y="10" width="32" height="22" rx="2" />
+                  {/* Mockup frames inside screen */}
+                  <rect
+                    x="12"
+                    y="14"
+                    width="10"
+                    height="9"
+                    rx="1"
+                    stroke-width="1.5"
+                  />
+                  <rect
+                    x="26"
+                    y="14"
+                    width="10"
+                    height="9"
+                    rx="1"
+                    stroke-width="1.5"
+                    stroke-dasharray="2 2"
+                  />
+                  <line x1="12" y1="27" x2="20" y2="27" stroke-width="1.5" />
+                  <circle cx="28" cy="27" r="1.5" fill="currentColor" />
+                  {/* Laptop base */}
+                  <path d="M4 36 L44 36" stroke-width="2.5" />
+                  <path
+                    d="M20 36 L28 36"
+                    stroke-width="2.5"
+                    stroke="currentColor"
+                  />
+                </svg>
+              ) : (
+                /* 3. Final files / Handover book */
+                <svg
+                  class="w-11 h-11"
+                  viewBox="0 0 44 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="8" y="5" width="28" height="38" rx="3" />
+                  <line x1="14" y1="5" x2="14" y2="43" stroke-width="1.5" />
+                  {/* Brand text placeholder & lines */}
+                  <line x1="19" y1="14" x2="29" y2="14" stroke-width="2" />
+                  <line x1="19" y1="20" x2="26" y2="20" stroke-width="1.5" />
+                  <line x1="19" y1="25" x2="31" y2="25" stroke-width="1.5" />
+                </svg>
+              )}
+            </div>
+            <h3 class="font-heading text-3xl font-bold mb-6 text-white">
+              {step.title}
+            </h3>
+            <p class="font-body text-lg text-white font-light leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<!-- 6. FAQs Section -->
+{
+  faqs && faqs.items && faqs.items.length > 0 && (
+    <section class="bg-brand-navy text-white py-24 px-8 border-t border-gray-800">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-12 font-bold tracking-tight">
+          {faqs.heading || "FAQs"}
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          {faqs.items.map((faq) => (
+            <div class="bg-brand-green rounded-2xl p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-xl">
+              <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6 text-brand-navy leading-tight">
+                {faq.question}
+              </h3>
+              <div
+                class="font-body text-base md:text-lg leading-relaxed text-brand-navy/95 font-medium"
+                set:html={faq.answer}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

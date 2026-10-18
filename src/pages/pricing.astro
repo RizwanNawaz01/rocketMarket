@@ -1,158 +1,207 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/Button.astro";
+
+const hero = {
+  headingWhite: "Marketing support you can",
+  headingGreen: "actually afford.",
+  body: "Strategy, branding, and websites. Packaged into clear offers with clear outcomes.",
+  cta: [
+    {
+      label: "Book a call",
+      href: "https://meetings-eu1.hubspot.com/taz-b",
+      variant: "primary",
+    },
+    {
+      label: "View our work",
+      href: "/case-study",
+      variant: "secondary",
+    },
+  ],
+};
+
+const packages = [
+  {
+    name: "Free",
+    description:
+      "For founders who want to improve LinkedIn themselves before deciding on done-for-you support.",
+    price: "£0",
+    period: "/mo",
+    note: "Free for founders. No credit card required.",
+    buttonText: "Get started for free",
+    buttonHref: "/leadgen",
+    includes: [
+      "Free community support",
+      "Free strategy tools",
+      "Free lead gen tools",
+      "Free content tools",
+      "Free design tools",
+    ],
+  },
+  {
+    name: "Pipeline Growth",
+    badge: "Starts at",
+    description:
+      "For companies with a proven service that need a predictable outbound LinkedIn pipeline.",
+    price: "£400",
+    period: "/mo",
+    note: "Predictable outbound system. No long-term lock-in.",
+    buttonText: "Find out more",
+    buttonHref: "/services/social-selling",
+    includes: [
+      "ICP research and targeting",
+      "Lead list build and formatting",
+      "Messaging strategy",
+      "Outreach setup",
+      "Campaign launch, monitoring, and optimisation",
+      "Inbox management",
+      "Follow-ups",
+      "Lead nurturing",
+      "Support with handling sales presentations",
+      "KPI Reporting",
+    ],
+  },
+  {
+    name: "Personal Branding",
+    badge: "Starts at",
+    description:
+      "For founders who are ready to show up as the face of the business but want guidance and execution support.",
+    price: "£600",
+    period: "/mo",
+    note: "Dedicated ghostwriting & high-touch brand guidance.",
+    buttonText: "Find out more",
+    buttonHref: "/services/personal-branding",
+    includes: [
+      "LinkedIn profile optimisation",
+      "Personality questionnaire",
+      "Content strategy",
+      "Research and idea development",
+      "3-4 high-quality posts each week",
+      "Notion teamspace",
+      "15 rewrites",
+      "Visual templates",
+      "LinkedIn commenting",
+    ],
+  },
+  {
+    name: "Website Build",
+    badge: "Project rate",
+    description:
+      "For businesses whose website and brand message need to catch up with how good their service has become.",
+    price: "£1,000",
+    period: "",
+    note: "Fixed one-off investment. Complete handover.",
+    buttonText: "Find out more",
+    buttonHref: "/services/web-brand-positioning",
+    includes: [
+      "Discovery",
+      "Research",
+      "Messaging",
+      "Build",
+      "Revisions",
+      "Launch",
+      "Handover",
+    ],
+  },
+];
 ---
 
 <Layout>
   <!-- Hero Section -->
-  <section class="bg-brand-navy text-white pt-32 pb-24 px-8 border-b border-gray-800">
+  <section class="bg-brand-navy pt-20 pb-32 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto flex flex-col items-start">
-      <h1 class="text-5xl md:text-7xl font-heading mb-8 leading-tight text-brand-green">
-        Marketing support you can<br/>
-        actually afford.
+      <h1
+        class="text-5xl md:text-7xl lg:text-7xl xl:text-[80px] font-heading mb-8 font-semibold leading-[1.05] text-white"
+      >
+        {hero.headingWhite}<br />
+        <span class="text-brand-green">{hero.headingGreen}</span>
       </h1>
-      
-      <p class="text-xl md:text-2xl font-body max-w-3xl mb-12 text-white leading-relaxed">
-        Strategy, branding and websites.<br/>
-        Packaged into clear offers with clear outcomes.
+
+      <p
+        class="text-xl md:text-2xl lg:text-3xl font-body max-w-5xl mb-12 text-white font-light lg:leading-snug"
+      >
+        {hero.body}
       </p>
 
-      <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-        <a href="/contact" class="bg-brand-green text-brand-navy px-8 py-4 rounded font-bold font-heading text-lg hover:bg-white transition-colors text-center">
-          Book a fit call
-        </a>
-        <a href="/case-study" class="border border-brand-green text-brand-green px-8 py-4 rounded font-bold font-heading text-lg hover:bg-brand-green hover:text-brand-navy transition-colors text-center">
-          View our work
-        </a>
+      <div
+        class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6"
+      >
+        {
+          hero.cta.map((btn) => (
+            <Button
+              href={btn.href}
+              variant={btn.variant as "primary" | "secondary"}
+            >
+              {btn.label}
+            </Button>
+          ))
+        }
       </div>
     </div>
   </section>
 
   <!-- Pricing Cards Section -->
   <section class="bg-gray-50 text-brand-navy py-24 px-8">
-    <div class="max-w-7xl mx-auto">
+    <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-4xl md:text-5xl mb-6">Simple, straightforward pricing</h2>
+        <h2 class="font-heading text-4xl md:text-5xl mb-6">
+          Simple, straightforward pricing
+        </h2>
         <p class="font-body text-xl max-w-3xl mx-auto text-gray-600">
-          Everything you need to scale your LinkedIn presence, generate qualified pipeline, and build a high-converting website.
+          Everything you need to scale your LinkedIn presence, generate
+          qualified pipeline, and build a high-converting website.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        
-        <!-- Free Card -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col h-full">
-          <h3 class="font-heading text-2xl font-bold mb-4">Free</h3>
-          <p class="font-body text-sm text-gray-600 mb-8 min-h-[80px]">
-            For founders who want to improve LinkedIn themselves before deciding on done-for-you support.
-          </p>
-          <div class="mb-4">
-            <span class="text-4xl font-heading font-black">£0</span><span class="text-gray-500 font-body">/mo</span>
-          </div>
-          <p class="text-sm font-body text-gray-500 mb-8 min-h-[40px]">Free for founders. No credit card required.</p>
-          <a href="/leadgen" class="bg-brand-blue text-white w-full py-3 rounded text-center font-bold font-heading hover:bg-blue-700 transition-colors mb-8">
-            Get started for free
-          </a>
-          <div class="mt-auto">
-            <p class="font-bold text-sm mb-4 font-body">Includes:</p>
-            <ul class="space-y-3 font-body text-sm text-gray-700">
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Free community support</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Free strategy tools</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Free lead gen tools</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Free content tools</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Free design tools</li>
-            </ul>
-          </div>
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+        {
+          packages.map((pkg) => (
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col h-full">
+              <!-- Top Details: Name & Description -->
+              <h3 class="font-heading text-2xl font-bold mb-4">{pkg.name}</h3>
+              <p class="font-body text-sm text-gray-600 mb-8 min-h-[70px]">
+                {pkg.description}
+              </p>
 
-        <!-- Pipeline Growth Card -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col h-full">
-          <h3 class="font-heading text-2xl font-bold mb-4">Pipeline Growth</h3>
-          <p class="font-body text-sm text-gray-600 mb-8 min-h-[80px]">
-            For companies with a proven service that need a predictable outbound LinkedIn pipeline.
-          </p>
-          <div class="mb-4">
-            <p class="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">Starts at</p>
-            <span class="text-4xl font-heading font-black">£400</span><span class="text-gray-500 font-body">/mo</span>
-          </div>
-          <p class="text-sm font-body text-gray-500 mb-8 min-h-[40px]">Predictable outbound system. No long-term lock-in.</p>
-          <a href="/services/social-selling" class="bg-brand-blue text-white w-full py-3 rounded text-center font-bold font-heading hover:bg-blue-700 transition-colors mb-8">
-            Find out more
-          </a>
-          <div class="mt-auto">
-            <p class="font-bold text-sm mb-4 font-body">Includes:</p>
-            <ul class="space-y-3 font-body text-sm text-gray-700">
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> ICP research and targeting</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Lead list build and formatting</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Messaging strategy</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Outreach setup</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Campaign launch, monitoring, and optimisation</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Inbox management</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Follow-ups</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Lead nurturing</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Support with handling sales presentations</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> KPI Reporting</li>
-            </ul>
-          </div>
-        </div>
+              <!-- Price Box -->
+              <div class="mb-4">
+                {pkg.badge && (
+                  <p class="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">
+                    {pkg.badge}
+                  </p>
+                )}
+                <span class="text-4xl font-heading font-black">{pkg.price}</span>
+                {pkg.period && (
+                  <span class="text-gray-500 font-body">{pkg.period}</span>
+                )}
+              </div>
+              <p class="text-sm font-body text-gray-500 mb-8 min-h-[40px]">
+                {pkg.note}
+              </p>
 
-        <!-- Personal Branding Card -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col h-full">
-          <h3 class="font-heading text-2xl font-bold mb-4">Personal Branding</h3>
-          <p class="font-body text-sm text-gray-600 mb-8 min-h-[80px]">
-            For founders who are ready to show up as the face of the business but want guidance and execution support.
-          </p>
-          <div class="mb-4">
-            <p class="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">Starts at</p>
-            <span class="text-4xl font-heading font-black">£600</span><span class="text-gray-500 font-body">/mo</span>
-          </div>
-          <p class="text-sm font-body text-gray-500 mb-8 min-h-[40px]">Dedicated ghostwriting & high-touch brand guidance.</p>
-          <a href="/services/personal-branding" class="bg-brand-blue text-white w-full py-3 rounded text-center font-bold font-heading hover:bg-blue-700 transition-colors mb-8">
-            Find out more
-          </a>
-          <div class="mt-auto">
-            <p class="font-bold text-sm mb-4 font-body">Includes:</p>
-            <ul class="space-y-3 font-body text-sm text-gray-700">
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> LinkedIn profile optimisation</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Personality questionnaire</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Content strategy</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Research and idea development</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> 3-4 high-quality posts each week</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Notion teamspace</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> 15 rewrites</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Visual templates</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> LinkedIn commenting</li>
-            </ul>
-          </div>
-        </div>
+              <!-- Action Button -->
+              <a
+                href={pkg.buttonHref}
+                class="bg-brand-blue text-white w-full py-3 rounded text-center font-bold font-heading hover:bg-blue-700 transition-colors mb-8"
+              >
+                {pkg.buttonText}
+              </a>
 
-        <!-- Website Build Card -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col h-full">
-          <h3 class="font-heading text-2xl font-bold mb-4">Website Build</h3>
-          <p class="font-body text-sm text-gray-600 mb-8 min-h-[80px]">
-            For businesses whose website and brand message need to catch up with how good their service has become.
-          </p>
-          <div class="mb-4">
-            <p class="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">Project rate</p>
-            <span class="text-4xl font-heading font-black">£1,000</span>
-          </div>
-          <p class="text-sm font-body text-gray-500 mb-8 min-h-[40px]">Fixed one-off investment. Complete handover.</p>
-          <a href="/services/web-brand-positioning" class="bg-brand-blue text-white w-full py-3 rounded text-center font-bold font-heading hover:bg-blue-700 transition-colors mb-8">
-            Find out more
-          </a>
-          <div class="mt-auto">
-            <p class="font-bold text-sm mb-4 font-body">Includes:</p>
-            <ul class="space-y-3 font-body text-sm text-gray-700">
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Discovery</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Research</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Messaging</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Build</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Revisions</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Launch</li>
-              <li class="flex items-start"><span class="text-brand-blue mr-2">✓</span> Handover</li>
-            </ul>
-          </div>
-        </div>
-
+              <!-- Includes Checklist aligned directly under button (card background stretches equally) -->
+              <div class="pt-4 border-t border-gray-100 flex-grow">
+                <p class="font-bold text-sm mb-4 font-body">Includes:</p>
+                <ul class="space-y-3 font-body text-sm text-gray-700">
+                  {pkg.includes.map((feature) => (
+                    <li class="flex items-start">
+                      <span class="text-brand-green mr-2 font-bold shrink-0">✓</span>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

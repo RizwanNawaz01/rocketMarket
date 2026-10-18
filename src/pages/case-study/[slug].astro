@@ -1,0 +1,214 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import CTABanner from "../../components/CTABanner.astro";
+import { caseStudiesData, type CaseStudyItem } from "../../data/caseStudies";
+
+export function getStaticPaths() {
+  return Object.keys(caseStudiesData).map((slug) => ({
+    params: { slug },
+    props: { study: caseStudiesData[slug] },
+  }));
+}
+
+interface Props {
+  study: CaseStudyItem;
+}
+
+const { study } = Astro.props;
+
+const ctaBanner = {
+  heading: "Want results like these?",
+  subtext:
+    "Book a discovery call — 30 minutes to work out what you need and what it'll cost.",
+  buttonText: "Book a fit call",
+  buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
+};
+---
+
+<Layout>
+  <!-- 1. Hero Section -->
+  <section class="bg-brand-navy pt-20 pb-28 px-8 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto flex flex-col items-start">
+      <div
+        class="inline-block px-4 py-1.5 rounded-full bg-brand-green/15 text-brand-green text-sm font-semibold uppercase tracking-wider mb-6"
+      >
+        {study.serviceTaken} Case Study
+      </div>
+
+      <h1
+        class="text-4xl sm:text-6xl lg:text-7xl font-heading mb-8 font-semibold leading-[1.08] text-white"
+      >
+        {study.headline}
+      </h1>
+
+      <p
+        class="text-xl md:text-2xl font-body max-w-4xl text-gray-300 font-light leading-relaxed"
+      >
+        {study.situation}
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. Quick Meta & Stats Banner -->
+  <section class="bg-[#121c32] py-14 px-8 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+      {
+        study.stats.map((stat) => (
+          <div class="flex flex-col">
+            <span class="text-3xl md:text-4xl lg:text-5xl font-heading font-black text-brand-green mb-2">
+              {stat.val}
+            </span>
+            <span class="text-sm md:text-base font-body text-gray-300 font-light">
+              {stat.lbl}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- 3. Details: Situation, Challenges & Solution -->
+  <section class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <!-- Left 8 cols: Narrative -->
+      <div class="lg:col-span-8 space-y-16">
+        <div>
+          <h2
+            class="font-heading text-3xl md:text-4xl text-brand-green font-bold mb-6"
+          >
+            The Challenges
+          </h2>
+          <ul class="space-y-4">
+            {
+              study.challenges.map((challenge) => (
+                <li class="flex items-start text-lg text-gray-200 font-light leading-relaxed">
+                  <span class="text-brand-green mr-3 text-xl font-bold">✕</span>
+                  <span>{challenge}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <h2
+            class="font-heading text-3xl md:text-4xl text-brand-green font-bold mb-6"
+          >
+            The Solution
+          </h2>
+          <p class="font-body text-lg text-white font-light leading-relaxed">
+            {study.solution}
+          </p>
+        </div>
+
+        <div>
+          <h2
+            class="font-heading text-3xl md:text-4xl text-brand-green font-bold mb-6"
+          >
+            Key Results
+          </h2>
+          <p class="font-body text-lg text-white font-light leading-relaxed">
+            {study.resultsText}
+          </p>
+        </div>
+      </div>
+
+      <!-- Right 4 cols: Company Card -->
+      <div class="lg:col-span-4 space-y-8">
+        <div
+          class="bg-[#121c32] border border-gray-800 rounded-2xl p-8 space-y-6"
+        >
+          <div
+            class="w-14 h-14 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center font-heading font-bold text-2xl"
+          >
+            {study.initials}
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-heading font-bold text-white mb-1">
+              {study.name}
+            </h3>
+            <p class="text-sm text-gray-400 font-body">
+              {study.industry} · {study.location}
+            </p>
+          </div>
+
+          <div
+            class="space-y-3 pt-4 border-t border-gray-800 text-sm font-body"
+          >
+            <div>
+              <span class="text-gray-400 block mb-0.5">Service</span>
+              <span class="text-white font-semibold">{study.serviceTaken}</span>
+            </div>
+
+            {
+              study.websiteUrl && (
+                <div>
+                  <span class="text-gray-400 block mb-0.5">Website</span>
+                  <a
+                    href={study.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-brand-green hover:underline"
+                  >
+                    {study.website}
+                  </a>
+                </div>
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Client Quote -->
+  <section class="bg-[#121c32] text-white py-20 px-8 border-b border-gray-800">
+    <div class="max-w-4xl mx-auto text-center">
+      <span
+        class="text-brand-green text-6xl md:text-7xl font-serif font-black leading-none block mb-4"
+      >
+        “
+      </span>
+      <p
+        class="font-heading text-2xl md:text-3xl font-medium leading-relaxed mb-8 text-white"
+      >
+        {study.quote}”
+      </p>
+      <div>
+        <h4 class="font-heading text-xl font-bold text-brand-green">
+          {study.quoteAuthor}
+        </h4>
+        <p class="text-gray-400 font-body text-sm mt-1">
+          {study.quoteRole}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Key Benefits Grid -->
+  <section class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto">
+      <h2
+        class="font-heading text-4xl md:text-5xl text-brand-green mb-14 font-bold tracking-tight"
+      >
+        Why this worked
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+          study.benefits.map((b) => (
+            <div class="bg-brand-ice rounded-2xl p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-xl">
+              <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 text-brand-navy">
+                {b.title}
+              </h3>
+              <p class="font-body text-base md:text-lg leading-relaxed text-brand-navy/85 font-normal">
+                {b.desc}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Layout>
