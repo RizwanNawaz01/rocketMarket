@@ -1,0 +1,37 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  heading: string;
+  subtext: string;
+  buttonText: string;
+  buttonHref: string;
+}
+
+const { heading, subtext, buttonText, buttonHref } = Astro.props;
+---
+
+<div class="bg-brand-blue text-white py-14 md:py-16 px-8">
+  <div
+    class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 md:gap-16"
+  >
+    <div class="max-w-3xl flex-grow">
+      <h2
+        class="font-heading text-[34px] md:text-[44px] font-semibold text-white leading-tight mb-4"
+      >
+        {heading}
+      </h2>
+      <p class="font-body text-xl md:text-2xl font-light text-white">
+        {subtext}
+      </p>
+    </div>
+    <div class="shrink-0 w-full md:w-auto">
+      <Button
+        href={buttonHref}
+        class="!bg-brand-navy hover:!bg-[#111927] !text-white !px-10 shadow-lg w-full md:w-auto"
+      >
+        {buttonText}
+      </Button>
+    </div>
+  </div>
+</div>

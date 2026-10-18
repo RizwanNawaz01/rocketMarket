@@ -1,26 +1,47 @@
 ---
 import Button from "../Button.astro";
+
+const hero = {
+  headingWhite: "Turn your LinkedIn",
+  headingGreen: "pipeline.",
+  body: "Rocket Marketing is a Swansea-based B2B marketing agency. We deliver social selling, personal branding, and web and brand development - for leaders serious about growth. Founded in 2023. Every account is led personally by Taz, from start to finish.",
+  cta: [
+    {
+      label: "Book a call",
+      href: "https://meetings-eu1.hubspot.com/taz-b",
+      variant: "primary",
+    },
+    { label: "Pricing", href: "/pricing", variant: "secondary" },
+  ],
+};
 ---
 
 <section class="bg-brand-navy pt-20 pb-32 px-8">
   <div class="max-w-6xl mx-auto flex flex-col items-start">
-    <h1 class="text-5xl md:text-7xl font-heading mb-8 leading-tight text-white">
-      Turn your LinkedIn<br />
-      into <span class="text-brand-green">pipeline.</span>
+    <h1
+      class="text-5xl md:text-7xl lg:text-7xl xl:text-[88px] font-heading mb-8 font-semibold leading-[1.05] text-white"
+    >
+      {hero.headingWhite}<br />
+      into <span class="text-brand-green">{hero.headingGreen}</span>
     </h1>
 
     <p
-      class="text-xl md:text-2xl font-body max-w-5xl mb-12 text-gray-300 leading-relaxed"
+      class="text-xl md:text-2xl lg:text-3xl font-body max-w-5xl mb-12 text-white font-light lg:leading-snug"
     >
-      Rocket Marketing is a Swansea-based B2B marketing agency. We deliver
-      social selling, personal branding, and web and brand development - for
-      leaders serious about growth. Founded in 2023. Every account is led
-      personally by Taz, from start to finish.
+      {hero.body}
     </p>
 
     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-      <Button href="/contact">Book a fit call</Button>
-      <Button href="/case-study" variant="secondary">View our work</Button>
+      {
+        hero.cta.map((btn) => (
+          <Button
+            href={btn.href}
+            variant={btn.variant as "primary" | "secondary"}
+          >
+            {btn.label}
+          </Button>
+        ))
+      }
     </div>
   </div>
 </section>

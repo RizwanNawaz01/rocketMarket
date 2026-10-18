@@ -1,5 +1,26 @@
 ---
 import Button from "../Button.astro";
+
+const hero = {
+  headingWhite: "We build",
+  headingGreenLine1: "brands",
+  headingWhite2: "that last.\nAnd",
+  headingGreenLine2: "relationships",
+  headingWhite3: "that last longer.",
+  body: "Rocket Marketing is a Swansea B2B marketing agency. We deliver social selling, personal branding, and web and brand development - for leaders serious about growth. Founded in 2023. Every account is led personally by Taz, from start to finish.",
+  cta: [
+    {
+      label: "Book a call",
+      href: "https://meetings-eu1.hubspot.com/taz-b",
+      variant: "primary",
+    },
+    {
+      label: "Pricing",
+      href: "/pricing",
+      variant: "secondary",
+    },
+  ],
+};
 ---
 
 <section class="bg-brand-navy pt-32 pb-24 px-8 border-b border-gray-800">
@@ -7,22 +28,27 @@ import Button from "../Button.astro";
     <h1
       class="text-5xl md:text-7xl lg:text-[5rem] font-heading mb-8 leading-[1.1] text-white font-bold tracking-tight"
     >
-      We build <span class="text-brand-green">brands</span> that last.<br />
-      And <span class="text-brand-green">relationships</span> that last longer.
+      {hero.headingWhite} <span class="text-brand-green">{hero.headingGreenLine1}</span> that last.<br />
+      And <span class="text-brand-green">{hero.headingGreenLine2}</span> {hero.headingWhite3}
     </h1>
 
     <p
       class="text-xl md:text-2xl font-body max-w-4xl mb-12 text-gray-300 leading-relaxed font-light"
     >
-      Rocket Marketing is a Swansea B2B marketing agency. We deliver social
-      selling, personal branding, and web and brand development - for leaders
-      serious about growth. Founded in 2023. Every account is led personally by
-      Taz, from start to finish.
+      {hero.body}
     </p>
 
     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-      <Button href="/contact">Book a fit call</Button>
-      <Button href="/case-study" variant="secondary">View our work</Button>
+      {
+        hero.cta.map((btn) => (
+          <Button
+            href={btn.href}
+            variant={btn.variant as "primary" | "secondary"}
+          >
+            {btn.label}
+          </Button>
+        ))
+      }
     </div>
   </div>
 </section>

@@ -1,18 +1,27 @@
 ---
-const clients = [
-  "Business West",
-  "The Headboard Workshop",
-  "IAM",
-  "Salisbury Cathedral School",
-  "Tigerplay",
-  "The Footstool Workshop",
-  "Business West",
-  "The Headboard Workshop",
-  "IAM",
-  "Salisbury Cathedral School",
-  "Tigerplay",
-  "The Footstool Workshop"
-];
+const sectionData = {
+  title: "Who we work with",
+  subtitle: "Entrepreneurs",
+  description:
+    "You need to look credible fast, without overcomplicating it. We'll help you build a personal brand that's ready for the real world — not just for a few months, but years after it too.",
+  companies: [
+    "Earnly",
+    "High Performance Journey",
+    "Simba AI",
+    "DecarbN Analytics",
+    "XME Digital",
+    "Octopus Energy",
+    "Ibiza Songs",
+    "Legal Eagle",
+    "Redrow",
+    "Rewired to Grow",
+    "Persimmon",
+    "ReSpeak",
+  ],
+};
+
+// Duplicate list for a smooth seamless infinite marquee loop
+const marqueeItems = [...sectionData.companies, ...sectionData.companies];
 ---
 
 <section class="bg-brand-navy py-24 px-8 border-t border-gray-800">
@@ -20,26 +29,26 @@ const clients = [
     <h2
       class="text-brand-green font-heading text-4xl md:text-5xl mb-12 font-bold tracking-tight"
     >
-      Who we work with
+      {sectionData.title}
     </h2>
     <h3 class="text-white font-heading text-3xl font-bold mb-6">
-      Entreprenuers
+      {sectionData.subtitle}
     </h3>
     <p
       class="text-white font-body text-xl md:text-2xl font-light max-w-6xl mb-16 leading-relaxed"
     >
-      You need to look credible fast, without overcomplicating it. We'll help
-      you build a personal brand that's ready for the real world — not just for
-      a few months, but years after it too.
+      {sectionData.description}
     </p>
 
     <div class="mask-edges w-full overflow-hidden opacity-80 mt-12">
       <div class="marquee-track flex items-center gap-12 md:gap-24">
-        {clients.map(client => (
-          <span class="font-bold text-lg md:text-xl uppercase tracking-widest text-white shrink-0">
-            {client}
-          </span>
-        ))}
+        {
+          marqueeItems.map((company) => (
+            <span class="font-bold text-lg md:text-xl uppercase tracking-widest text-white shrink-0">
+              {company}
+            </span>
+          ))
+        }
       </div>
     </div>
   </div>
@@ -48,18 +57,34 @@ const clients = [
 <style>
   /* Edge fading for marquee */
   .mask-edges {
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
   }
 
   /* Infinite scrolling animation */
   .marquee-track {
     width: max-content;
-    animation: scroll 20s linear infinite;
+    animation: scroll 25s linear infinite;
   }
-  
+
   @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 </style>

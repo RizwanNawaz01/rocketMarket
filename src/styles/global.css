@@ -21,6 +21,41 @@
   h4,
   h5,
   h6 {
-    @apply font-heading text-brand-navy;
+    @apply font-heading font-bold text-brand-navy;
+    font-optical-sizing: none;
+    font-variation-settings: "opsz" 9;
   }
+
+  .font-heading {
+    font-optical-sizing: none;
+    font-variation-settings: "opsz" 9;
+  }
+}
+
+/* Green highlighter on hover */
+.hover-highlighter {
+  display: inline;
+  background-image: linear-gradient(to right, #1bd9aa, #1bd9aa);
+  background-repeat: no-repeat;
+  background-size: 0% 90%;
+  background-position: 0 88%;
+  transition: background-size 0.28s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+.hover-highlighter:hover {
+  background-size: 100% 90%;
+  color: #182540 !important;
+}
+
+/* User text selection */
+*::selection {
+  background-color: rgba(27, 217, 170, 0.25) !important;
+  color: #1bd9aa !important;
+}
+
+*::-moz-selection {
+  background-color: rgba(27, 217, 170, 0.25) !important;
+  color: #1bd9aa !important;
 }

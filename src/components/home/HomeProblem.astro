@@ -1,81 +1,45 @@
 ---
+const heading = "You'll probably need us if...";
+
+const items = [
+  "you're great at what you do, but struggle to get a steady stream of clients",
+  "you're ready to attract better leads, and grow at a pace you can sustain",
+  "your positioning, brand and outreach feels generic",
+  "you want to build something that lasts",
+  "posting 4x a week feels overwhelming and disconnected",
+];
 ---
-<section class="bg-brand-navy text-white py-24 px-8">
+
+<section class="bg-brand-navy text-white pt-20 pb-12 px-8">
   <div class="max-w-6xl mx-auto">
-    <h2 class="font-heading text-4xl text-brand-green mb-12">
-      You'll probably need us if...
+    <h2
+      class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-12 leading-tight"
+    >
+      {heading}
     </h2>
-    <ul class="space-y-6 text-xl font-body">
-      <li class="flex items-start">
-        <svg
-          class="w-8 h-8 text-white mr-4 flex-shrink-0"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        ><path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 13l4 4L19 7"></path></svg>
-        <span>you're great at what you do, but struggle to get a steady stream of clients</span>
-      </li>
-      <li class="flex items-start">
-        <svg
-          class="w-8 h-8 text-white mr-4 flex-shrink-0"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        ><path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 13l4 4L19 7"></path></svg>
-        <span>you're ready to attract better leads, and grow at a pace you can sustain</span>
-      </li>
-      <li class="flex items-start">
-        <svg
-          class="w-8 h-8 text-white mr-4 flex-shrink-0"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        ><path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 13l4 4L19 7"></path></svg>
-        <span>your positioning, brand and outreach feels generic</span>
-      </li>
-      <li class="flex items-start">
-        <svg
-          class="w-8 h-8 text-white mr-4 flex-shrink-0"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        ><path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 13l4 4L19 7"></path></svg>
-        <span>you want to build something that lasts</span>
-      </li>
-      <li class="flex items-start">
-        <svg
-          class="w-8 h-8 text-white mr-4 flex-shrink-0"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        ><path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M5 13l4 4L19 7"></path></svg>
-        <span>posting 4x a week feels overwhelming and disconnected</span>
-      </li>
+    <ul class="space-y-1">
+      {
+        items.map((item) => (
+          <li class="flex items-start">
+            <svg
+              class="w-6 h-6 text-white  mr-4 flex-shrink-0 mt-[7px]"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.5 12.75l6 6 9-13.5"
+              />
+            </svg>
+            <span class="font-body text-[20px] md:text-[22px] leading-[39px] text-white/95 font-normal">
+              {item}
+            </span>
+          </li>
+        ))
+      }
     </ul>
   </div>
 </section>

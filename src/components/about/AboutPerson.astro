@@ -1,120 +1,144 @@
 ---
 import { Image } from "astro:assets";
 import aboutImg from "../../assets/about/about-me.png";
+
+const content = {
+  eyebrow: "The people you meet do the work",
+  headlineWhite1: "I listen.",
+  headlineWhite2: "I think.",
+  headlineWhite3: "I make my recommendation.",
+  headlineGreen: "Then I sign my name to it.",
+  signatureText: "Taz",
+  quoteText:
+    "Branding projects don't succeed because of more meetings, bigger teams or longer presentations. They succeed because someone takes the time to understand your business, tells you the truth, and stands behind their recommendations.",
+  quoteHighlight: "That's exactly how I work.",
+
+  person: {
+    name: "Taz Burwaiss",
+    role: "Founder",
+    bio: "Personal brand strategist and LinkedIn expert with a passion for clarity, challenge and getting to the heart of what makes businesses different.",
+    image: aboutImg,
+  },
+
+  reasonsHeading: "Why clients stay.",
+  reasons: [
+    "You deal directly with the person doing the work",
+    "Advice is clear, practical and commercially grounded",
+    "I keep things straightforward and transparent",
+    "I remain involved after launch",
+  ],
+};
 ---
 
-<section class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800">
-  <div
-    class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start"
-  >
-    <!-- Left Column: Text -->
-    <div>
-      <p class="text-brand-green font-body text-xl md:text-2xl mb-8 font-light">
-        Meet the person doing the work
-      </p>
+<section
+  class="bg-brand-navy text-white py-24 px-6 md:px-12 border-b border-gray-800"
+>
+  <div class="max-w-6xl mx-auto">
+    <!-- Top eyebrow -->
+    <p class="text-brand-green font-body text-base md:text-lg mb-8 font-medium">
+      {content.eyebrow}
+    </p>
 
-      <h2
-        class="text-6xl md:text-7xl font-heading mb-12 leading-tight font-bold text-white"
-      >
-        I listen.<br />
-        I think.<br />
-        I act.
-      </h2>
-
-      <p
-        class="text-xl md:text-2xl font-body text-gray-300 leading-relaxed font-light mb-16"
-      >
-        After 15+ years in B2B marketing, I saw the same pattern again and
-        again. Leaders who treated their brand seriously always had healthier
-        pipelines. Through our 'done-for-you' branding and marketing services,
-        we handle your positioning, content, and relationships - so you can
-        focus on what you do best... growing your business.
-      </p>
-
-      <h3
-        class="text-brand-green font-heading text-3xl md:text-4xl mb-8 font-bold"
-      >
-        Why clients stay
-      </h3>
-
-      <ul class="space-y-4 text-xl font-body text-gray-200 font-light">
-        <li class="flex items-start">
-          <svg
-            class="w-6 h-6 text-white mr-4 mt-1 shrink-0"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
-              d="M5 13l4 4L19 7"></path></svg
+    <!-- Main Grid Layout matching reference -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      <!-- Left Column: Big Headline, Signature, Quote Paragraph -->
+      <div class="lg:col-span-7 flex flex-col justify-between">
+        <div>
+          <!-- Stacked Headline -->
+          <h2
+            class="text-4xl sm:text-5xl lg:text-5xl font-heading font-semibold leading-[1.15] tracking-tight mb-8"
           >
-          <span>You deal directly with me</span>
-        </li>
-        <li class="flex items-start">
-          <svg
-            class="w-6 h-6 text-white mr-4 mt-1 shrink-0"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
-              d="M5 13l4 4L19 7"></path></svg
-          >
-          <span>Advice is clear, practical and commercially grounded</span>
-        </li>
-        <li class="flex items-start">
-          <svg
-            class="w-6 h-6 text-white mr-4 mt-1 shrink-0"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
-              d="M5 13l4 4L19 7"></path></svg
-          >
-          <span>I keep things straightforward and transparent</span>
-        </li>
-        <li class="flex items-start">
-          <svg
-            class="w-6 h-6 text-white mr-4 mt-1 shrink-0"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="3"
-              d="M5 13l4 4L19 7"></path></svg
-          >
-          <span>I remain involved after launch</span>
-        </li>
-      </ul>
-    </div>
+            <span class="block text-white">{content.headlineWhite1}</span>
+            <span class="block text-white">{content.headlineWhite2}</span>
+            <span class="block text-white">{content.headlineWhite3}</span>
+            <span class="block text-brand-green mt-6"
+              >{content.headlineGreen}</span
+            >
+          </h2>
 
-    <!-- Right Column: Image & Bio -->
-    <div class="lg:pl-8">
-      <Image
-        src={aboutImg}
-        alt="Taz Burwaiss"
-        class="w-full h-auto object-cover rounded shadow-2xl mb-8"
-      />
-      <h3 class="font-heading text-3xl font-bold mb-1 text-white">
-        Taz Burwaiss
-      </h3>
-      <p class="font-body text-xl text-gray-400 mb-6 font-light">Founder</p>
-      <p class="font-body text-xl leading-relaxed text-white font-light">
-        Personal brand strategist and<br />
-        LinkedIn expert with a<br />
-        passion for clarity and<br />
-        getting to the heart of what<br />
-        makes businesses different.
-      </p>
+          <!-- Handwritten Script Signature -->
+          <div class="my-8 md:my-10">
+            <span
+              class="text-white text-5xl md:text-6xl italic font-serif font-extrabold tracking-tight select-none underline decoration-brand-green decoration-2 underline-offset-8"
+            >
+              {content.signatureText}
+            </span>
+          </div>
+        </div>
+
+        <!-- Quote Paragraph -->
+        <div class="mt-8 md:mt-12 max-w-2xl">
+          <p
+            class="font-body text-lg md:text-xl text-gray-300 leading-relaxed font-light mb-4"
+          >
+            {content.quoteText}
+          </p>
+          <p class="font-body text-lg md:text-xl font-medium text-brand-green">
+            {content.quoteHighlight}
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Person Profile + Why Clients Stay -->
+      <div class="lg:col-span-5 flex flex-col gap-12 lg:pl-4">
+        <!-- Person Card with Photo (Compact vertical card matching Meet Bob) -->
+        <div class="max-w-[240px]">
+          {
+            content.person.image && (
+              <div class="aspect-[4/4.5] w-full overflow-hidden mb-4 rounded-sm">
+                <Image
+                  src={content.person.image}
+                  alt={content.person.name}
+                  class="w-full h-full object-cover grayscale-[20%] brightness-90 hover:brightness-100 hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            )
+          }
+          <h3 class="font-body text-xl font-bold text-white tracking-tight">
+            {content.person.name}
+          </h3>
+          <p class="font-body text-base text-gray-400 mb-3 font-light">
+            {content.person.role}
+          </p>
+          <p
+            class="font-body text-sm text-gray-300 font-normal leading-relaxed"
+          >
+            {content.person.bio}
+          </p>
+        </div>
+
+        <!-- Why Clients Stay Section -->
+        <div class="pt-6 border-t border-gray-800/80">
+          <h3
+            class="font-heading text-3xl md:text-3xl font-bold text-brand-green mb-6"
+          >
+            {content.reasonsHeading}
+          </h3>
+
+          <ul class="space-y-2 font-body">
+            {
+              content.reasons.map((reason) => (
+                <li class="flex items-start gap-3.5 text-base md:text-lg text-gray-200 font-light leading-snug">
+                  <svg
+                    class="w-5 h-5 text-white shrink-0 mt-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>{reason}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -32,19 +32,23 @@ const services = [
 ];
 ---
 
-<section class="bg-brand-navy text-white py-24 px-8 border-t border-gray-800">
+<section
+  class="bg-brand-navy text-white pt-12 pb-24 px-8 border-t border-gray-800"
+>
   <div class="max-w-6xl mx-auto">
-    <h2 class="font-heading text-5xl text-brand-green mb-16">
+    <h2
+      class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-16 leading-tight"
+    >
       What we help you with
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
       {
         services.map((service) => (
           <div>
-            <p class="text-brand-green font-heading text-xl mb-2">
+            <p class="text-brand-green font-heading text-xl mb-2 font-semibold">
               {service.number}
             </p>
-            <h3 class="font-heading text-2xl mb-6 text-white">
+            <h3 class="font-heading text-2xl mb-4 text-white font-semibold">
               {service.title}
             </h3>
             <a
@@ -54,16 +58,18 @@ const services = [
               <Image
                 src={service.image}
                 alt={service.title}
-                class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                class="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 mt-6"
               />
               <div class="absolute inset-0 bg-brand-green/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
-            <p class="font-body text-xl mb-6">{service.description}</p>
+            <p class="font-body text-lg text-white font-light leading-relaxed mb-6 line-clamp-2">
+              {service.description}
+            </p>
             <a
               href={service.href}
-              class="text-brand-green font-bold hover:text-white transition-colors"
+              class="text-brand-green font-semibold hover:text-white transition-colors inline-block"
             >
-              Find out more
+              Find out more &rarr;
             </a>
           </div>
         ))

@@ -1,40 +1,51 @@
 ---
+const heading = "Rocket in numbers";
 
+const stats = [
+  {
+    target: 20,
+    suffix: "",
+    label: "years B2B marketing<br />experience",
+  },
+  {
+    target: 50,
+    suffix: "+",
+    label: "B2B professionals and<br />founders supported",
+  },
+  {
+    target: 100,
+    suffix: "%",
+    label: "of clients reporting clearer,<br />more professional messaging",
+  },
+];
 ---
 
-<section id="stats-section" class="bg-brand-blue text-white py-24 px-8">
+<section id="stats-section" class="bg-brand-blue text-white py-14 px-8">
   <div class="max-w-6xl mx-auto">
-    <h2 class="font-heading text-5xl mb-16 text-white">Rocket in numbers</h2>
+    <h2
+      class="font-heading text-[36px] md:text-[44px] leading-tight font-semibold mb-16 text-white"
+    >
+      {heading}
+    </h2>
     <div
       class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left"
     >
-      <div>
-        <div class="text-6xl md:text-8xl font-body font-black mb-4 text-center">
-          <span class="stat-number" data-target="20">0</span>
-        </div>
-        <p class="text-xl font-bold font-body text-center">
-          years B2B marketing <br />
-          experience
-        </p>
-      </div>
-      <div>
-        <div class="text-6xl md:text-8xl font-body font-black mb-4 text-center">
-          <span class="stat-number" data-target="50">0</span>+
-        </div>
-        <p class="text-xl font-bold font-body text-center">
-          B2B professionals and <br />
-          founders supported
-        </p>
-      </div>
-      <div>
-        <div class="text-6xl md:text-8xl font-body font-black mb-4 text-center">
-          <span class="stat-number" data-target="100">0</span>%
-        </div>
-        <p class="text-xl font-bold font-body text-center">
-          of clients reporting clearer, <br />
-          more professional messaging
-        </p>
-      </div>
+      {
+        stats.map((stat) => (
+          <div>
+            <div class="text-6xl md:text-8xl font-body font-black mb-4 text-center">
+              <span class="stat-number" data-target={stat.target}>
+                0
+              </span>
+              {stat.suffix}
+            </div>
+            <p
+              class="text-xl font-bold font-body text-center"
+              set:html={stat.label}
+            />
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>
@@ -52,7 +63,7 @@
               stat.getAttribute("data-target") || "0",
               10,
             );
-            const duration = 2000; // 2 seconds animation
+            const duration = 4000; // slower: 6s animation
             const startTime = performance.now();
 
             const updateNumber = (currentTime: DOMHighResTimeStamp) => {
@@ -75,11 +86,10 @@
             requestAnimationFrame(updateNumber);
           });
 
-          // Stop observing once animated so it doesn't trigger again on scroll up
           observer.unobserve(statsSection);
         }
       },
-      { threshold: 0.3 }, // Trigger when 30% of the section is visible
+      { threshold: 0.3 },
     );
 
     observer.observe(statsSection);
