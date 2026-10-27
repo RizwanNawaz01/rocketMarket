@@ -20,20 +20,30 @@ import { leadgenData as pageData } from "../data/leadgen";
           <span class="text-brand-green">{pageData.hero.headingGreen}</span>
         </h1>
 
-        <p
-          class="text-xl md:text-2xl lg:text-3xl font-body max-w-2xl mb-8 text-white font-light lg:leading-snug"
-        >
+        <p class="hero-subtext max-w-2xl mb-8">
           {pageData.hero.body}
         </p>
 
-        <!-- Trust bullet highlights -->
+        <!-- Trust bullet highlights with home-style ticks -->
         <ul
           class="space-y-3.5 text-base md:text-lg font-body text-gray-300 font-light mt-2"
         >
           {
             pageData.hero.trustPoints.map((point) => (
               <li class="flex items-center gap-3">
-                <span class="text-brand-green font-bold text-xl">✓</span>
+                <svg
+                  class="w-5 h-5 text-brand-green flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
                 <span>{point}</span>
               </li>
             ))
@@ -114,38 +124,59 @@ import { leadgenData as pageData } from "../data/leadgen";
   <!-- 3 Pillars Section (Reusing HomePillars) -->
   <HomePillars />
 
-  <!-- What's Inside Section -->
-  <section class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-8">
-        {pageData.whatsInside.heading}
-      </h2>
-      <p class="font-body text-xl max-w-6xl mb-16 leading-relaxed">
-        {pageData.whatsInside.intro}
-      </p>
+  <!-- What's Inside Section formatted like page 10 / meetbob quick answer box -->
+  <section class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-brand-blue rounded-2xl p-10 md:p-14 text-white shadow-2xl">
+        <h2 class="font-heading text-3xl md:text-5xl font-bold mb-6 text-white">
+          {pageData.whatsInside.heading}
+        </h2>
+        <p class="font-body text-lg md:text-xl text-blue-100 mb-10 leading-relaxed font-light">
+          {pageData.whatsInside.intro}
+        </p>
 
-      <div class="bg-brand-blue rounded-3xl p-12 lg:p-16">
-        <h3 class="font-heading text-3xl md:text-4xl mb-8 text-white">
+        <h3 class="font-heading text-2xl md:text-3xl font-semibold mb-6 text-white">
           {pageData.whatsInside.resourcesHeading}
         </h3>
-        <ul class="space-y-1 font-body text-lg">
+        <ul class="space-y-4 font-body text-base md:text-lg">
           {
             pageData.whatsInside.resources.map((res) => (
               <li class="flex items-start">
-                <span class="text-white mr-4 mt-1">✓</span>
-                <span>{res}</span>
+                <svg
+                  class="w-6 h-6 text-brand-green mr-3.5 flex-shrink-0 mt-[3px]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+                <span class="text-white/95">{res}</span>
               </li>
             ))
           }
         </ul>
+
+        <div class="mt-10 pt-8 border-t border-blue-400/30">
+          <a
+            href="#details"
+            class="text-white font-heading font-semibold hover:text-brand-green transition-colors underline text-base md:text-lg"
+          >
+            Get instant access to everything inside &rarr;
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FAQs Section -->
-  <section class="bg-brand-navy text-white py-24 px-8 border-b border-gray-800">
+  <section class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto">
-      <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-16">
+      <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-12 font-bold">
         {pageData.faqs.heading}
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">

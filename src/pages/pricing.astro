@@ -39,7 +39,7 @@ const packages = [
     ],
   },
   {
-    name: "Pipeline Growth",
+    name: "Social Selling",
     badge: "Starts at",
     description:
       "For companies with a proven service that need a predictable outbound LinkedIn pipeline.",
@@ -108,7 +108,7 @@ const packages = [
 
 <Layout>
   <!-- Hero Section -->
-  <section class="bg-brand-navy pt-20 pb-32 px-8 border-b border-gray-800">
+  <section class="bg-brand-navy pt-20 pb-24 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto flex flex-col items-start">
       <h1
         class="text-5xl md:text-7xl lg:text-7xl xl:text-[80px] font-heading mb-8 font-semibold leading-[1.05] text-white"
@@ -117,9 +117,7 @@ const packages = [
         <span class="text-brand-green">{hero.headingGreen}</span>
       </h1>
 
-      <p
-        class="text-xl md:text-2xl lg:text-3xl font-body max-w-5xl mb-12 text-white font-light lg:leading-snug"
-      >
+      <p class="hero-subtext max-w-5xl mb-12">
         {hero.body}
       </p>
 
@@ -140,60 +138,70 @@ const packages = [
     </div>
   </section>
 
-  <!-- Pricing Cards Section -->
-  <section class="bg-gray-50 text-brand-navy py-24 px-8">
+  <!-- Pricing Cards Section with light blue background -->
+  <section class="bg-[#eef6f9] text-brand-navy py-20 px-8">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="font-heading text-4xl md:text-5xl mb-6">
+        <h2 class="font-heading text-4xl md:text-5xl mb-6 font-bold text-brand-navy">
           Simple, straightforward pricing
         </h2>
-        <p class="font-body text-xl max-w-3xl mx-auto text-gray-600">
+        <p class="font-body text-xl max-w-3xl mx-auto text-gray-700">
           Everything you need to scale your LinkedIn presence, generate
           qualified pipeline, and build a high-converting website.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
         {
           packages.map((pkg) => (
-            <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col h-full">
-              <!-- Top Details: Name & Description -->
-              <h3 class="font-heading text-2xl font-bold mb-4">{pkg.name}</h3>
-              <p class="font-body text-sm text-gray-600 mb-8 min-h-[70px]">
-                {pkg.description}
-              </p>
+            <div class="bg-white rounded-2xl shadow-sm border border-sky-100 p-8 flex flex-col justify-between h-full">
+              <!-- Top Section: Titles & description -->
+              <div>
+                <h3 class="font-heading text-xl lg:text-[21px] font-bold mb-3 min-h-[56px] flex items-start">
+                  {pkg.name}
+                </h3>
+                <p class="font-body text-sm text-gray-600 mb-6 min-h-[96px] sm:min-h-[80px] lg:min-h-[105px]">
+                  {pkg.description}
+                </p>
 
-              <!-- Price Box -->
-              <div class="mb-4">
-                {pkg.badge && (
-                  <p class="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1">
-                    {pkg.badge}
-                  </p>
-                )}
-                <span class="text-4xl font-heading font-black">{pkg.price}</span>
-                {pkg.period && (
-                  <span class="text-gray-500 font-body">{pkg.period}</span>
-                )}
+                <!-- Badge -->
+                <p class="text-xs uppercase tracking-wider text-gray-400 font-bold mb-1.5 h-4">
+                  {pkg.badge || ""}
+                </p>
+
+                <!-- Price Box -->
+                <div class="mb-4 h-11 flex items-baseline">
+                  <span class="text-4xl font-heading font-black text-brand-navy leading-none">
+                    {pkg.price}
+                  </span>
+                  {pkg.period && (
+                    <span class="text-gray-500 font-body text-sm ml-0.5">
+                      {pkg.period}
+                    </span>
+                  )}
+                </div>
+
+                <!-- Note description -->
+                <p class="text-xs font-body text-gray-500 mb-6 min-h-[40px] lg:min-h-[48px]">
+                  {pkg.note}
+                </p>
+
+                <!-- Action Button aligned across all cards -->
+                <a
+                  href={pkg.buttonHref}
+                  class="bg-brand-blue text-white w-full py-3 px-4 rounded-lg block text-center font-bold font-heading hover:bg-blue-700 transition-colors mb-8 text-sm shadow-sm"
+                >
+                  {pkg.buttonText}
+                </a>
               </div>
-              <p class="text-sm font-body text-gray-500 mb-8 min-h-[40px]">
-                {pkg.note}
-              </p>
 
-              <!-- Action Button -->
-              <a
-                href={pkg.buttonHref}
-                class="bg-brand-blue text-white w-full py-3 rounded text-center font-bold font-heading hover:bg-blue-700 transition-colors mb-8"
-              >
-                {pkg.buttonText}
-              </a>
-
-              <!-- Includes Checklist aligned directly under button (card background stretches equally) -->
-              <div class="pt-4 border-t border-gray-100 flex-grow">
-                <p class="font-bold text-sm mb-4 font-body">Includes:</p>
-                <ul class="space-y-3 font-body text-sm text-gray-700">
+              <!-- Includes Checklist aligned directly at bottom -->
+              <div class="pt-6 border-t border-gray-100 flex-grow flex flex-col">
+                <p class="font-bold text-sm mb-4 font-body text-brand-navy">Includes:</p>
+                <ul class="space-y-3 font-body text-sm text-gray-700 flex-grow">
                   {pkg.includes.map((feature) => (
                     <li class="flex items-start">
-                      <span class="text-brand-green mr-2 font-bold shrink-0">✓</span>
+                      <span class="text-brand-green mr-2.5 font-bold shrink-0 text-base leading-none">✓</span>
                       <span>{feature}</span>
                     </li>
                   ))}

@@ -44,7 +44,7 @@ export const leadgenData: LeadgenData = {
       title: "Get the free kit",
       subtitle: "Enter your details below and we'll send it straight to your inbox.",
       nameLabel: "What's your name?",
-      namePlaceholder: "e.g. Taz Burwaiss",
+      namePlaceholder: "e.g. Bob Smith",
       emailLabel: "Best email to reach you?",
       emailPlaceholder: "you@company.com",
       buttonText: "Get Instant Access →",

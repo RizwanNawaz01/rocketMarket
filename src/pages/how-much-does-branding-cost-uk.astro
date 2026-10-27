@@ -1,0 +1,210 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import brandingImg from "../assets/general/branding-costs.jpg";
+import CTABanner from "../components/CTABanner.astro";
+---
+
+<Layout>
+  <!-- Hero Article Header (no author, date, or read time as requested) -->
+  <article class="bg-brand-navy text-white pt-20 pb-20 px-8">
+    <div class="max-w-4xl mx-auto flex flex-col items-start">
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl font-heading mb-8 font-semibold leading-[1.1] text-brand-green"
+      >
+        How Much Does Branding Cost in the UK? (2026 Guide)
+      </h1>
+
+      <p class="hero-subtext mb-12 max-w-3xl">
+        Branding in the UK typically costs between £1,500 and £50,000+,
+        depending on scope and agency experience. Here's an honest breakdown of
+        what to expect at every budget level — from a Bristol agency with 25
+        years' experience.
+      </p>
+
+      <!-- Featured Image -->
+      <div class="w-full mb-16 rounded-2xl overflow-hidden shadow-2xl">
+        <Image
+          src={brandingImg}
+          alt="Branding Cost and Identity Guidelines Kit"
+          class="w-full h-auto object-cover max-h-[500px]"
+        />
+      </div>
+
+      <!-- Quick Answer: Blue Box (as screenshot page 10 & 12) -->
+      <div
+        class="w-full bg-brand-blue text-white rounded-2xl p-8 md:p-12 mb-16 shadow-xl"
+      >
+        <h2 class="font-heading text-2xl md:text-3xl font-bold mb-6 text-white">
+          Quick Answer: UK Branding Costs at a Glance
+        </h2>
+        <div class="space-y-3 font-body text-base md:text-lg mb-8 text-blue-50">
+          <p>
+            <strong class="text-white">Logo design only:</strong> £500 – £3,000
+          </p>
+          <p>
+            <strong class="text-white"
+              >Brand starter pack (logo + guidelines):</strong
+            > £1,500 – £5,000
+          </p>
+          <p>
+            <strong class="text-white">Full brand identity:</strong> £5,000 – £20,000
+          </p>
+          <p>
+            <strong class="text-white">Complete rebrand with strategy:</strong> £10,000
+            – £50,000+
+          </p>
+        </div>
+        <div
+          class="pt-6 border-t border-blue-400/40 text-sm md:text-base text-blue-100 font-light space-y-1 mb-6"
+        >
+          <p>
+            <strong class="text-white font-medium">Budget rule of thumb:</strong
+            > 10-15% of projected annual revenue for a full rebrand
+          </p>
+          <p>
+            <strong class="text-white font-medium">Typical timescale:</strong> 4-10
+            weeks for a full brand project
+          </p>
+        </div>
+        <a
+          href="/services"
+          class="inline-block text-white underline font-semibold hover:text-brand-green transition-colors text-base"
+        >
+          See all our services
+        </a>
+      </div>
+
+      <!-- Content Sections (Screenshots from pages 12 and 13) -->
+      <div class="space-y-16 text-white font-body w-full">
+        <!-- What's Typically Included -->
+        <div
+          class="bg-[#121c32] border border-gray-800 rounded-2xl p-8 md:p-10"
+        >
+          <h2
+            class="font-heading text-2xl md:text-3xl font-bold text-brand-green mb-4"
+          >
+            What's Typically Included in a Branding Package?
+          </h2>
+          <p
+            class="text-gray-200 text-base md:text-lg leading-relaxed font-light"
+          >
+            The deliverables vary by package, but a well-structured brand
+            project should typically include: Brand strategy (positioning
+            statement, audience definition, messaging framework, tone of voice),
+            Visual identity (logo and variations, colour palette, typography,
+            photography style), Brand guidelines document covering usage rules
+            and application examples, Brand assets including stationery, email
+            signature, social media templates, and presentation templates.
+            Always clarify the scope in writing before work begins.
+          </p>
+        </div>
+
+        <!-- How to Budget for a Branding Project -->
+        <div
+          class="bg-[#121c32] border border-gray-800 rounded-2xl p-8 md:p-10 space-y-8"
+        >
+          <h2
+            class="font-heading text-2xl md:text-3xl font-bold text-brand-green"
+          >
+            How to Budget for a Branding Project
+          </h2>
+
+          <div>
+            <h3 class="font-heading text-xl font-bold text-white mb-2">
+              The 10-15% rule
+            </h3>
+            <p
+              class="text-gray-200 text-base md:text-lg leading-relaxed font-light"
+            >
+              For businesses undertaking a full rebrand, allocating 10-15% of
+              your projected annual revenue is a useful starting point. For a
+              business turning over £200,000 a year, that suggests a branding
+              budget of £20,000–£30,000 — enough to do the job properly with a
+              mid-tier specialist agency.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-heading text-xl font-bold text-white mb-2">
+              Prioritise strategy before design
+            </h3>
+            <p
+              class="text-gray-200 text-base md:text-lg leading-relaxed font-light"
+            >
+              The most expensive branding mistake is investing in design before
+              you're clear on strategy. If your positioning is wrong, the best
+              logo in the world won't fix it. If budget is tight, consider a
+              strategy workshop first, then phase the design work when you're
+              ready.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="font-heading text-xl font-bold text-white mb-2">
+              Factor in rollout costs
+            </h3>
+            <p
+              class="text-gray-200 text-base md:text-lg leading-relaxed font-light"
+            >
+              Once the identity is created, you'll need to update your website,
+              printed materials, signage, email templates, and social profiles.
+              Build this into your overall budget — the design is often only
+              40-60% of the total investment.
+            </p>
+          </div>
+        </div>
+
+        <!-- Is Branding Worth the Investment? -->
+        <div
+          class="bg-[#121c32] border border-gray-800 rounded-2xl p-8 md:p-10"
+        >
+          <h2
+            class="font-heading text-2xl md:text-3xl font-bold text-brand-green mb-4"
+          >
+            Is Branding Worth the Investment?
+          </h2>
+          <p
+            class="text-gray-200 text-base md:text-lg leading-relaxed font-light"
+          >
+            A well-executed brand identity is one of the highest-ROI investments
+            a growing business can make. It allows you to charge more —
+            businesses with strong brands are perceived as more professional and
+            trustworthy, which directly supports higher pricing. It attracts
+            better clients by acting as a filter for the right fit. It reduces
+            marketing friction by ensuring every piece of content reinforces the
+            same message. At Bob Design, we've seen clients increase their
+            average project value by 40% following a rebrand.
+          </p>
+        </div>
+
+        <!-- Frequently Asked Questions -->
+        <div
+          class="bg-[#121c32] border border-gray-800 rounded-2xl p-8 md:p-10 space-y-6"
+        >
+          <h2
+            class="font-heading text-2xl md:text-3xl font-bold text-brand-green"
+          >
+            Frequently Asked Questions
+          </h2>
+
+          <div>
+            <h3 class="font-heading text-xl font-bold text-white mb-2">
+              How much does branding cost for a small business in the UK?
+            </h3>
+            <p
+              class="text-gray-200 text-base md:text-lg leading-relaxed font-light"
+            >
+              For a small business in the UK, budget at least £1,500–£5,000 for
+              a professional brand starter pack. A full brand identity with
+              strategy typically starts from £5,000–£10,000 with a specialist
+              agency. Freelancer rates are available from around £500–£2,000,
+              but the level of strategic thinking and creative quality will vary
+              significantly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</Layout>

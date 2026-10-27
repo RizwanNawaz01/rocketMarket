@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import Button from "../Button.astro";
 import CTABanner from "../CTABanner.astro";
-import leadGenImg from "../../assets/general/leadgen-image.jpg";
+import eBookImg from "../../assets/general/ebook-growth-kit.jpg";
 
 const cta = {
   heading: "Making your growth feel easier",
@@ -17,8 +17,8 @@ const leadgen = {
   headingGreen: "Rocket makes it easier.",
   body: "Download our free E-book, which gives you a practical toolkit of resources to help you sharpen your positioning, improve your content, and present your business more professionally.",
   buttonText: "Get it now",
-  buttonHref: "https://rocket-market-mocha.vercel.app/leadgen",
-  imageAlt: "Writing in notebook",
+  buttonHref: "/leadgen",
+  imageAlt: "The Ultimate LinkedIn B2B Growth Kit E-book",
 };
 ---
 
@@ -58,11 +58,11 @@ const leadgen = {
           <Button href={leadgen.buttonHref}>{leadgen.buttonText}</Button>
         </div>
       </div>
-      <div class="lg:w-[45%] w-full">
+      <div class="lg:w-[45%] w-full flex justify-center">
         <Image
-          src={leadGenImg}
+          src={eBookImg}
           alt={leadgen.imageAlt}
-          class="w-full aspect-[4/3] object-cover rounded-2xl shadow-xl"
+          class="w-full max-w-[420px] aspect-[4/5] object-contain rounded-2xl shadow-2xl drop-shadow-2xl"
         />
       </div>
     </div>
