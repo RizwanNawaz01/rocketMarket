@@ -42,7 +42,7 @@ export const caseStudiesData: Record<string, CaseStudyItem> = {
     email: "adam.marsh@earnly.co.uk",
     serviceTaken: "Personal Branding",
     headline: "Built a credible founder brand that expanded reach.",
-    image: "/images/case-study-earnly.jpg",
+    image: "/images/clients/case-study-earnly.png",
     situation:
       "Earnly is a UK-based fintech company giving finance leaders real-time visibility over their tax obligations. The team knew LinkedIn was the highest-leverage platform for reaching their ICP, but the founder's profile was underutilised.",
     challenges: [
@@ -90,7 +90,7 @@ export const caseStudiesData: Record<string, CaseStudyItem> = {
     serviceTaken: "Pipeline Growth",
     headline:
       "Helped Simha AI turn LinkedIn into a consistent source of sales meetings.",
-    image: "/images/case-study-simha.jpg",
+    image: "/images/clients/case-study-simha.png",
     situation:
       "Simha helps organisations combine AI tech with proven sales principles to improve growth. They had a strong offer, but needed a more structured outbound system to consistently convert interest into sales conversations.",
     challenges: [
@@ -138,7 +138,7 @@ export const caseStudiesData: Record<string, CaseStudyItem> = {
     serviceTaken: "Pipeline Growth",
     headline:
       "Helped XME.Digital turn LinkedIn into a stronger outbound channel.",
-    image: "/images/case-study-xme.jpg",
+    image: "/images/clients/case-study-xme.png",
     situation:
       "XME.digital provides a digital integration platform that helps enterprises scale digital services across complex environments. The team needed a structured way to reach decision-makers and create better sales conversations.",
     challenges: [
@@ -186,7 +186,7 @@ export const caseStudiesData: Record<string, CaseStudyItem> = {
     serviceTaken: "Pipeline Growth",
     headline:
       "Helped Kestrel turn LinkedIn into a consistent source of conversations.",
-    image: "/images/case-study-kestrel.jpg",
+    image: "/images/clients/case-study-kestrel.png",
     situation:
       "Kestrel Innovations is a consultancy helping organisations improve performance through its Kestrel Improvement System. The team needed a clearer LinkedIn outbound system to reach the right decision-makers consistently.",
     challenges: [
@@ -234,7 +234,7 @@ export const caseStudiesData: Record<string, CaseStudyItem> = {
     serviceTaken: "Pipeline Growth",
     headline:
       "Helped HPJ turn LinkedIn into a consistent source of conversations.",
-    image: "/images/case-study-hpj.jpg",
+    image: "/images/clients/case-study-hpj.png",
     situation:
       "High Performance Journey delivers high-impact experiential leadership to corporate teams across the public and private sector. The challenge was building a reliable way to get in front of HR heads who could bring HPJ in.",
     challenges: [

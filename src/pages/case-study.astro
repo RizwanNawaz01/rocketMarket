@@ -28,30 +28,35 @@ const caseStudies = [
     title: caseStudiesData.simha.name,
     industry: caseStudiesData.simha.industry,
     description: caseStudiesData.simha.headline,
+    image: caseStudiesData.simha.image,
     href: `/case-study/${caseStudiesData.simha.key}`,
   },
   {
     title: caseStudiesData.hpj.name,
     industry: caseStudiesData.hpj.industry,
     description: caseStudiesData.hpj.headline,
+    image: caseStudiesData.hpj.image,
     href: `/case-study/${caseStudiesData.hpj.key}`,
   },
   {
     title: caseStudiesData.xme.name,
     industry: caseStudiesData.xme.industry,
     description: caseStudiesData.xme.headline,
+    image: caseStudiesData.xme.image,
     href: `/case-study/${caseStudiesData.xme.key}`,
   },
   {
     title: caseStudiesData.earnly.name,
     industry: caseStudiesData.earnly.industry,
     description: caseStudiesData.earnly.headline,
+    image: caseStudiesData.earnly.image,
     href: `/case-study/${caseStudiesData.earnly.key}`,
   },
   {
     title: caseStudiesData.kestrel.name,
     industry: caseStudiesData.kestrel.industry,
     description: caseStudiesData.kestrel.headline,
+    image: caseStudiesData.kestrel.image,
     href: `/case-study/${caseStudiesData.kestrel.key}`,
   },
 ];
@@ -106,13 +111,21 @@ const ctaBanner = {
         {
           caseStudies.map((cs) => (
             <a href={cs.href} class="block group">
-              <div class="bg-gray-800 h-64 w-full mb-6 rounded overflow-hidden">
-                <!-- Image placeholder -->
-                <div class="w-full h-full bg-gray-700 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
-                  <span class="font-heading text-xl text-gray-500 font-bold group-hover:text-brand-green transition-colors">
-                    {cs.title}
-                  </span>
-                </div>
+              <div class="bg-gray-800 h-64 w-full mb-6 rounded overflow-hidden relative">
+                {cs.image ? (
+                  <img
+                    src={cs.image}
+                    alt={cs.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                ) : (
+                  <div class="w-full h-full bg-gray-700 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                    {/* Image placeholder */}
+                    <span class="font-heading text-xl text-gray-500 font-bold group-hover:text-brand-green transition-colors">
+                      {cs.title}
+                    </span>
+                  </div>
+                )}
               </div>
               <h3 class="font-heading text-2xl font-bold mb-2 group-hover:text-brand-green transition-colors text-white">
                 {cs.title}
