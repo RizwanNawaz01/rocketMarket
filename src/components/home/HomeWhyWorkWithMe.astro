@@ -1,0 +1,61 @@
+---
+const heading = "Why work with me... 🧑‍💻";
+
+const points = [
+  {
+    bold: "Seamlessly connected.",
+    text: "Your LinkedIn profile, content, outreach, and website all speak the same language",
+  },
+  {
+    bold: "Transparently organised.",
+    text: "Everything tracked in Notion. You always know what’s happening and why",
+  },
+  {
+    bold: "It’s all you.",
+    text: "Personality-first approach, 10 rewrites included to get your voice exactly right",
+  },
+  {
+    bold: "Affordable.",
+    text: "Premium results without the premium agency price tag",
+  },
+];
+
+const audience = {
+  heading: "Who is this for?",
+  text: "Founders, coaches, consultants, and service providers who know they have value to offer - but struggle to articulate it consistently online. You’re ready to grow, but you want to do it authentically, not by becoming a sales robot.",
+};
+---
+
+<section class="bg-brand-navy text-white py-20 px-8 border-t border-gray-800">
+  <div class="max-w-6xl mx-auto">
+    <h2
+      class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-12 leading-tight"
+    >
+      {heading}
+    </h2>
+
+    <ul class="space-y-5 mb-16">
+      {
+        points.map((point) => (
+          <li class="flex items-start text-[20px] md:text-[22px] leading-relaxed text-white/95">
+            <span class="text-white font-bold mr-4 text-xl select-none">•</span>
+            <div>
+              <strong class="font-bold text-white">{point.bold}</strong>{" "}
+              <span class="font-light">{point.text}</span>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="border-t border-gray-800/80">
+      <h3 class="font-heading text-2xl md:text-3xl font-semibold mb-4 text-white">
+        {audience.heading}
+      </h3>
+      <p class="font-body text-lg md:text-xl text-white/85 font-light leading-relaxed max-w-4xl">
+        {audience.text}
+      </p>
+    </div>
+  </div>
+</section>
+

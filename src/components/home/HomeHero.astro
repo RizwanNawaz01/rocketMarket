@@ -2,16 +2,17 @@
 import Button from "../Button.astro";
 
 const hero = {
-  headingWhite: "Turn your LinkedIn",
-  headingGreen: "pipeline.",
-  body: "Rocket is a Swansea-based B2B marketing agency. We deliver LinkedIn social selling, personal branding, and web and brand development. Every account is led personally by Taz, from start to finish.",
+  headingWhite: "Helping you",
+  headingGreen: "win",
+  headingRest: "on LinkedIn ✨",
+  body: "Rocket is a Swansea-based B2B marketing agency. We deliver LinkedIn personal branding, social selling, and web/brand development. Every account is led personally by Taz, from start to finish.",
   cta: [
     {
-      label: "Book a call",
+      label: "Book a fit call",
       href: "https://meetings-eu1.hubspot.com/taz-b",
       variant: "primary",
     },
-    { label: "Pricing", href: "/pricing", variant: "secondary" },
+    { label: "View our work", href: "/case-study", variant: "secondary" },
   ],
 };
 ---
@@ -21,8 +22,8 @@ const hero = {
     <h1
       class="text-5xl md:text-7xl lg:text-7xl xl:text-[88px] font-heading mb-8 font-semibold leading-[1.05] text-white"
     >
-      {hero.headingWhite}<br />
-      into <span class="text-brand-green">{hero.headingGreen}</span>
+      {hero.headingWhite} <span class="text-brand-green">{hero.headingGreen}</span><br />
+      {hero.headingRest}
     </h1>
 
     <p class="hero-subtext max-w-5xl xl:max-w-6xl mb-12">

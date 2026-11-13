@@ -1,0 +1,78 @@
+---
+export interface SocialSellingData {
+  targetClarity: {
+    heading: string;
+    points: string[];
+  };
+  campaignManagement: {
+    heading: string;
+    points: string[];
+  };
+  systemsTransparency: {
+    heading: string;
+    points: string[];
+  };
+}
+
+export interface Props {
+  data: SocialSellingData;
+}
+
+const { data } = Astro.props;
+---
+
+<section class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-12 leading-tight">
+      What’s included... ✨
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+      <!-- Card 1: Target Clarity -->
+      <div class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 shadow-xl flex flex-col justify-start">
+        <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6 text-white flex items-center gap-3">
+          {data.targetClarity.heading}
+        </h3>
+        <ul class="space-y-4 font-body text-base md:text-lg text-white/90">
+          {data.targetClarity.points.map((pt) => (
+            <li class="flex items-start">
+              <span class="text-white font-bold mr-3 select-none">•</span>
+              <span class="font-light">{pt}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Card 2: Campaign Management -->
+      <div class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 shadow-xl flex flex-col justify-start">
+        <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6 text-white flex items-center gap-3">
+          {data.campaignManagement.heading}
+        </h3>
+        <ul class="space-y-4 font-body text-base md:text-lg text-white/90">
+          {data.campaignManagement.points.map((pt) => (
+            <li class="flex items-start">
+              <span class="text-white font-bold mr-3 select-none">•</span>
+              <span class="font-light">{pt}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Card 3: Systems & Transparency -->
+      <div class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 shadow-xl flex flex-col justify-start">
+        <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6 text-white flex items-center gap-3">
+          {data.systemsTransparency.heading}
+        </h3>
+        <ul class="space-y-4 font-body text-base md:text-lg text-white/90">
+          {data.systemsTransparency.points.map((pt) => (
+            <li class="flex items-start">
+              <span class="text-white font-bold mr-3 select-none">•</span>
+              <span class="font-light">{pt}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+

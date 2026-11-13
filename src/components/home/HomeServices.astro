@@ -10,7 +10,7 @@ const services = [
     title: "Web & Brand Positioning",
     image: webImg,
     description:
-      "A website that becomes the foundation for your brand positioning.",
+      "An affordable website that matches your LinkedIn. Clear messaging, professional design, and seamless consistency",
     href: "/services/web-brand-positioning",
   },
   {
@@ -18,7 +18,7 @@ const services = [
     title: "Personal Branding",
     image: brandImg,
     description:
-      "A content system that explains who you are, how you help, and that you're fun to follow.",
+      "Sharpen your story, voice, and strategy. A clear, consistent presence that turns viewers into opportunities.",
     href: "/services/personal-branding",
   },
   {
@@ -30,6 +30,8 @@ const services = [
     href: "/services/social-selling",
   },
 ];
+
+const { heading = "What I help with... ✅" } = Astro.props;
 ---
 
 <section
@@ -39,7 +41,7 @@ const services = [
     <h2
       class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-16 leading-tight"
     >
-      What we help you with
+      {heading}
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
       {
@@ -53,7 +55,7 @@ const services = [
             </h3>
             <a
               href={service.href}
-              class="block overflow-hidden rounded mb-6 relative group"
+              class="block overflow-hidden rounded mb-4 relative group"
             >
               <Image
                 src={service.image}
@@ -62,7 +64,7 @@ const services = [
               />
               <div class="absolute inset-0 bg-brand-green/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </a>
-            <p class="font-body text-lg text-white font-light leading-relaxed mb-6 line-clamp-2">
+            <p class="font-body text-lg text-white font-light leading-relaxed mb-6 line-clamp-4 min-h-30">
               {service.description}
             </p>
             <a

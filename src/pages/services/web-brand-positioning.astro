@@ -1,88 +1,67 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ServiceTemplate from "../../components/services/ServiceTemplate.astro";
+import WebBrandSolutions from "../../components/services/WebBrandSolutions.astro";
+import CtaBanner from "../../components/CTABanner.astro";
 
 const serviceData = {
   hero: {
     titleHtml:
-      'Look the part.<br /><span class="text-brand-green">Mean business.</span>',
+      'Look the part.<br /><span class="text-brand-green">Mean business</span> 💪',
     serviceName: "Web and Brand Positioning",
     description:
-      "A complete brand and web identity that makes you look credible, consistent, and worth what you charge.",
-    location: "Swansea-based. Working with teams across the UK.",
+      "Already worked on your personal brand with me? Your website uses the same narrative, tone, and visual guidelines we’ve already started to build. No starting over - just extending your brand across your new home on the web.",
     cta: [
       {
-        label: "Book a call",
+        label: "Book a fit call",
         href: "https://meetings-eu1.hubspot.com/taz-b",
-        variant: "primary",
+        variant: "primary" as const,
       },
       {
-        label: "Pricing",
-        href: "/pricing",
-        variant: "secondary",
+        label: "View our work",
+        href: "/case-study",
+        variant: "secondary" as const,
       },
     ],
   },
 
   needThisIf: {
-    heading: "You'll probably need this if...",
+    heading: "You’ll probably need this if... 🧐",
     points: [
-      "your branding looks different across the website, socials and PDFs",
-      "you've outgrown the DIY look",
       "you want to charge more - but the brand is undermining you",
-      "your website looks dated and it's costing you trust",
-      "your message isn't clear until someone speaks to you",
+      "your website looks dated, and it’s costing you trust",
+      "your message isn’t crystal clear",
+      "Visitors struggle to understand your offer",
+      "You need a clearer identity and messaging",
     ],
   },
 
   deliverables: {
-    heading: "What you'll leave with",
+    heading: "What you’ll leave with... ✅",
     items: [
       {
-        title: "A refined logo",
-        description: "Plus variations you can actually use.",
-      },
-      {
-        title: "Colour + type system",
-        description: "A clear, flexible style you can apply everywhere.",
-      },
-      {
-        title: "Basic SEO foundations",
+        title: "A brand new website",
         description:
-          "Titles, structure, crawlability — so you're findable from launch",
+          "Professionally built, fully branded, and ready to represent you.",
+        icon: "website",
       },
       {
-        title: "Web Launch",
+        title: "Logo, colour + brand guidelines",
         description:
-          "Mobile, forms, key pages, redirects — so nothing breaks when you go live",
-      },
-    ],
-  },
-
-  ctaBanner: {
-    heading: "Look the part. Mean business.",
-    subtext: "Tell us what you're working on. No pitch, no pressure.",
-    buttonText: "Book a fit call",
-    buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
-  },
-
-  howItWorks: {
-    heading: "How it works",
-    steps: [
-      {
-        title: "Structure + journey",
-        description:
-          "We plan every page around what your visitors need to see, and what you need them to do.",
+          "A cohesive visual identity that feels intentional and consistent everywhere.",
+        icon: "bulb",
       },
       {
-        title: "Concepts + refinement",
+        title: "Positioning and messaging",
         description:
-          "We develop 2–3 directions, present them in context, then refine the strongest into your final identity.",
+          "We help you clarify what you stand for and how the brand should come across, including your core message and tone of voice.",
+        icon: "chat",
       },
       {
-        title: "Launch support",
+        title: "Monthly care plan",
         description:
-          "You get a live, tested site, WordPress training, and everything handed over cleanly.",
+          "An affordable retainer keeps your site secure and up to date for new content, such as case studies or news, as it becomes available.",
+        icon: "network",
       },
     ],
   },
@@ -91,25 +70,115 @@ const serviceData = {
     heading: "FAQs",
     items: [
       {
-        question: "What's in the Web and Brand Positioning package?",
+        question: "Do you need to write the copy?",
         answer:
-          "The pack includes a <strong>refined logo suite</strong>, <strong>colour + type system</strong>, <strong>easy-to-follow guidelines</strong>, and <strong>core brand assets</strong>. You'll get a complete visual identity and website designed for real-world use, not just a logo.",
+          "It depends which option you go for...<br /><br />For the template build, the messaging is included in the price.<br /><br />For the bespoke build, the messaging is included in the price.",
       },
       {
-        question: "How long does the process take?",
+        question: "Is there a fixed number of pages?",
         answer:
-          "It depends on scope, but most Brand & Web projects take <strong>around 3–6 weeks from kickoff to final handover</strong>. If you've already got clarity on your message and what you want to achieve, we can often move faster.",
+          "Option 1 - Yes - the pages are roughly fixed to our core recommended size.<br /><br />Option 2 - No - this option gives you far greater flexibility.",
       },
       {
-        question: "What files will we receive?",
+        question: "What happens after the launch?",
         answer:
-          "You'll receive <strong>production-ready files in the right formats for print and digital</strong>, plus a tidy handover and guidelines so your team (and suppliers) can apply everything consistently going forward.",
+          "An affordable retainer keeps your site secure and up to date for new content, such as case studies or news, as it becomes available.",
+      },
+      {
+        question: "Can we keep our current branding?",
+        answer:
+          "Yes that’s certainly an option - we can also suggest an alternative brand direction too.",
+      },
+      {
+        question: "Can we add messaging later?",
+        answer:
+          "Yes we work on your core identity by default, and messaging is an additional recommendation.",
+      },
+      {
+        question: "How many design revisions?",
+        answer: "You get unlimited revisions until you are satisfied.",
       },
     ],
   },
 };
+
+const solutionsData = {
+  problemHeading: "The problem... ❌",
+  problemText:
+    "You’ve got a great profile. People are engaging. Then they click your website… and it doesn’t match. Outdated, generic, or just not saying the right things. You know you need something better - but £10k+ for a full custom build just isn’t right yet.",
+  solutionHeading: "The solution... 🌈",
+  options: [
+    {
+      title: "Option 1 - Brand-Aligned Template (Recommended) 🧑‍🔬",
+      description:
+        "We take a proven structure and system and customise them around your brand, including:",
+      features: [
+        "A custom logo design",
+        "New brand colours, fonts, and visual style",
+        "Full copy written for your brand identity and narrative (taken from your personal branding profile)",
+        "4–8 core pages: Home - About - Services - Case Studies - Pricing - Contact",
+        "Mobile-optimised, fast-loading, ready to grow",
+        "Connected seamlessly to your LinkedIn profile voice",
+      ],
+      outcome:
+        "A quick, simple and affordable professional site that looks and feels custom.",
+    },
+    {
+      title: "Option 2 - Bespoke Build 🎨",
+      description:
+        "Your vision, brought to life. You come with specific ideas, features, or a unique structure in mind. And I work with my build partner to create it.",
+      features: [
+        "Clear project management and communication",
+        "Full copywriting and messaging alignment",
+        "Brand consistency across every page",
+        "One point of contact: me",
+      ],
+      outcome: "",
+    },
+  ],
+  pricingHeading: "Web and branding pricing guide 💰",
+  pricingRows: [
+    {
+      option: "Option 1: Template Build",
+      investment: "From £2,000",
+      timeline: "2–3 weeks",
+      retainer: "£20 a month",
+      bestFor: "Fast launch, consistent brand, proven structure",
+    },
+    {
+      option: "Option 2: Bespoke Build",
+      investment: "From £3,000 - £4,000",
+      timeline: "4–6 weeks",
+      retainer: "£20 a month",
+      bestFor: "Unique requirements, custom features, specific vision",
+    },
+  ],
+};
+
+
+const cta = {
+  heading: "Making your growth feel easier",
+  subtext: "Book a discovery call — 30 minutes to work out what you need and what it’ll cost.",
+  buttonText: "Book a fit call",
+  buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
+};
 ---
 
-<Layout>
-  <ServiceTemplate {...serviceData} />
+<Layout showCTA={false}>
+  <ServiceTemplate
+    hero={serviceData.hero}
+    needThisIf={serviceData.needThisIf}
+    deliverables={serviceData.deliverables}
+    faqs={serviceData.faqs}
+    howItWorks={{ heading: "", steps: [] }}
+  >
+    <WebBrandSolutions slot="after-deliverables" {...solutionsData} />
+  </ServiceTemplate>
+
+  <CtaBanner
+        heading={cta.heading}
+        subtext={cta.subtext}
+        buttonText={cta.buttonText}
+        buttonHref={cta.buttonHref}
+      />
 </Layout>

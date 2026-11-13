@@ -1,116 +1,117 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ServiceTemplate from "../../components/services/ServiceTemplate.astro";
+import SocialSellingIncluded from "../../components/services/SocialSellingIncluded.astro";
 
 const serviceData = {
   hero: {
     titleHtml:
-      'Turn conversations<br /><span class="text-brand-green">into pipeline.</span>',
-    serviceName: "Social Selling",
+      'Turn connections<br /><span class="text-brand-green">into conversations</span> 🧲',
+    serviceName: "",
     description:
-      "A done-for-you LinkedIn outreach system designed to create genuine opportunities — without feeling salesy.",
-    location: "Swansea-based. Working with teams across the UK.",
+      "Fill your pipeline with the right people - consistently. A done-for-you LinkedIn outreach system designed to create genuine opportunities - without feeling salesy.",
     cta: [
       {
-        label: "Book a call",
+        label: "Book a fit call",
         href: "https://meetings-eu1.hubspot.com/taz-b",
-        variant: "primary",
+        variant: "primary" as const,
       },
       {
-        label: "Pricing",
-        href: "/pricing",
-        variant: "secondary",
+        label: "View our work",
+        href: "/case-study",
+        variant: "secondary" as const,
       },
     ],
   },
 
   needThisIf: {
-    heading: "You'll probably need this if...",
+    heading: "You’ll probably need this if... 🧐",
     points: [
-      "you want a steady, predictable pipeline of qualified leads",
-      "you've tried LinkedIn messaging before and it felt spammy, pushy or ineffective",
-      "you have an audience or connections, but they're not turning into conversations",
-      "you don't have hours each day to spend sourcing leads and managing replies",
-      "you'd rather close deals than write cold messages and manage inboxes",
+      "you know who you want to talk to, but reaching out consistently doesn’t happen",
+      "you’d rather close deals than write cold messages and manage inboxes",
+      "LinkedIn outreach feels awkward, time-consuming or inauthentic",
+      "you want predictable, sustainable growth",
+      "you want a steady flow of qualified leads",
     ],
   },
 
   deliverables: {
-    heading: "What you'll leave with",
+    heading: "What you’ll leave with... ✅",
     items: [
       {
         title: "Your ideal client list",
         description:
-          "5,000 targeted leads, built and segmented by who they are and what they need",
+          "We define your perfect audience and build your core search - delivered clean, organised, and pre-formatted for personal outreach.",
+        icon: "bulb",
       },
       {
-        title: "Proven messaging strategy",
+        title: "Proven messaging",
         description:
-          "natural, human outreach that starts real conversations, not robotic pitches",
+          "Time-tested, low-pressure scripts that feel like you - designed to get genuine responses from the right people.",
+        icon: "chat",
       },
       {
         title: "Full launch setup",
-        description: "campaigns live, monitored, and optimised week-on-week",
+        description:
+          "Everything in place, ready to go - campaign built, systems aligned, and launched with confidence.",
+        icon: "website",
       },
       {
-        title: "Inbox management & nurturing",
+        title: "Management & nurturing",
         description:
-          "Replies handled, warm leads followed up, conversations kept moving",
+          "Daily care of your campaign - conversations guided, relationships built, and leads warmed over time.",
+        icon: "network",
       },
     ],
   },
 
   ctaBanner: {
-    heading: "Look the part. Mean business.",
-    subtext: "Tell us what you're working on. No pitch, no pressure.",
+    heading: "Making your growth feel easier",
+    subtext:
+      "Book a discovery call — 30 minutes to work out what you need and what it’ll cost.",
     buttonText: "Book a fit call",
     buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
   },
+};
 
-  howItWorks: {
-    heading: "How it works",
-    steps: [
-      {
-        title: "Data & Foundation",
-        description:
-          "We define your ideal client, build your targeted list, and map out the messaging that resonates with them.",
-      },
-      {
-        title: "Connect & Start",
-        description:
-          "Strategic outreach goes live — genuine connections, thoughtful messages, and building visibility with exactly the right people.",
-      },
-      {
-        title: "Nurture & Convert",
-        description:
-          "We manage every reply, follow up consistently, nurture relationships, and turn warm interest into qualified meetings — handed straight to you, ready to close.",
-      },
+const includedData = {
+  targetClarity: {
+    heading: "👔 Target Clarity",
+    points: [
+      "We help you define your Ideal Customer Profile (ICP)",
+      "Your \"Foot in the door\" proposition - your most compelling opening angle",
     ],
   },
-
-  faqs: {
-    heading: "FAQs",
-    items: [
-      {
-        question: "How do you avoid sounding spammy or salesy?",
-        answer:
-          "We never send generic mass pitch templates. Our approach focuses on <strong>natural, curiosity-driven conversation starters</strong> and low-risk interactions that respect your prospects' time.",
-      },
-      {
-        question: "What happens when someone replies positively?",
-        answer:
-          "We monitor your inbox, handle initial qualification, and guide the prospect towards booking a call — then <strong>hand them over directly to your calendar</strong>.",
-      },
-      {
-        question: "Do you supply the targeted lead list?",
-        answer:
-          "Yes. We build and segment a <strong>custom list of up to 5,000 verified decision-makers</strong> matching your exact Ideal Customer Profile (ICP).",
-      },
+  campaignManagement: {
+    heading: "🧑‍💻 Campaign Management",
+    points: [
+      "Curated lead list (5,000 targeted prospects)",
+      "Warm, authentic outreach messaging",
+      "Daily campaign management: connection requests, follow-ups, relationship building",
+      "Inbox handling and conversation nurturing",
+    ],
+  },
+  systemsTransparency: {
+    heading: "🧠 Systems & Transparency",
+    points: [
+      "Dedicated Notion workspace - track progress in real time",
+      "We create your pitch deck presentation",
+      "And your sales brochure",
+      "Weekly progress updates + full performance reports",
+      "Regular 1:1 strategy calls throughout",
     ],
   },
 };
 ---
 
-<Layout>
-  <ServiceTemplate {...serviceData} />
+<Layout showCTA={false}>
+  <ServiceTemplate
+    hero={serviceData.hero}
+    needThisIf={serviceData.needThisIf}
+    deliverables={serviceData.deliverables}
+    ctaBanner={serviceData.ctaBanner}
+    howItWorks={{ heading: "", steps: [] }}
+  >
+    <SocialSellingIncluded slot="after-deliverables" data={includedData} />
+  </ServiceTemplate>
 </Layout>

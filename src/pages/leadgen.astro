@@ -1,17 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import HomePillars from "../components/home/HomePillars.astro";
 import HomeServices from "../components/home/HomeServices.astro";
+import CTABanner from "../components/CTABanner.astro";
 import { leadgenData as pageData } from "../data/leadgen";
+
+
 ---
 
-<Layout>
-  <!-- Hero Section with Form -->
+<Layout showCTA={false}>
+  <!-- Hero Section with Form (Slide 53) -->
   <section class="bg-brand-navy pt-20 pb-28 px-8 border-b border-gray-800">
     <div
       class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
     >
-      <!-- Left Column: Home-styled Hero Typography -->
+      <!-- Left Column: Typography & bullet highlights -->
       <div class="lg:col-span-7 flex flex-col items-start">
         <h1
           class="text-5xl md:text-7xl lg:text-7xl xl:text-[80px] font-heading mb-8 font-semibold leading-[1.05] text-white"
@@ -24,26 +26,11 @@ import { leadgenData as pageData } from "../data/leadgen";
           {pageData.hero.body}
         </p>
 
-        <!-- Trust bullet highlights with home-style ticks -->
-        <ul
-          class="space-y-3.5 text-base md:text-lg font-body text-gray-300 font-light mt-2"
-        >
+        <ul class="space-y-3.5 text-base md:text-lg font-body text-gray-200 font-light mt-2">
           {
             pageData.hero.trustPoints.map((point) => (
-              <li class="flex items-center gap-3">
-                <svg
-                  class="w-5 h-5 text-brand-green flex-shrink-0"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="3"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4.5 12.75l6 6 9-13.5"
-                  />
-                </svg>
+              <li class="flex items-start gap-3">
+                <span class="text-white font-bold select-none">•</span>
                 <span>{point}</span>
               </li>
             ))
@@ -51,7 +38,7 @@ import { leadgenData as pageData } from "../data/leadgen";
         </ul>
       </div>
 
-      <!-- Right Column: Premium Form Card -->
+      <!-- Right Column: Form Card -->
       <div class="lg:col-span-5 w-full">
         <div
           class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 shadow-2xl relative"
@@ -121,75 +108,28 @@ import { leadgenData as pageData } from "../data/leadgen";
     </div>
   </section>
 
-  <!-- 3 Pillars Section (Reusing HomePillars) -->
-  <HomePillars />
-
-  <!-- What's Inside Section formatted like page 10 / meetbob quick answer box -->
-  <section class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
-    <div class="max-w-4xl mx-auto">
-      <div class="bg-brand-blue rounded-2xl p-10 md:p-14 text-white shadow-2xl">
-        <h2 class="font-heading text-3xl md:text-5xl font-bold mb-6 text-white">
-          {pageData.whatsInside.heading}
-        </h2>
-        <p class="font-body text-lg md:text-xl text-blue-100 mb-10 leading-relaxed font-light">
-          {pageData.whatsInside.intro}
-        </p>
-
-        <h3 class="font-heading text-2xl md:text-3xl font-semibold mb-6 text-white">
-          {pageData.whatsInside.resourcesHeading}
-        </h3>
-        <ul class="space-y-4 font-body text-base md:text-lg">
-          {
-            pageData.whatsInside.resources.map((res) => (
-              <li class="flex items-start">
-                <svg
-                  class="w-6 h-6 text-brand-green mr-3.5 flex-shrink-0 mt-[3px]"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="3.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4.5 12.75l6 6 9-13.5"
-                  />
-                </svg>
-                <span class="text-white/95">{res}</span>
-              </li>
-            ))
-          }
-        </ul>
-
-        <div class="mt-10 pt-8 border-t border-blue-400/30">
-          <a
-            href="#details"
-            class="text-white font-heading font-semibold hover:text-brand-green transition-colors underline text-base md:text-lg"
-          >
-            Get instant access to everything inside &rarr;
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQs Section -->
-  <section class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
+  <!-- What's Included (3 Cards - Slide 54) -->
+  <section class="bg-brand-navy py-20 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto">
-      <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-12 font-bold">
-        {pageData.faqs.heading}
+      <h2
+        class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-12 leading-tight"
+      >
+        What’s included... 👀
       </h2>
+
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {
-          pageData.faqs.items.map((faq) => (
-            <div class="bg-brand-green rounded-3xl p-10 text-brand-navy flex flex-col">
-              <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6">
-                {faq.question}
+          pageData.pillars.map((pillar) => (
+            <div class="bg-brand-ice rounded-[10px] p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-lg">
+               <div class="mb-6 h-12 flex items-center text-brand-navy">
+                 <img src={pillar.image} alt={pillar.title} class="h-12 w-auto object-contain" />
+              </div>
+              <h3 class="font-heading text-2xl md:text-3xl font-semibold mb-4 text-brand-navy leading-tight">
+                {pillar.title}
               </h3>
-              <p
-                class="font-body text-lg leading-relaxed"
-                set:html={faq.answer}
-              />
+              <p class="font-body text-base md:text-lg leading-relaxed text-brand-navy/85 font-normal">
+                {pillar.body}
+              </p>
             </div>
           ))
         }
@@ -197,6 +137,73 @@ import { leadgenData as pageData } from "../data/leadgen";
     </div>
   </section>
 
-  <!-- 3 ways to go further (Using HomeServices) -->
-  <HomeServices />
+  <!-- What's Inside (Detailed lists - Slides 55, 56) -->
+  <section class="bg-brand-navy text-white py-20 px-8 border-b border-gray-800">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-6 leading-tight">
+        {pageData.whatsInside.heading}
+      </h2>
+      <p class="font-body text-lg md:text-xl text-white/90 leading-relaxed font-light mb-12 max-w-4xl">
+        {pageData.whatsInside.intro}
+      </p>
+
+      <div class="space-y-10">
+        <!-- 1. Guides & Frameworks -->
+        <div class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 shadow-xl">
+          <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6 text-white">
+            {pageData.whatsInside.guidesHeading}
+          </h3>
+          <ul class="space-y-4 font-body text-base md:text-lg text-white/90">
+            {pageData.whatsInside.guides.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="text-brand-green font-bold shrink-0">✅</span>
+                <span class="font-light">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- 2. Canva Templates -->
+        <div class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 shadow-xl">
+          <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6 text-white">
+            {pageData.whatsInside.templatesHeading}
+          </h3>
+          <ul class="space-y-4 font-body text-base md:text-lg text-white/90">
+            {pageData.whatsInside.templates.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="text-brand-green font-bold shrink-0">✅</span>
+                <span class="font-light">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- 3. Community & Extras -->
+        <div class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 shadow-xl">
+          <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6 text-white">
+            {pageData.whatsInside.communityHeading}
+          </h3>
+          <ul class="space-y-4 font-body text-base md:text-lg text-white/90">
+            {pageData.whatsInside.community.map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="text-brand-green font-bold shrink-0">✅</span>
+                <span class="font-light">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <HomeServices heading="3 ways to go further... ✅" />
+
+  <!-- CTA Banner Slide 58 -->
+  <CTABanner
+    heading="Making your growth feel easier"
+    subtext="Book a discovery call — 30 minutes to work out what you need and what it’ll cost."
+    buttonText="Book a fit call"
+    buttonHref="https://meetings-eu1.hubspot.com/taz-b"
+  />
 </Layout>

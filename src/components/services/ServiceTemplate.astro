@@ -1,6 +1,13 @@
 ---
+import { Image } from "astro:assets";
 import Button from "../Button.astro";
 import CTABanner from "../CTABanner.astro";
+import websitePng from "../../assets/services/website.png";
+import bulbPng from "../../assets/services/bulb.png";
+import chatPng from "../../assets/services/chat.png";
+import networkPng from "../../assets/services/network.png";
+import speakerPng from "../../assets/services/speaker.png";
+import logoPng from "../../assets/services/logo.png";
 
 export interface Deliverable {
   title: string;
@@ -180,90 +187,31 @@ const ctaButtons: HeroCTA[] = hero.cta || [
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       {
         deliverables.items.map((item, index) => (
-          <div class="bg-brand-ice rounded-[10px] p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-lg">
+          <div class="bg-brand-ice rounded-[10px] p-8 md:p-8 text-brand-navy flex flex-col justify-start shadow-lg">
             <div class="mb-6 h-12 flex items-center text-brand-navy">
-              {item.icon === "logo" || (!item.icon && index === 0) ? (
-                /* 1. Signature / Logo Script */
-                <span class="font-serif italic font-extrabold text-3xl tracking-tight underline decoration-brand-navy decoration-2 underline-offset-4 select-none">
-                  Taz
-                </span>
-              ) : item.icon === "typography" || (!item.icon && index === 1) ? (
-                /* 2. Aa Typography Grid */
-                <svg
-                  class="w-11 h-11"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M6 34 L18 10 L30 34" />
-                  <path d="M10 26 L26 26" />
-                  <path d="M34 22 C34 20 36 18 39 18 C42 18 44 20 44 23 L44 34" />
-                  <path d="M34 27 C34 25 36 24 39 24 C44 24 44 27 44 29 C44 33 34 33 34 27" />
-                  <line
-                    x1="2"
-                    y1="18"
-                    x2="36"
-                    y2="18"
-                    stroke-dasharray="1 2"
-                    stroke-width="1.5"
-                    opacity="0.4"
-                  />
-                  <line
-                    x1="2"
-                    y1="26"
-                    x2="46"
-                    y2="26"
-                    stroke-dasharray="1 2"
-                    stroke-width="1.5"
-                    opacity="0.4"
-                  />
-                  <line
-                    x1="2"
-                    y1="34"
-                    x2="46"
-                    y2="34"
-                    stroke-width="1.5"
-                    opacity="0.5"
-                  />
-                </svg>
-              ) : item.icon === "book" || (!item.icon && index === 2) ? (
-                /* 3. Brand Book / Guidelines */
-                <svg
-                  class="w-10 h-10"
-                  viewBox="0 0 40 44"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="7" y="4" width="26" height="36" rx="3" />
-                  <line x1="12" y1="4" x2="12" y2="40" stroke-width="1.5" />
-                  <line x1="17" y1="13" x2="27" y2="13" stroke-width="2" />
-                  <line x1="17" y1="18" x2="24" y2="18" stroke-width="1.5" />
-                  <line x1="17" y1="23" x2="28" y2="23" stroke-width="1.5" />
-                </svg>
+              {item.icon === "website" || item.icon === "screen-rocket" ? (
+                <Image src={websitePng} alt={item.title} class="h-12 w-auto object-contain" />
+              ) : item.icon === "bulb" ? (
+                <Image src={bulbPng} alt={item.title} class="h-12 w-auto object-contain" />
+              ) : item.icon === "chat" || item.icon === "chat-bubbles" ? (
+                <Image src={chatPng} alt={item.title} class="h-12 w-auto object-contain" />
+              ) : item.icon === "network" || item.icon === "flow-chart" ? (
+                <Image src={networkPng} alt={item.title} class="h-12 w-auto object-contain" />
+              ) : item.icon === "speaker" ? (
+                <Image src={speakerPng} alt={item.title} class="h-12 w-auto object-contain" />
+              ) : item.icon === "logo" ? (
+                <Image src={logoPng} alt={item.title} class="h-12 w-auto object-contain" />
+              ) : index === 0 ? (
+                <Image src={websitePng} alt={item.title} class="h-12 w-auto object-contain" />
+              ) : index === 1 ? (
+                <Image src={bulbPng} alt={item.title} class="h-12 w-auto object-contain" />
+              ) : index === 2 ? (
+                <Image src={chatPng} alt={item.title} class="h-12 w-auto object-contain" />
               ) : (
-                /* 4. Ready-to-use Assets / Gallery Frame */
-                <svg
-                  class="w-10 h-10"
-                  viewBox="0 0 44 40"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="5" y="5" width="34" height="30" rx="3" />
-                  <circle cx="13" cy="13" r="2.5" fill="currentColor" />
-                  <polyline points="7,27 16,19 25,27 31,22 39,29" />
-                </svg>
+                <Image src={networkPng} alt={item.title} class="h-12 w-auto object-contain" />
               )}
             </div>
-            <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 text-brand-navy leading-tight">
+            <h3 class="font-heading text-2xl md:text-2xl font-bold mb-4 text-brand-navy leading-tight">
               {item.title}
             </h3>
             <p class="font-body text-base md:text-lg leading-relaxed text-brand-navy/85 font-normal">
@@ -275,6 +223,9 @@ const ctaButtons: HeroCTA[] = hero.cta || [
     </div>
   </div>
 </section>
+
+<!-- Slot for Extra Content (e.g. Solutions & Pricing Tables) -->
+<slot name="after-deliverables" />
 
 <!-- 4. CTA Banner -->
 {
@@ -289,120 +240,120 @@ const ctaButtons: HeroCTA[] = hero.cta || [
 }
 
 <!-- 5. How It Works Section -->
-<section class="bg-brand-navy text-white py-16 px-8">
-  <div class="max-w-6xl mx-auto">
-    <h2
-      class="font-heading text-4xl md:text-5xl text-brand-green mb-10 font-bold tracking-tight"
-    >
-      {howItWorks.heading || "How it works"}
-    </h2>
+{
+  howItWorks && howItWorks.steps && howItWorks.steps.length > 0 && (
+    <section class="bg-brand-navy text-white py-16 px-8">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-10 font-bold tracking-tight">
+          {howItWorks.heading || "How it works"}
+        </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {
-        howItWorks.steps.map((step, index) => (
-          <div class="bg-brand-blue rounded-lg p-10 flex flex-col min-h-[350px]">
-            <div class="mb-6 h-12 flex items-center text-white">
-              {step.icon === "workshop" || (!step.icon && index === 0) ? (
-                /* 1. Workshop / Discovery: People around meeting table */
-                <svg
-                  class="w-12 h-12"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  {/* Center person */}
-                  <circle cx="24" cy="12" r="3.5" />
-                  <path d="M19 22 C19 19.5 21 18 24 18 C27 18 29 19.5 29 22" />
-                  {/* Left person */}
-                  <circle cx="13" cy="16" r="3" />
-                  <path d="M9 25 C9 23 11 22 13 22 C15 22 16.5 23 17 24.5" />
-                  {/* Right person */}
-                  <circle cx="35" cy="16" r="3" />
-                  <path d="M39 25 C39 23 37 22 35 22 C33 22 31.5 23 31 24.5" />
-                  {/* Meeting Table */}
-                  <ellipse cx="24" cy="28" rx="18" ry="5.5" />
-                  {/* Table Legs */}
-                  <path d="M12 32 L10 40" />
-                  <path d="M17 33.5 L16 41" />
-                  <path d="M31 33.5 L32 41" />
-                  <path d="M36 32 L38 40" />
-                </svg>
-              ) : step.icon === "concepts" || (!step.icon && index === 1) ? (
-                /* 2. Concepts + Refinement: Laptop / Design mockups on screen */
-                <svg
-                  class="w-12 h-12"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  {/* Laptop screen */}
-                  <rect x="8" y="10" width="32" height="22" rx="2" />
-                  {/* Mockup frames inside screen */}
-                  <rect
-                    x="12"
-                    y="14"
-                    width="10"
-                    height="9"
-                    rx="1"
-                    stroke-width="1.5"
-                  />
-                  <rect
-                    x="26"
-                    y="14"
-                    width="10"
-                    height="9"
-                    rx="1"
-                    stroke-width="1.5"
-                    stroke-dasharray="2 2"
-                  />
-                  <line x1="12" y1="27" x2="20" y2="27" stroke-width="1.5" />
-                  <circle cx="28" cy="27" r="1.5" fill="currentColor" />
-                  {/* Laptop base */}
-                  <path d="M4 36 L44 36" stroke-width="2.5" />
-                  <path
-                    d="M20 36 L28 36"
-                    stroke-width="2.5"
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {howItWorks.steps.map((step, index) => (
+            <div class="bg-brand-blue rounded-lg p-10 flex flex-col min-h-[350px]">
+              <div class="mb-6 h-12 flex items-center text-white">
+                {step.icon === "workshop" || (!step.icon && index === 0) ? (
+                  /* 1. Workshop / Discovery: People around meeting table */
+                  <svg
+                    class="w-12 h-12"
+                    viewBox="0 0 48 48"
+                    fill="none"
                     stroke="currentColor"
-                  />
-                </svg>
-              ) : (
-                /* 3. Final files / Handover book */
-                <svg
-                  class="w-11 h-11"
-                  viewBox="0 0 44 48"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="8" y="5" width="28" height="38" rx="3" />
-                  <line x1="14" y1="5" x2="14" y2="43" stroke-width="1.5" />
-                  {/* Brand text placeholder & lines */}
-                  <line x1="19" y1="14" x2="29" y2="14" stroke-width="2" />
-                  <line x1="19" y1="20" x2="26" y2="20" stroke-width="1.5" />
-                  <line x1="19" y1="25" x2="31" y2="25" stroke-width="1.5" />
-                </svg>
-              )}
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    {/* Center person */}
+                    <circle cx="24" cy="12" r="3.5" />
+                    <path d="M19 22 C19 19.5 21 18 24 18 C27 18 29 19.5 29 22" />
+                    {/* Left person */}
+                    <circle cx="13" cy="16" r="3" />
+                    <path d="M9 25 C9 23 11 22 13 22 C15 22 16.5 23 17 24.5" />
+                    {/* Right person */}
+                    <circle cx="35" cy="16" r="3" />
+                    <path d="M39 25 C39 23 37 22 35 22 C33 22 31.5 23 31 24.5" />
+                    {/* Meeting Table */}
+                    <ellipse cx="24" cy="28" rx="18" ry="5.5" />
+                    {/* Table Legs */}
+                    <path d="M12 32 L10 40" />
+                    <path d="M17 33.5 L16 41" />
+                    <path d="M31 33.5 L32 41" />
+                    <path d="M36 32 L38 40" />
+                  </svg>
+                ) : step.icon === "concepts" || (!step.icon && index === 1) ? (
+                  /* 2. Concepts + Refinement: Laptop / Design mockups on screen */
+                  <svg
+                    class="w-12 h-12"
+                    viewBox="0 0 48 48"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    {/* Laptop screen */}
+                    <rect x="8" y="10" width="32" height="22" rx="2" />
+                    {/* Mockup frames inside screen */}
+                    <rect
+                      x="12"
+                      y="14"
+                      width="10"
+                      height="9"
+                      rx="1"
+                      stroke-width="1.5"
+                    />
+                    <rect
+                      x="26"
+                      y="14"
+                      width="10"
+                      height="9"
+                      rx="1"
+                      stroke-width="1.5"
+                      stroke-dasharray="2 2"
+                    />
+                    <line x1="12" y1="27" x2="20" y2="27" stroke-width="1.5" />
+                    <circle cx="28" cy="27" r="1.5" fill="currentColor" />
+                    {/* Laptop base */}
+                    <path d="M4 36 L44 36" stroke-width="2.5" />
+                    <path
+                      d="M20 36 L28 36"
+                      stroke-width="2.5"
+                      stroke="currentColor"
+                    />
+                  </svg>
+                ) : (
+                  /* 3. Final files / Handover book */
+                  <svg
+                    class="w-11 h-11"
+                    viewBox="0 0 44 48"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <rect x="8" y="5" width="28" height="38" rx="3" />
+                    <line x1="14" y1="5" x2="14" y2="43" stroke-width="1.5" />
+                    {/* Brand text placeholder & lines */}
+                    <line x1="19" y1="14" x2="29" y2="14" stroke-width="2" />
+                    <line x1="19" y1="20" x2="26" y2="20" stroke-width="1.5" />
+                    <line x1="19" y1="25" x2="31" y2="25" stroke-width="1.5" />
+                  </svg>
+                )}
+              </div>
+              <h3 class="font-heading text-3xl font-bold mb-6 text-white">
+                {step.title}
+              </h3>
+              <p class="font-body text-lg text-white font-light leading-relaxed">
+                {step.description}
+              </p>
             </div>
-            <h3 class="font-heading text-3xl font-bold mb-6 text-white">
-              {step.title}
-            </h3>
-            <p class="font-body text-lg text-white font-light leading-relaxed">
-              {step.description}
-            </p>
-          </div>
-        ))
-      }
-    </div>
-  </div>
-</section>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
 
 <!-- 6. FAQs Section -->
 {

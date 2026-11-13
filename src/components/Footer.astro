@@ -3,11 +3,27 @@ import { Image } from "astro:assets";
 import logoImg from "../assets/general/logo-1.png";
 import CTABanner from "./CTABanner.astro";
 
+export interface Props {
+  showCTA?: boolean;
+  ctaHeading?: string;
+  ctaSubtext?: string;
+  ctaButtonText?: string;
+  ctaButtonHref?: string;
+}
+
+const {
+  showCTA = true,
+  ctaHeading,
+  ctaSubtext,
+  ctaButtonText,
+  ctaButtonHref,
+} = Astro.props;
+
 const cta = {
-  heading: "Get clear. Get confident.<br />Grow faster.",
-  subtext: "Tell us what you're working on. No pitch, no pressure.",
-  buttonText: "Book a call",
-  buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
+  heading: ctaHeading || "Get clear. Get confident.<br />Grow faster.",
+  subtext: ctaSubtext || "Tell us what you're working on. No pitch, no pressure.",
+  buttonText: ctaButtonText || "Book a call",
+  buttonHref: ctaButtonHref || "https://meetings-eu1.hubspot.com/taz-b",
 };
 
 const services = [
@@ -42,12 +58,16 @@ const copyright = {
 
 <footer class="w-full">
   <!-- CTA Banner -->
-  <CTABanner
-    heading={cta.heading}
-    subtext={cta.subtext}
-    buttonText={cta.buttonText}
-    buttonHref={cta.buttonHref}
-  />
+  {
+    showCTA && (
+      <CTABanner
+        heading={cta.heading}
+        subtext={cta.subtext}
+        buttonText={cta.buttonText}
+        buttonHref={cta.buttonHref}
+      />
+    )
+  }
 
   <!-- Main Footer -->
   <div class="bg-brand-navy py-16 px-8 text-white">

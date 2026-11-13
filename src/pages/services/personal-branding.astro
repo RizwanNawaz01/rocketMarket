@@ -1,115 +1,139 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ServiceTemplate from "../../components/services/ServiceTemplate.astro";
+import PersonalBrandingIncluded from "../../components/services/PersonalBrandingIncluded.astro";
 
 const serviceData = {
   hero: {
     titleHtml:
-      'Be the person to follow,<br /><span class="text-brand-green">know & trust.</span>',
+      'Be the person to<br /><span class="text-brand-green">follow, know & trust</span> 💚',
     serviceName: "Personal Branding",
     description:
-      "A content system that explains who you are, how you help, and that you're fun to follow.",
-    location: "Swansea-based. Working with teams across the UK.",
+      "Build authority that attracts opportunities to you, with a content system that explains who you are, how you help, and that you’re fun to follow.",
     cta: [
       {
-        label: "Book a call",
+        label: "Book a fit call",
         href: "https://meetings-eu1.hubspot.com/taz-b",
-        variant: "primary",
+        variant: "primary" as const,
       },
       {
-        label: "Pricing",
-        href: "/pricing",
-        variant: "secondary",
+        label: "View our work",
+        href: "/case-study",
+        variant: "secondary" as const,
       },
     ],
   },
 
   needThisIf: {
-    heading: "You'll probably need this if...",
+    heading: "You’ll probably need this if... 🧐",
     points: [
-      "you show up inconsistently — or not at all — and your profile feels generic",
-      "people don't immediately understand why they should work with you",
+      "people don’t immediately understand why they should work with you",
       "you want to stand out as the go-to expert in your space",
-      "your experience, story and values aren't visible enough to build real trust",
-      "you know consistent content drives growth - but you'd rather spend your time running your business",
+      "your experience, story, and values aren’t visible enough to build real trust",
+      "you show up inconsistently - or not at all - and your profile feels generic",
+      "you know consistent content drives growth - but you’d rather spend your time running your business",
     ],
   },
 
   deliverables: {
-    heading: "What you'll leave with",
+    heading: "What you’ll leave with... ✅",
     items: [
       {
-        title: "Visual templates",
-        description: "Branded, on-point visuals that match your identity",
+        title: "Transparently organised",
+        description:
+          "Central brand hub: your positioning, narrative, content calendar - all strategically organised into one place.",
+        icon: "network",
       },
       {
-        title: "Optimised LinkedIn profile",
+        title: "Profile transformation",
         description:
-          "Polished, keyword-rich, and positioned to attract the right people",
-      },
-      {
-        title: "Core content pillars",
-        description:
-          "Your journey, your purpose, your positioning — so everything you say has focus",
+          "We help you clarify what you stand for and how the brand should come across, including your core message and tone of voice.",
+         icon: "website",
       },
       {
         title: "Consistent content system",
-        description: "3-4 posts each week, planned and ready to go",
+        description:
+          "Every post builds trust and clarity. We cover your identity, your purpose, your proven method — and keep it all human, warm, and fun to read.",
+         icon: "speaker",
+      },
+      {
+        title: "Visual brand direction & assets",
+        description:
+          "More than just a facelift: a cohesive visual identity that signals professionalism, builds recognition, and feels consistent everywhere you appear.",
+        icon: "bulb",
       },
     ],
   },
 
   ctaBanner: {
-    heading: "Look the part. Mean business.",
-    subtext: "Tell us what you're working on. No pitch, no pressure.",
+    heading: "Making your growth feel easier",
+    subtext:
+      "Book a discovery call — 30 minutes to work out what you need and what it’ll cost.",
     buttonText: "Book a fit call",
     buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
   },
+};
 
-  howItWorks: {
-    heading: "How it works",
-    steps: [
-      {
-        title: "Structure + journey",
-        description:
-          "We get clear on your story, your strengths, and exactly what makes you different — then build your brand around you.",
-      },
-      {
-        title: "Concepts + refinement",
-        description:
-          "We shape your 3-pillar strategy, draft your core content themes, and refine until your voice feels right — never generic, never forced.",
-      },
-      {
-        title: "Launch support",
-        description:
-          "Your profile goes live, your content starts publishing, and you show up consistently — building visibility, authority, and audience that genuinely cares.",
-      },
+const includedData = {
+  notion: {
+    heading: "🧠 Your Notion Operating System",
+    points: [
+      "Central brand hub: positioning, narrative, content calendar - all in one place",
+      "Fully transparent: you see exactly what’s planned and why",
+      "Collaborative creation: we build it together, so it always sounds like you",
+      "Regular 1-1 meetings",
     ],
   },
-
-  faqs: {
-    heading: "FAQs",
-    items: [
-      {
-        question: "How much time will I need to commit each week?",
-        answer:
-          "Around <strong>30–45 minutes every couple of weeks</strong> for a quick briefing call. We handle all research, writing, hooks, formatting, and scheduling so you can stay focused on running your business.",
-      },
-      {
-        question: "Will the content sound like me?",
-        answer:
-          "Yes, 100%. We run an initial deep-dive interview to capture your <strong>voice, opinions, story, and perspective</strong>. Nothing goes live without your sign-off.",
-      },
-      {
-        question: "How long before we see traction?",
-        answer:
-          "Most clients see meaningful increases in <strong>profile views, connection acceptances, and direct inbound messages within the first 30–60 days</strong> of consistent posting.",
-      },
+  visual: {
+    heading: "🎨 Visual Brand Direction & Assets",
+    points: [
+      "Brand guidelines: tone, style, colours, fonts",
+      "LinkedIn banner + featured section imagery",
+      "Carousel templates and content pillar-specific visuals",
+      "E-book, presentation slide deck, and brochure templates",
+      "Plus more!",
+    ],
+  },
+  transformation: {
+    heading: "🙂 Profile transformation",
+    clarityPoints: [
+      "Your story & mission",
+      "The problem you solve",
+      "Your methodology",
+      "Your results",
+      "Who you best serve",
+      "Clear next steps to work with you",
+    ],
+  },
+  content: {
+    heading: "✍ Content That Feels Like You",
+    points: [
+      "Personality questionnaire - to ensure authenticity",
+      "Up to 10 rewrites",
+      "We write 4 x posts a week",
+    ],
+    pillars: [
+      "Your story - why you do what you do",
+      "The problem - the pain points your audience faces",
+      "Your solution - exactly how you help",
+      "Understanding your customer - showing you truly \"get\" them",
+      "Polls & engagement - building interaction and market insight",
+      "Social proof - testimonials and case studies",
+      "Behind the scenes - we encourage you to get ‘out of the office’ and do fun things/ meet people - so we can shout out about it and tag your new connections",
+      "Industry news - commentary on the latest industry news to build authority",
     ],
   },
 };
 ---
 
-<Layout>
-  <ServiceTemplate {...serviceData} />
+<Layout showCTA={false}>
+  <ServiceTemplate
+    hero={serviceData.hero}
+    needThisIf={serviceData.needThisIf}
+    deliverables={serviceData.deliverables}
+    ctaBanner={serviceData.ctaBanner}
+    howItWorks={{ heading: "", steps: [] }}
+  >
+    <PersonalBrandingIncluded slot="after-deliverables" data={includedData} />
+  </ServiceTemplate>
 </Layout>

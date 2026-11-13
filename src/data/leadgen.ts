@@ -15,79 +15,89 @@ export interface LeadgenData {
       privacyNote: string;
     };
   };
+  pillars: {
+    title: string;
+    body: string;
+    image: string;
+  }[];
   whatsInside: {
     heading: string;
     intro: string;
-    resourcesHeading: string;
-    resources: string[];
-  };
-  faqs: {
-    heading: string;
-    items: {
-      question: string;
-      answer: string;
-    }[];
+    guidesHeading: string;
+    guides: string[];
+    templatesHeading: string;
+    templates: string[];
+    communityHeading: string;
+    community: string[];
   };
 }
 
 export const leadgenData: LeadgenData = {
   hero: {
-    headingWhite: "The Ultimate LinkedIn",
-    headingGreen: "B2B Growth Kit.",
-    body: "For B2B service providers, consultants, and coaches who want to attract better clients on LinkedIn without sounding salesy.",
+    headingWhite: "The B2B LinkedIn",
+    headingGreen: "Playbook.",
+    body: "For B2B service providers, consultants, and coaches who want to grow on LinkedIn the right way.",
     trustPoints: [
       "Step-by-step positioning framework",
       "Proven outbound messaging templates",
-      "100% free · Instant access",
+      "Ready-to-use visual assets you can start using today",
     ],
     form: {
-      title: "Get the free kit",
-      subtitle: "Enter your details below and we'll send it straight to your inbox.",
-      nameLabel: "What's your name?",
+      title: "Get it for free",
+      subtitle:
+        "Enter your details below and we'll send it straight to your inbox.",
+      nameLabel: "WHAT'S YOUR NAME?",
       namePlaceholder: "e.g. Bob Smith",
-      emailLabel: "Best email to reach you?",
+      emailLabel: "BEST EMAIL TO REACH YOU?",
       emailPlaceholder: "you@company.com",
       buttonText: "Get Instant Access →",
       privacyNote: "🔒 No spam, ever. Unsubscribe at any time.",
     },
   },
 
-  whatsInside: {
-    heading: "What's inside?",
-    intro:
-      "This free E-book gives you a practical toolkit of resources to help you sharpen your brand positioning, improve your content, and present your business more professionally online. Instead of piecing things together from random advice, you get one focused bundle designed to help you build momentum on LinkedIn faster.",
-    resourcesHeading: "Resources include...",
-    resources: [
-      "Free WhatsApp community, with 250+ B2B professionals supporting and learning from each other",
-      "33 LinkedIn Banners (Canva templates)",
-      "8 LinkedIn Featured Thumbnails (Canva templates)",
-      "13 LinkedIn Carousels (Canva templates)",
-      "12-page E-book (Canva template)",
-      "21-page Slide Deck (Canva template)",
-      "Case Study (Canva template)",
-      "365 Stock Photos",
-      "Plus More!",
-    ],
-  },
+  pillars: [
+    {
+      title: "1. Positioning",
+      body: "Learn how to define exactly who you serve, what makes you different, and how to say it so the right people lean in. Clean, intentional positioning doesn’t just look professional - it signals you’re established, reliable, and worth investing in",
+      image: "/services/bulb.png"
+    },
+    {
+      title: "2. Content",
+      body: "Discover how to build a content system that tells your story, explains your value, and shows the real person behind the business. Consistent, authentic content turns casual viewers into curious prospects",
+      image: "/services/speaker.png"
+    },
+    {
+      title: "3. Outreach",
+      body: "Learn warm, human approaches that spark genuine interest. You’ll get ready-to-adapt templates that focus on curiosity and value - so people reply because they want to, not because they feel pressured.",
+      image: "/services/website.png"
+    },
+  ],
 
-  faqs: {
-    heading: "FAQs",
-    items: [
-      {
-        question: "What happens after I sign up?",
-        answer:
-          "You'll receive access to the <strong>free toolkit</strong> and can start using the resources straight away.",
-      },
-      {
-        question: "Do I need much Canva experience?",
-        answer:
-          "No. <strong>Basic Canva skills are enough</strong> to use and adapt the templates to your brand guidelines.",
-      },
-      {
-        question: "Will this help if I'm inconsistent on LinkedIn?",
-        answer:
-          "Yes. It's especially useful if you need structure, prompts, and ready-made assets to <strong>make LinkedIn easier</strong> to maintain.",
-      },
+  whatsInside: {
+    heading: "What’s inside... 🧐",
+    intro:
+      "This isn’t another generic guide. It’s your complete practical toolkit - everything you need to sharpen your presence, create better content, and present your business with confidence. No piecing together advice from 20 different places - just one focused bundle to build real momentum, fast.",
+    guidesHeading: "🧠 Guides & Frameworks",
+    guides: [
+      "Complete 12-page e-book - step-by-step from profile polish to pipeline growth",
+      "Brand positioning framework - clarify your identity, colours, fonts, and story",
+      "ICP & lead gen system - find exactly who you should be talking to",
+      "DM templates - ready to be adapted, proven to work",
+      "AI prompts - learn to speed up planning and content creation without losing your voice",
+    ],
+    templatesHeading: "🎨 Fully Customisable Canva Templates",
+    templates: [
+      "33 LinkedIn Banners - refresh your profile instantly",
+      "8 Featured Section Thumbnails - highlight your best work first",
+      "13 Carousel Templates - share ideas, build authority, boost engagement",
+      "21-page Sales Brochure - present clearly and professionally",
+      "Case Study Template - turn happy clients into your strongest proof",
+      "Professional E-Book Template - ready to brand and reuse for your own lead magnet",
+    ],
+    communityHeading: "🔥 Community & Extras",
+    community: [
+      "400+ Curated Stock Images - keep your feed looking polished all year",
+      "Free Invite to the Inner Circle WhatsApp Community - 250+ UK/EU/US founders supporting each other, sharing wins, and building momentum together",
     ],
   },
 };

@@ -24,6 +24,8 @@ const companies = [
   "ReSpeak",
 ];
 
+const heading = "Who I’ve worked with... 🤝";
+
 const testimonials = [
   {
     quote:
@@ -62,7 +64,7 @@ const testimonials = [
     <h2
       class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-16 text-left leading-tight"
     >
-      Who we have worked with
+      {heading}
     </h2>
 
     <!-- Infinite Marquee for Companies -->
@@ -82,7 +84,7 @@ const testimonials = [
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
       {
         testimonials.map((t) => (
-          <div class="flex items-start">
+          <div class="flex items-start bg-brand-charcoal p-10">
             <div class="text-brand-green text-[5rem] md:text-[6rem] font-serif font-black leading-none mr-6 md:mr-8 mt-[-1rem] shrink-0">
               “
             </div>

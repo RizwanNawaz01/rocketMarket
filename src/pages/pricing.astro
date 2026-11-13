@@ -1,21 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import CTABanner from "../components/CTABanner.astro";
 
 const hero = {
-  headingWhite: "Marketing support you can",
-  headingGreen: "actually afford.",
-  body: "Strategy, branding, and websites. Packaged into clear offers with clear outcomes.",
+  headingWhite: "Marketing support",
+  headingGreen: "you can actually afford",
+  emoji: "💸",
+  body: "Strategy, branding and websites. Packaged into clear offers with clear outcomes.",
   cta: [
     {
-      label: "Book a call",
+      label: "Book a fit call",
       href: "https://meetings-eu1.hubspot.com/taz-b",
-      variant: "primary",
+      variant: "primary" as const,
     },
     {
       label: "View our work",
       href: "/case-study",
-      variant: "secondary",
+      variant: "secondary" as const,
     },
   ],
 };
@@ -39,15 +41,15 @@ const packages = [
     ],
   },
   {
-    name: "Social Selling",
-    badge: "Starts at",
+    name: "Pipeline Growth",
+    badge: "STARTS AT",
     description:
       "For companies with a proven service that need a predictable outbound LinkedIn pipeline.",
     price: "£400",
     period: "/mo",
     note: "Predictable outbound system. No long-term lock-in.",
     buttonText: "Find out more",
-    buttonHref: "/services/social-selling",
+    buttonHref: "#social-selling-details",
     includes: [
       "ICP research and targeting",
       "Lead list build and formatting",
@@ -63,20 +65,20 @@ const packages = [
   },
   {
     name: "Personal Branding",
-    badge: "Starts at",
+    badge: "STARTS AT",
     description:
       "For founders who are ready to show up as the face of the business but want guidance and execution support.",
     price: "£600",
     period: "/mo",
     note: "Dedicated ghostwriting & high-touch brand guidance.",
     buttonText: "Find out more",
-    buttonHref: "/services/personal-branding",
+    buttonHref: "#personal-branding-details",
     includes: [
       "LinkedIn profile optimisation",
       "Personality questionnaire",
       "Content strategy",
       "Research and idea development",
-      "3-4 high-quality posts each week",
+      "3–4 high-quality posts each week",
       "Notion teamspace",
       "15 rewrites",
       "Visual templates",
@@ -85,14 +87,14 @@ const packages = [
   },
   {
     name: "Website Build",
-    badge: "Project rate",
+    badge: "PROJECT RATE",
     description:
       "For businesses whose website and brand message need to catch up with how good their service has become.",
     price: "£1,000",
     period: "",
     note: "Fixed one-off investment. Complete handover.",
     buttonText: "Find out more",
-    buttonHref: "/services/web-brand-positioning",
+    buttonHref: "#website-build-details",
     includes: [
       "Discovery",
       "Research",
@@ -104,17 +106,84 @@ const packages = [
     ],
   },
 ];
+
+const detailedOfferings = [
+  {
+    id: "social-selling-details",
+    title: "Social Selling",
+    audience:
+      "For founders and businesses ready to fill their pipeline with consistent, warm leads through authentic outreach.",
+    pricing: "£400/ month for 4 months",
+    thenPricing: "Then £250 a month",
+    tagline:
+      "Predictable/ affordable lead generation. Your affordable long-term growth partner",
+    includes: [
+      "Ideal Customer Profile definition",
+      "Targeted lead list building (5,000 prospects)",
+      "Warm, authentic outreach messaging",
+      "Campaign launch & daily management",
+      "Inbox handling & follow-ups",
+      "Nurture strategy & relationship building",
+      "Pitch deck presentation support",
+      "Brochure creation",
+      "Weekly progress updates & reports",
+      "1:1 strategy calls throughout",
+    ],
+  },
+  {
+    id: "personal-branding-details",
+    title: "Personal Branding",
+    audience:
+      "For founders who want to clarify their positioning and have a consistent, authentic presence that attracts opportunities.",
+    pricing: "£600/ month for 4 months",
+    thenPricing: "Then £350 a month",
+    tagline: "Your affordable long-term personal branding partner.",
+    includes: [
+      "Full profile transformation (headline, about, featured section)",
+      "Personality questionnaire - every post sounds like you",
+      "Brand positioning & narrative clarity",
+      "Content strategy & calendar",
+      "4 authentic posts per week across 8 pillars",
+      "Up to 10 rewrites - get your voice exactly right",
+      "Notion brand & content hub — fully transparent",
+      "Visual brand guidelines & templates",
+      "LinkedIn engagement & community building",
+      "1:1 strategy calls throughout",
+    ],
+  },
+  {
+    id: "website-build-details",
+    title: "Website Build",
+    audience:
+      "For businesses ready to turn their brand message into a professional, high-performing home on the web - fast and affordably.",
+    pricing: "From £1,500 fixed project",
+    thenPricing: "",
+    tagline:
+      "One clear investment. Full handover. No ongoing fees unless you want them.",
+    includes: [
+      "Discovery & brand alignment session",
+      "Messaging matched to your LinkedIn narrative",
+      "Professional copy across all core pages",
+      "Branded design - colours, fonts, logo integration",
+      "Mobile-responsive, fast-loading build",
+      "Unlimited rounds of revisions included",
+      "Launch & final quality checks",
+      "Full handover - you own your site",
+      "Option to upgrade to bespoke build at any time",
+    ],
+  },
+];
 ---
 
-<Layout>
+<Layout showCTA={false}>
   <!-- Hero Section -->
   <section class="bg-brand-navy pt-20 pb-24 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto flex flex-col items-start">
       <h1
-        class="text-5xl md:text-7xl lg:text-7xl xl:text-[80px] font-heading mb-8 font-semibold leading-[1.05] text-white"
+        class="text-5xl md:text-7xl lg:text-7xl xl:text-[88px] font-heading mb-8 font-semibold leading-[1.05] text-white"
       >
         {hero.headingWhite}<br />
-        <span class="text-brand-green">{hero.headingGreen}</span>
+        <span class="text-brand-green">{hero.headingGreen}</span> {hero.emoji}
       </h1>
 
       <p class="hero-subtext max-w-5xl mb-12">
@@ -138,8 +207,8 @@ const packages = [
     </div>
   </section>
 
-  <!-- Pricing Cards Section with light blue background -->
-  <section class="bg-[#eef6f9] text-brand-navy py-20 px-8">
+  <!-- Pricing Overview Cards (Slide 37) -->
+  <section class="bg-brand-ice text-brand-navy py-20 px-8">
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="font-heading text-4xl md:text-5xl mb-6 font-bold text-brand-navy">
@@ -213,4 +282,61 @@ const packages = [
       </div>
     </div>
   </section>
+
+  <!-- Detailed Offerings (Slides 38, 39, 40) -->
+  <section class="bg-brand-navy py-20 px-8 border-t border-gray-800">
+    <div class="max-w-5xl mx-auto space-y-16">
+      {
+        detailedOfferings.map((detail) => (
+          <div
+            id={detail.id}
+            class="bg-white rounded-3xl p-8 md:p-12 text-brand-navy shadow-2xl border border-gray-100"
+          >
+            <h2 class="font-heading text-3xl md:text-4xl font-bold mb-3 text-brand-navy">
+              {detail.title}
+            </h2>
+            <p class="font-body text-lg md:text-xl text-gray-700 font-normal mb-8 max-w-4xl leading-relaxed">
+              {detail.audience}
+            </p>
+
+            <div class="mb-8">
+              <div class="text-2xl md:text-3xl font-heading font-extrabold text-brand-navy mb-1">
+                {detail.pricing}
+              </div>
+              {detail.thenPricing && (
+                <div class="text-xl md:text-2xl font-heading font-bold text-gray-800 mb-4">
+                  {detail.thenPricing}
+                </div>
+              )}
+              <p class="font-body text-base md:text-lg text-gray-800 font-medium">
+                {detail.tagline}
+              </p>
+            </div>
+
+            <div class="pt-6 border-t border-gray-200">
+              <p class="font-heading text-xl font-bold text-brand-navy mb-5">
+                Includes:
+              </p>
+              <ul class="space-y-3 font-body text-base md:text-lg text-gray-800">
+                {detail.includes.map((item) => (
+                  <li class="flex items-start gap-3">
+                    <span class="text-xl leading-tight shrink-0 select-none">✅</span>
+                    <span class="font-normal">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- CTA Banner Slide 41 -->
+  <CTABanner
+    heading="Branding that makes it easier to win"
+    subtext="Tell us what you're working on. No pitch, no pressure."
+    buttonText="Book a fit call"
+    buttonHref="https://meetings-eu1.hubspot.com/taz-b"
+  />
 </Layout>

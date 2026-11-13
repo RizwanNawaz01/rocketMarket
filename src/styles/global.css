@@ -5,6 +5,7 @@
   --color-brand-green: #17d9aa;
   --color-brand-blue: #115cfa;
   --color-brand-ice: #CBE4EC;
+  --color-brand-charcoal: #223450;
 
   --font-heading: 'Fraunces', serif;
   --font-body: 'Poppins', sans-serif;
@@ -88,16 +89,16 @@
 
 .hover-highlighter:hover {
   background-size: 100% 90%;
-  color: #182540 !important;
+  color: white !important;
 }
 
 /* User text selection matching original green highlighter */
 *::selection {
-  background-color: #1bd9aa !important;
-  color: #182540 !important;
+  background-color: #17d9aa !important;
+  color: white !important;
 }
 
 *::-moz-selection {
-  background-color: #1bd9aa !important;
-  color: #182540 !important;
+  background-color: #17d9aa !important;
+  color: white !important;
 }
