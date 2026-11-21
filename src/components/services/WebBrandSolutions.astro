@@ -37,9 +37,7 @@ const {
 <!-- The Problem Section -->
 <section class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
   <div class="max-w-6xl mx-auto">
-    <h2
-      class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-8 leading-tight"
-    >
+    <h2 class="font-heading text-[34px] md:text-[40px] text-brand-green font-semibold mb-8 leading-tight">
       {problemHeading}
     </h2>
     <p class="font-body text-xl md:text-2xl text-white/90 leading-relaxed max-w-5xl font-light">
@@ -51,43 +49,39 @@ const {
 <!-- The Solution (Options) Section -->
 <section class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
   <div class="max-w-6xl mx-auto">
-    <h2
-      class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-12 leading-tight"
-    >
+    <h2 class="font-heading text-[34px] md:text-[40px] text-brand-green font-semibold mb-12 leading-tight">
       {solutionHeading}
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-      {
-        options.map((opt) => (
-          <div class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 flex flex-col justify-between shadow-xl">
-            <div>
-              <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 text-white">
-                {opt.title}
-              </h3>
-              <p class="font-body text-base md:text-lg text-white/85 mb-6 leading-relaxed font-light">
-                {opt.description}
-              </p>
-              <ul class="space-y-3 font-body text-base md:text-lg mb-8">
-                {opt.features.map((feat) => (
-                  <li class="flex items-start text-white/90">
-                    <span class="text-white font-bold mr-3 select-none">•</span>
-                    <span>{feat}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            {opt.outcome && (
-              <div class="pt-6 border-t border-gray-800/80">
-                <p class="font-body text-base md:text-lg text-white/95">
-                  <strong class="font-bold text-white">What you get:</strong>{" "}
-                  <span class="font-light">{opt.outcome}</span>
-                </p>
-              </div>
-            )}
+      {options.map((opt) => (
+        <div class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 flex flex-col justify-between shadow-xl">
+          <div>
+            <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 text-white">
+              {opt.title}
+            </h3>
+            <p class="font-body text-base md:text-lg text-white/85 mb-6 leading-relaxed font-light">
+              {opt.description}
+            </p>
+            <ul class="space-y-3 font-body text-base md:text-lg mb-8">
+              {opt.features.map((feat) => (
+                <li class="flex items-start text-white/90">
+                  <span class="text-white font-bold mr-3 select-none">•</span>
+                  <span>{feat}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-        ))
-      }
+          {opt.outcome && (
+            <div class="pt-6 border-t border-gray-800/80">
+              <p class="font-body text-base md:text-lg text-white/95">
+                <strong class="font-bold text-white">What you get:</strong>{" "}
+                <span class="font-light">{opt.outcome}</span>
+              </p>
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -96,9 +90,7 @@ const {
 {pricingRows && pricingRows.length > 0 && (
   <section class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto">
-      <h2
-        class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-12 leading-tight"
-      >
+      <h2 class="font-heading text-[34px] md:text-[40px] text-brand-green font-semibold mb-12 leading-tight">
         {pricingHeading}
       </h2>
 
@@ -117,11 +109,17 @@ const {
           <tbody class="divide-y divide-gray-200 font-body text-sm md:text-base">
             {pricingRows.map((row) => (
               <tr class="hover:bg-slate-50 transition-colors">
-                <td class="py-6 px-6 font-bold text-brand-navy whitespace-nowrap">{row.option}</td>
-                <td class="py-6 px-6 font-semibold whitespace-nowrap">{row.investment}</td>
+                <td class="py-6 px-6 font-bold text-brand-navy whitespace-nowrap">
+                  {row.option}
+                </td>
+                <td class="py-6 px-6 font-semibold whitespace-nowrap">
+                  {row.investment}
+                </td>
                 <td class="py-6 px-6 whitespace-nowrap">{row.timeline}</td>
                 <td class="py-6 px-6 whitespace-nowrap">{row.retainer}</td>
-                <td class="py-6 px-6 text-gray-700 leading-snug">{row.bestFor}</td>
+                <td class="py-6 px-6 text-gray-700 leading-snug">
+                  {row.bestFor}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -130,4 +128,3 @@ const {
     </div>
   </section>
 )}
-

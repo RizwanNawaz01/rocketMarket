@@ -13,13 +13,13 @@ const serviceData = {
       "Already worked on your personal brand with me? Your website uses the same narrative, tone, and visual guidelines we’ve already started to build. No starting over - just extending your brand across your new home on the web.",
     cta: [
       {
-        label: "Book a fit call",
+        label: "Book a free clarity call",
         href: "https://meetings-eu1.hubspot.com/taz-b",
         variant: "primary" as const,
       },
       {
-        label: "View our work",
-        href: "/case-study",
+        label: "Pricing",
+        href: "/pricing",
         variant: "secondary" as const,
       },
     ],
@@ -37,7 +37,7 @@ const serviceData = {
   },
 
   deliverables: {
-    heading: "What you’ll leave with... ✅",
+    heading: "What you’ll leave with...",
     items: [
       {
         title: "A brand new website",
@@ -60,7 +60,7 @@ const serviceData = {
       {
         title: "Monthly care plan",
         description:
-          "An affordable retainer keeps your site secure and up to date for new content, such as case studies or news, as it becomes available.",
+          "We keep your site secure and up to date for new content, such as case studies or news, as it becomes available.",
         icon: "network",
       },
     ],
@@ -70,9 +70,9 @@ const serviceData = {
     heading: "FAQs",
     items: [
       {
-        question: "Do you need to write the copy?",
+        question: "Do I need to write the copy myself?",
         answer:
-          "It depends which option you go for...<br /><br />For the template build, the messaging is included in the price.<br /><br />For the bespoke build, the messaging is included in the price.",
+          " It depends which option you go for... For the template build, the messaging is included in the price. For the bespoke build, if you want us to do the messaging it will cost extra ",
       },
       {
         question: "Is there a fixed number of pages?",
@@ -106,7 +106,7 @@ const solutionsData = {
   problemHeading: "The problem... ❌",
   problemText:
     "You’ve got a great profile. People are engaging. Then they click your website… and it doesn’t match. Outdated, generic, or just not saying the right things. You know you need something better - but £10k+ for a full custom build just isn’t right yet.",
-  solutionHeading: "The solution... 🌈",
+  solutionHeading: "The solution... ✅",
   options: [
     {
       title: "Option 1 - Brand-Aligned Template (Recommended) 🧑‍🔬",
@@ -121,7 +121,7 @@ const solutionsData = {
         "Connected seamlessly to your LinkedIn profile voice",
       ],
       outcome:
-        "A quick, simple and affordable professional site that looks and feels custom.",
+        "A completely unique website built exactly to your vision, with every detail aligned to your brand.",
     },
     {
       title: "Option 2 - Bespoke Build 🎨",
@@ -155,11 +155,11 @@ const solutionsData = {
   ],
 };
 
-
 const cta = {
   heading: "Making your growth feel easier",
-  subtext: "Book a discovery call — 30 minutes to work out what you need and what it’ll cost.",
-  buttonText: "Book a fit call",
+  subtext:
+    "Book a discovery call — 30 minutes to work out what you need and what it’ll cost.",
+  buttonText: "Book a clarity call",
   buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
 };
 ---
@@ -176,9 +176,9 @@ const cta = {
   </ServiceTemplate>
 
   <CtaBanner
-        heading={cta.heading}
-        subtext={cta.subtext}
-        buttonText={cta.buttonText}
-        buttonHref={cta.buttonHref}
-      />
+    heading={cta.heading}
+    subtext={cta.subtext}
+    buttonText={cta.buttonText}
+    buttonHref={cta.buttonHref}
+  />
 </Layout>

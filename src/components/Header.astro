@@ -22,13 +22,11 @@ const navItems = [
   },
   { label: "Pricing", href: "/pricing" },
   { label: "Case Studies", href: "/case-study" },
-  { label: "Lead Gen", href: "/leadgen" },
+  { label: "Playbook", href: "/leadgen" },
 ];
 ---
 
-<header
-  class="w-full bg-brand-navy py-6 px-8 xl:px-18 flex items-center justify-between top-0 z-[110]"
->
+<header class="w-full bg-brand-navy py-6 px-8 xl:px-18 flex items-center justify-between top-0 z-[110]">
   <!-- Logo -->
   <a href="/" class="flex items-center">
     <Image
@@ -42,17 +40,19 @@ const navItems = [
   <!-- Right side: Contact + Button + Hamburger -->
   <div class="flex items-center space-x-6 lg:space-x-8">
     <!-- Contact Info (hidden on small screens) -->
-    <div
-      class="hidden lg:flex items-center space-x-6 text-white font-body text-base font-normal tracking-[-0.2px]"
-    >
-      <a href="tel:07592999711" class="hover:text-brand-green transition-colors"
-        >07592999711</a
+    <div class="hidden lg:flex items-center space-x-6 text-white font-body text-base font-normal tracking-[-0.2px]">
+      <a
+        href="tel:07592999711"
+        class="hover:text-brand-green transition-colors"
       >
+        07592999711
+      </a>
       <a
         href="mailto:taz@hellorocket.co.uk"
         class="hover:text-brand-green transition-colors"
-        >taz@hellorocket.co.uk</a
       >
+        taz@hellorocket.co.uk
+      </a>
     </div>
 
     <!-- CTA Button -->
@@ -82,7 +82,8 @@ const navItems = [
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
-          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        ></path>
       </svg>
       <!-- Close Icon -->
       <svg
@@ -97,7 +98,8 @@ const navItems = [
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
-          d="M6 18L18 6M6 6l12 12"></path>
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
       </svg>
     </button>
   </div>
@@ -108,65 +110,59 @@ const navItems = [
   id="menu-overlay"
   class="fixed inset-0 bg-brand-navy/95 backdrop-blur-sm z-[100] opacity-0 pointer-events-none transition-opacity duration-500 flex flex-col"
 >
-  <div
-    class="flex-grow flex flex-col justify-center px-10 sm:px-16 lg:px-28 xl:px-72 pt-20"
-  >
-    <nav
-      class="flex flex-col items-start space-y-4 lg:space-y-6 font-heading text-4xl lg:text-5xl xl:text-6xl"
-    >
-      {
-        navItems.map((item, index) => {
-          const itemHref =
-            item.href === "/"
-              ? "/"
-              : item.href.endsWith("/")
-                ? item.href.slice(0, -1)
-                : item.href;
-          const isActive =
-            currentPath === itemHref ||
-            (itemHref !== "/" && currentPath.startsWith(itemHref));
+  <div class="flex-grow flex flex-col justify-center px-10 sm:px-16 lg:px-28 xl:px-72 pt-20">
+    <nav class="flex flex-col items-start space-y-4 lg:space-y-6 font-heading text-4xl lg:text-5xl xl:text-6xl">
+      {navItems.map((item, index) => {
+        const itemHref =
+          item.href === "/"
+            ? "/"
+            : item.href.endsWith("/")
+              ? item.href.slice(0, -1)
+              : item.href;
+        const isActive =
+          currentPath === itemHref ||
+          (itemHref !== "/" && currentPath.startsWith(itemHref));
 
-          if (item.children) {
-            return (
-              <div
-                class="menu-item w-full"
-                style={`--delay: ${index * 75 + 100}ms`}
-              >
-                {/* Services toggle button */}
-                <button
-                  class={`services-toggle flex items-center leading-none hover:text-brand-green transition-colors ${isActive ? "text-brand-green" : "text-white"}`}
-                  aria-expanded="false"
-                >
-                  {item.label}
-                </button>
-                {/* Submenu */}
-                <ul class="services-submenu overflow-hidden max-h-0 transition-all duration-400 ease-in-out flex flex-col gap-3 pl-2 mt-0">
-                  {item.children.map((child) => (
-                    <li>
-                      <a
-                        href={child.href}
-                        class="font-heading text-2xl lg:text-3xl xl:text-4xl text-white/70 hover:text-brand-green transition-colors leading-none"
-                      >
-                        {child.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          }
-
+        if (item.children) {
           return (
-            <a
-              href={item.href}
-              class={`menu-item leading-none hover:text-brand-green ${isActive ? "text-brand-green" : "text-white"}`}
+            <div
+              class="menu-item w-full"
               style={`--delay: ${index * 75 + 100}ms`}
             >
-              {item.label}
-            </a>
+              {/* Services toggle button */}
+              <button
+                class={`services-toggle flex items-center leading-none hover:text-brand-green transition-colors ${isActive ? "text-brand-green" : "text-white"}`}
+                aria-expanded="false"
+              >
+                {item.label}
+              </button>
+              {/* Submenu */}
+              <ul class="services-submenu overflow-hidden max-h-0 transition-all duration-400 ease-in-out flex flex-col gap-3 pl-2 mt-0">
+                {item.children.map((child) => (
+                  <li>
+                    <a
+                      href={child.href}
+                      class="font-heading text-2xl lg:text-3xl xl:text-4xl text-white/70 hover:text-brand-green transition-colors leading-none"
+                    >
+                      {child.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           );
-        })
-      }
+        }
+
+        return (
+          <a
+            href={item.href}
+            class={`menu-item leading-none hover:text-brand-green ${isActive ? "text-brand-green" : "text-white"}`}
+            style={`--delay: ${index * 75 + 100}ms`}
+          >
+            {item.label}
+          </a>
+        );
+      })}
     </nav>
     <div
       class="menu-item mt-10 lg:mt-12 flex flex-col items-start space-y-2 text-white"
@@ -175,9 +171,7 @@ const navItems = [
       <h3 class="font-heading text-2xl lg:text-3xl font-bold text-white mb-1">
         Say hello to Taz
       </h3>
-      <div
-        class="flex flex-wrap items-center gap-x-2 gap-y-1 font-body text-sm sm:text-base font-semibold"
-      >
+      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-body text-sm sm:text-base font-semibold">
         <a
           href="tel:07592999711"
           class="hover:text-brand-green transition-colors"

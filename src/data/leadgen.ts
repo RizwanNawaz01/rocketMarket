@@ -93,10 +93,11 @@ export const leadgenData: LeadgenData = {
       "21-page Sales Brochure - present clearly and professionally",
       "Case Study Template - turn happy clients into your strongest proof",
       "Professional E-Book Template - ready to brand and reuse for your own lead magnet",
+      "400+ Curated Stock Images - keep your feed looking polished all year",
     ],
     communityHeading: "🔥 Community & Extras",
     community: [
-      "400+ Curated Stock Images - keep your feed looking polished all year",
+
       "Free Invite to the Inner Circle WhatsApp Community - 250+ UK/EU/US founders supporting each other, sharing wins, and building momentum together",
     ],
   },

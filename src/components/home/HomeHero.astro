@@ -8,39 +8,35 @@ const hero = {
   body: "Rocket is a Swansea-based B2B marketing agency. We deliver LinkedIn personal branding, social selling, and web/brand development. Every account is led personally by Taz, from start to finish.",
   cta: [
     {
-      label: "Book a fit call",
+      label: "Book a free clarity call",
       href: "https://meetings-eu1.hubspot.com/taz-b",
       variant: "primary",
     },
-    { label: "View our work", href: "/case-study", variant: "secondary" },
+    { label: "Pricing", href: "/pricing", variant: "secondary" },
   ],
 };
 ---
 
 <section class="bg-brand-navy pt-20 xl:pt-10 2xl:pt-20 pb-32 px-8 xl:px-6">
   <div class="max-w-6xl mx-auto flex flex-col items-start">
-    <h1
-      class="text-5xl md:text-7xl lg:text-7xl xl:text-[88px] font-heading mb-8 font-semibold leading-[1.05] text-white"
-    >
-      {hero.headingWhite} <span class="text-brand-green">{hero.headingGreen}</span><br />
+    <h1 class="text-5xl md:text-7xl lg:text-7xl xl:text-[88px] font-heading mb-8 font-semibold leading-[1.05] text-white">
+      {hero.headingWhite}{" "}
+      <span class="text-brand-green">{hero.headingGreen}</span>
+      <br />
       {hero.headingRest}
     </h1>
 
-    <p class="hero-subtext max-w-5xl xl:max-w-6xl mb-12">
-      {hero.body}
-    </p>
+    <p class="hero-subtext max-w-5xl xl:max-w-6xl mb-12">{hero.body}</p>
 
     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-      {
-        hero.cta.map((btn) => (
-          <Button
-            href={btn.href}
-            variant={btn.variant as "primary" | "secondary"}
-          >
-            {btn.label}
-          </Button>
-        ))
-      }
+      {hero.cta.map((btn) => (
+        <Button
+          href={btn.href}
+          variant={btn.variant as "primary" | "secondary"}
+        >
+          {btn.label}
+        </Button>
+      ))}
     </div>
   </div>
 </section>

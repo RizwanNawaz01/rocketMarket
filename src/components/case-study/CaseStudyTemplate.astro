@@ -65,7 +65,7 @@ const defaultCtaBanner = {
   heading: "Want results like these?",
   subtext:
     "Book a discovery call — 30 minutes to work out what you need and what it'll cost.",
-  buttonText: "Book a fit call",
+  buttonText: "Book a free clarity call",
   buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
 };
 
@@ -76,33 +76,27 @@ const ctaBanner = study.ctaBanner || defaultCtaBanner;
   <!-- 1. Hero Section -->
   <section class="bg-brand-navy pt-20 pb-32 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto flex flex-col items-start">
-      <h1
-        class="text-5xl md:text-7xl lg:text-7xl xl:text-[80px] font-heading mb-8 font-semibold leading-[1.05] text-white"
-      >
+      <h1 class="text-5xl md:text-7xl lg:text-7xl xl:text-[80px] font-heading mb-8 font-semibold leading-[1.05] text-white">
         {study.hero.headingWhite}{" "}
         <span class="text-brand-green">{study.hero.headingGreen}</span>
       </h1>
 
-      <p
-        class="text-xl md:text-2xl lg:text-3xl font-body max-w-5xl mb-12 text-white font-light lg:leading-snug"
-      >
+      <p class="text-xl md:text-2xl lg:text-3xl font-body max-w-5xl mb-12 text-white font-light lg:leading-snug">
         {study.hero.body}
       </p>
 
-      {
-        study.hero.cta && study.hero.cta.length > 0 && (
-          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-            {study.hero.cta.map((btn) => (
-              <Button
-                href={btn.href}
-                variant={btn.variant as "primary" | "secondary"}
-              >
-                {btn.label}
-              </Button>
-            ))}
-          </div>
-        )
-      }
+      {study.hero.cta && study.hero.cta.length > 0 && (
+        <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+          {study.hero.cta.map((btn) => (
+            <Button
+              href={btn.href}
+              variant={btn.variant as "primary" | "secondary"}
+            >
+              {btn.label}
+            </Button>
+          ))}
+        </div>
+      )}
     </div>
   </section>
 
@@ -114,7 +108,9 @@ const ctaBanner = study.ctaBanner || defaultCtaBanner;
           {study.overview.heading || "Project Overview"}
         </h2>
         <div class="font-body text-lg text-white space-y-6">
-          {study.overview.paragraphs.map((para) => <p>{para}</p>)}
+          {study.overview.paragraphs.map((para) => (
+            <p>{para}</p>
+          ))}
         </div>
       </div>
 
@@ -137,7 +133,9 @@ const ctaBanner = study.ctaBanner || defaultCtaBanner;
             What we did
           </h3>
           <ul class="font-body text-white space-y-2">
-            {study.overview.meta.whatWeDid.map((item) => <li>{item}</li>)}
+            {study.overview.meta.whatWeDid.map((item) => (
+              <li>{item}</li>
+            ))}
           </ul>
         </div>
       </div>
@@ -155,26 +153,24 @@ const ctaBanner = study.ctaBanner || defaultCtaBanner;
       </p>
 
       <div class="space-y-16">
-        {
-          study.approach.blocks.map((block) => (
-            <div>
-              <h3 class="font-heading text-3xl font-bold mb-6 text-brand-green">
-                {block.title}
-              </h3>
-              {Array.isArray(block.content) ? (
-                <div class="font-body text-lg text-white space-y-6 max-w-4xl leading-relaxed">
-                  {block.content.map((p) => (
-                    <p>{p}</p>
-                  ))}
-                </div>
-              ) : (
-                <p class="font-body text-lg text-white leading-relaxed max-w-4xl">
-                  {block.content}
-                </p>
-              )}
-            </div>
-          ))
-        }
+        {study.approach.blocks.map((block) => (
+          <div>
+            <h3 class="font-heading text-3xl font-bold mb-6 text-brand-green">
+              {block.title}
+            </h3>
+            {Array.isArray(block.content) ? (
+              <div class="font-body text-lg text-white space-y-6 max-w-4xl leading-relaxed">
+                {block.content.map((p) => (
+                  <p>{p}</p>
+                ))}
+              </div>
+            ) : (
+              <p class="font-body text-lg text-white leading-relaxed max-w-4xl">
+                {block.content}
+              </p>
+            )}
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -198,28 +194,22 @@ const ctaBanner = study.ctaBanner || defaultCtaBanner;
       </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
-        {
-          study.result.cards.map((card) => (
-            <div class="bg-brand-ice rounded-3xl p-8 text-brand-navy">
-              <h4 class="font-heading text-2xl font-bold mb-4">{card.title}</h4>
-              <p class="font-body">{card.description}</p>
-            </div>
-          ))
-        }
+        {study.result.cards.map((card) => (
+          <div class="bg-brand-ice rounded-3xl p-8 text-brand-navy">
+            <h4 class="font-heading text-2xl font-bold mb-4">{card.title}</h4>
+            <p class="font-body">{card.description}</p>
+          </div>
+        ))}
       </div>
 
-      {
-        study.result.quote && (
-          <div class="max-w-4xl border-t border-gray-800 pt-12">
-            <p class="font-heading text-2xl mb-6 leading-relaxed">
-              "{study.result.quote.text}"
-            </p>
-            <p class="font-body text-brand-green">
-              {study.result.quote.author}
-            </p>
-          </div>
-        )
-      }
+      {study.result.quote && (
+        <div class="max-w-4xl border-t border-gray-800 pt-12">
+          <p class="font-heading text-2xl mb-6 leading-relaxed">
+            "{study.result.quote.text}"
+          </p>
+          <p class="font-body text-brand-green">{study.result.quote.author}</p>
+        </div>
+      )}
     </div>
   </section>
 </Layout>

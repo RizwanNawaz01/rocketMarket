@@ -20,7 +20,7 @@ const ctaBanner = {
   heading: "Want results like these?",
   subtext:
     "Book a discovery call — 30 minutes to work out what you need and what it'll cost.",
-  buttonText: "Book a fit call",
+  buttonText: "Book a free clarity call",
   buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
 };
 ---
@@ -29,34 +29,31 @@ const ctaBanner = {
   <!-- 1. Hero Section -->
   <section class="bg-brand-navy pt-20 pb-24 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto flex flex-col items-start">
-      <h1
-        class="text-4xl sm:text-6xl lg:text-7xl font-heading mb-8 font-semibold leading-[1.08] text-brand-green"
-      >
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-heading mb-8 font-semibold leading-[1.08] text-brand-green">
         {study.headline}
       </h1>
 
-      <p class="hero-subtext max-w-4xl">
-        {study.situation}
-      </p>
+      <p class="hero-subtext max-w-4xl">{study.situation}</p>
     </div>
   </section>
 
   <!-- 2. Numbers Section (Same as numbers section on Home page: bg-brand-blue, 3-column stats) -->
-  <section id="stats-section" class="bg-brand-blue text-white py-14 px-8 border-b border-gray-800">
+  <section
+    id="stats-section"
+    class="bg-brand-blue text-white py-14 px-8 border-b border-gray-800"
+  >
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        {
-          study.stats.map((stat) => (
-            <div class="flex flex-col items-center">
-              <span class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-body font-black text-white mb-2">
-                {stat.val}
-              </span>
-              <span class="text-base md:text-lg font-bold font-body text-white/95">
-                {stat.lbl}
-              </span>
-            </div>
-          ))
-        }
+        {study.stats.map((stat) => (
+          <div class="flex flex-col items-center">
+            <span class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-body font-black text-white mb-2">
+              {stat.val}
+            </span>
+            <span class="text-base md:text-lg font-bold font-body text-white/95">
+              {stat.lbl}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -67,39 +64,33 @@ const ctaBanner = {
       <!-- Left 8 cols: Narrative -->
       <div class="lg:col-span-8 space-y-16">
         <div>
-          <h2
-            class="font-heading text-3xl md:text-4xl text-brand-green font-bold mb-6"
-          >
+          <h2 class="font-heading text-3xl md:text-4xl text-brand-green font-bold mb-6">
             The Challenges
           </h2>
           <ul class="space-y-4">
-            {
-              study.challenges.map((challenge) => (
-                <li class="flex items-start text-lg text-gray-200 font-light leading-relaxed">
-                  <svg
-                    class="w-6 h-6 text-brand-green mr-3.5 flex-shrink-0 mt-[4px]"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="3.5"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                  <span>{challenge}</span>
-                </li>
-              ))
-            }
+            {study.challenges.map((challenge) => (
+              <li class="flex items-start text-lg text-gray-200 font-light leading-relaxed">
+                <svg
+                  class="w-6 h-6 text-brand-green mr-3.5 flex-shrink-0 mt-[4px]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12.75l6 6 9-13.5"
+                  />
+                </svg>
+                <span>{challenge}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
         <div>
-          <h2
-            class="font-heading text-3xl md:text-4xl text-brand-green font-bold mb-6"
-          >
+          <h2 class="font-heading text-3xl md:text-4xl text-brand-green font-bold mb-6">
             The Solution
           </h2>
           <p class="font-body text-lg text-white font-light leading-relaxed">
@@ -108,9 +99,7 @@ const ctaBanner = {
         </div>
 
         <div>
-          <h2
-            class="font-heading text-3xl md:text-4xl text-brand-green font-bold mb-6"
-          >
+          <h2 class="font-heading text-3xl md:text-4xl text-brand-green font-bold mb-6">
             Key Results
           </h2>
           <p class="font-body text-lg text-white font-light leading-relaxed">
@@ -121,12 +110,8 @@ const ctaBanner = {
 
       <!-- Right 4 cols: Company Card -->
       <div class="lg:col-span-4 space-y-8">
-        <div
-          class="bg-[#121c32] border border-gray-800 rounded-2xl p-8 space-y-6"
-        >
-          <div
-            class="w-14 h-14 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center font-heading font-bold text-2xl"
-          >
+        <div class="bg-[#121c32] border border-gray-800 rounded-2xl p-8 space-y-6">
+          <div class="w-14 h-14 rounded-xl bg-brand-green/20 text-brand-green flex items-center justify-center font-heading font-bold text-2xl">
             {study.initials}
           </div>
 
@@ -139,29 +124,25 @@ const ctaBanner = {
             </p>
           </div>
 
-          <div
-            class="space-y-3 pt-4 border-t border-gray-800 text-sm font-body"
-          >
+          <div class="space-y-3 pt-4 border-t border-gray-800 text-sm font-body">
             <div>
               <span class="text-gray-400 block mb-0.5">Service</span>
               <span class="text-white font-semibold">{study.serviceTaken}</span>
             </div>
 
-            {
-              study.websiteUrl && (
-                <div>
-                  <span class="text-gray-400 block mb-0.5">Website</span>
-                  <a
-                    href={study.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-brand-green hover:underline"
-                  >
-                    {study.website}
-                  </a>
-                </div>
-              )
-            }
+            {study.websiteUrl && (
+              <div>
+                <span class="text-gray-400 block mb-0.5">Website</span>
+                <a
+                  href={study.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-brand-green hover:underline"
+                >
+                  {study.website}
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -171,23 +152,17 @@ const ctaBanner = {
   <!-- 4. Client Quote -->
   <section class="bg-[#121c32] text-white py-16 px-8 border-b border-gray-800">
     <div class="max-w-4xl mx-auto text-center">
-      <span
-        class="text-brand-green text-6xl md:text-7xl font-serif font-black leading-none block mb-4"
-      >
+      <span class="text-brand-green text-6xl md:text-7xl font-serif font-black leading-none block mb-4">
         “
       </span>
-      <p
-        class="font-heading text-2xl md:text-3xl font-medium leading-relaxed mb-8 text-white"
-      >
+      <p class="font-heading text-2xl md:text-3xl font-medium leading-relaxed mb-8 text-white">
         {study.quote}”
       </p>
       <div>
         <h4 class="font-heading text-xl font-bold text-brand-green">
           {study.quoteAuthor}
         </h4>
-        <p class="text-gray-400 font-body text-sm mt-1">
-          {study.quoteRole}
-        </p>
+        <p class="text-gray-400 font-body text-sm mt-1">{study.quoteRole}</p>
       </div>
     </div>
   </section>
@@ -195,47 +170,67 @@ const ctaBanner = {
   <!-- 5. Key Benefits Grid (Why this worked - matching H2 font size with icon boxes) -->
   <section class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto">
-      <h2
-        class="font-heading text-3xl md:text-4xl text-brand-green mb-12 font-bold tracking-tight"
-      >
+      <h2 class="font-heading text-3xl md:text-4xl text-brand-green mb-12 font-bold tracking-tight">
         Why this worked
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {
-          study.benefits.map((b, idx) => (
-            <div class="bg-brand-ice rounded-2xl p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-xl">
-              <div class="mb-5 h-12 flex items-center text-brand-navy">
-                {idx === 0 ? (
-                  /* Consistency / Steady rhythm icon (Magnifier / Diagnostics) */
-                  <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                  </svg>
-                ) : idx === 1 ? (
-                  /* Relevance / Targeting icon (Lightbulb / Innovation) */
-                  <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 18h6"></path>
-                    <path d="M10 22h4"></path>
-                    <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"></path>
-                  </svg>
-                ) : (
-                  /* Momentum / Growth icon (Trend up arrow / Acceleration) */
-                  <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                    <polyline points="17 6 23 6 23 12"></polyline>
-                  </svg>
-                )}
-              </div>
-              <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 text-brand-navy">
-                {b.title}
-              </h3>
-              <p class="font-body text-base md:text-lg leading-relaxed text-brand-navy/85 font-normal">
-                {b.desc}
-              </p>
+        {study.benefits.map((b, idx) => (
+          <div class="bg-brand-ice rounded-2xl p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-xl">
+            <div class="mb-5 h-12 flex items-center text-brand-navy">
+              {idx === 0 ? (
+                /* Consistency / Steady rhythm icon (Magnifier / Diagnostics) */
+                <svg
+                  class="w-10 h-10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              ) : idx === 1 ? (
+                /* Relevance / Targeting icon (Lightbulb / Innovation) */
+                <svg
+                  class="w-10 h-10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M9 18h6"></path>
+                  <path d="M10 22h4"></path>
+                  <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"></path>
+                </svg>
+              ) : (
+                /* Momentum / Growth icon (Trend up arrow / Acceleration) */
+                <svg
+                  class="w-10 h-10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              )}
             </div>
-          ))
-        }
+            <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 text-brand-navy">
+              {b.title}
+            </h3>
+            <p class="font-body text-base md:text-lg leading-relaxed text-brand-navy/85 font-normal">
+              {b.desc}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   </section>

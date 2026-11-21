@@ -79,7 +79,7 @@ const {
   ctaBanner = {
     heading: "Look the part. Mean business.",
     subtext: "Tell us what you're working on. No pitch, no pressure.",
-    buttonText: "Book a fit call",
+    buttonText: "Book a clarity call",
     buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
   },
   howItWorks,
@@ -104,36 +104,26 @@ const ctaButtons: HeroCTA[] = hero.cta || [
       class="text-5xl md:text-7xl lg:text-7xl xl:text-[88px] font-heading mb-8 font-semibold leading-[1.05] text-white"
       set:html={hero.titleHtml}
     />
-    {
-      hero.serviceName && (
-        <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-3">
-          {hero.serviceName}
-        </h2>
-      )
-    }
-    <p
-      class="hero-subtext max-w-5xl mb-4"
-    >
-      {hero.description}
-    </p>
-    {
-      hero.location && (
-        <p class="text-base md:text-lg font-body text-gray-400 font-light mb-10">
-          {hero.location}
-        </p>
-      )
-    }
+    {hero.serviceName && (
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
+        {hero.serviceName}
+      </h2>
+    )}
+    <p class="hero-subtext max-w-5xl mb-8">{hero.description}</p>
+    {hero.location && (
+      <p class="text-base md:text-lg font-body text-gray-400 font-light mb-10">
+        {hero.location}
+      </p>
+    )}
     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
-      {
-        ctaButtons.map((btn) => (
-          <Button
-            href={btn.href}
-            variant={(btn.variant as "primary" | "secondary") || "primary"}
-          >
-            {btn.label}
-          </Button>
-        ))
-      }
+      {ctaButtons.map((btn) => (
+        <Button
+          href={btn.href}
+          variant={(btn.variant as "primary" | "secondary") || "primary"}
+        >
+          {btn.label}
+        </Button>
+      ))}
     </div>
   </div>
 </section>
@@ -144,33 +134,29 @@ const ctaButtons: HeroCTA[] = hero.cta || [
   class="bg-brand-navy text-white pt-14 pb-14 px-8 border-b border-gray-800"
 >
   <div class="max-w-6xl mx-auto">
-    <h2
-      class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-10 leading-tight"
-    >
+    <h2 class="font-heading text-[34px] md:text-[40px] text-brand-green font-semibold mb-10 leading-tight">
       {needThisIf.heading || "You'll probably need this if..."}
     </h2>
     <ul class="space-y-1 text-xl font-body max-w-5xl">
-      {
-        needThisIf.points.map((point) => (
-          <li class="flex items-start">
-            <svg
-              class="w-6 h-6 text-white  mr-4 flex-shrink-0 mt-[7px]"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="4.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            <span class="font-light text-gray-200">{point}</span>
-          </li>
-        ))
-      }
+      {needThisIf.points.map((point) => (
+        <li class="flex items-start">
+          <svg
+            class="w-6 h-6 text-white mr-4 flex-shrink-0 mt-[7px]"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="4.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M5 13l4 4L19 7"
+            />
+          </svg>
+          <span class="font-light text-gray-200">{point}</span>
+        </li>
+      ))}
     </ul>
   </div>
 </section>
@@ -178,48 +164,84 @@ const ctaButtons: HeroCTA[] = hero.cta || [
 <!-- 3. What You'll Leave With Section -->
 <section class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
   <div class="max-w-6xl mx-auto">
-    <h2
-      class="font-heading text-4xl md:text-5xl text-brand-green mb-10 font-bold tracking-tight"
-    >
+    <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-10 font-bold tracking-tight">
       {deliverables.heading || "What you'll leave with"}
     </h2>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {
-        deliverables.items.map((item, index) => (
-          <div class="bg-brand-ice rounded-[10px] p-8 md:p-8 text-brand-navy flex flex-col justify-start shadow-lg">
-            <div class="mb-6 h-12 flex items-center text-brand-navy">
-              {item.icon === "website" || item.icon === "screen-rocket" ? (
-                <Image src={websitePng} alt={item.title} class="h-12 w-auto object-contain" />
-              ) : item.icon === "bulb" ? (
-                <Image src={bulbPng} alt={item.title} class="h-12 w-auto object-contain" />
-              ) : item.icon === "chat" || item.icon === "chat-bubbles" ? (
-                <Image src={chatPng} alt={item.title} class="h-12 w-auto object-contain" />
-              ) : item.icon === "network" || item.icon === "flow-chart" ? (
-                <Image src={networkPng} alt={item.title} class="h-12 w-auto object-contain" />
-              ) : item.icon === "speaker" ? (
-                <Image src={speakerPng} alt={item.title} class="h-12 w-auto object-contain" />
-              ) : item.icon === "logo" ? (
-                <Image src={logoPng} alt={item.title} class="h-12 w-auto object-contain" />
-              ) : index === 0 ? (
-                <Image src={websitePng} alt={item.title} class="h-12 w-auto object-contain" />
-              ) : index === 1 ? (
-                <Image src={bulbPng} alt={item.title} class="h-12 w-auto object-contain" />
-              ) : index === 2 ? (
-                <Image src={chatPng} alt={item.title} class="h-12 w-auto object-contain" />
-              ) : (
-                <Image src={networkPng} alt={item.title} class="h-12 w-auto object-contain" />
-              )}
-            </div>
-            <h3 class="font-heading text-2xl md:text-2xl font-bold mb-4 text-brand-navy leading-tight">
-              {item.title}
-            </h3>
-            <p class="font-body text-base md:text-lg leading-relaxed text-brand-navy/85 font-normal">
-              {item.description}
-            </p>
+      {deliverables.items.map((item, index) => (
+        <div class="bg-brand-ice rounded-[10px] p-8 md:p-8 text-brand-navy flex flex-col justify-start shadow-lg">
+          <div class="mb-6 h-16 flex items-center text-brand-navy">
+            {item.icon === "website" || item.icon === "screen-rocket" ? (
+              <Image
+                src={websitePng}
+                alt={item.title}
+                class="h-16 w-auto object-contain"
+              />
+            ) : item.icon === "bulb" ? (
+              <Image
+                src={bulbPng}
+                alt={item.title}
+                class="h-16 w-auto object-contain"
+              />
+            ) : item.icon === "chat" || item.icon === "chat-bubbles" ? (
+              <Image
+                src={chatPng}
+                alt={item.title}
+                class="h-16 w-auto object-contain"
+              />
+            ) : item.icon === "network" || item.icon === "flow-chart" ? (
+              <Image
+                src={networkPng}
+                alt={item.title}
+                class="h-16 w-auto object-contain"
+              />
+            ) : item.icon === "speaker" ? (
+              <Image
+                src={speakerPng}
+                alt={item.title}
+                class="h-16 w-auto object-contain"
+              />
+            ) : item.icon === "logo" ? (
+              <Image
+                src={logoPng}
+                alt={item.title}
+                class="h-16 w-auto object-contain"
+              />
+            ) : index === 0 ? (
+              <Image
+                src={websitePng}
+                alt={item.title}
+                class="h-16 w-auto object-contain"
+              />
+            ) : index === 1 ? (
+              <Image
+                src={bulbPng}
+                alt={item.title}
+                class="h-16 w-auto object-contain"
+              />
+            ) : index === 2 ? (
+              <Image
+                src={chatPng}
+                alt={item.title}
+                class="h-16 w-auto object-contain"
+              />
+            ) : (
+              <Image
+                src={networkPng}
+                alt={item.title}
+                class="h-16 w-auto object-contain"
+              />
+            )}
           </div>
-        ))
-      }
+          <h3 class="font-heading text-2xl md:text-[22px] font-bold mb-4 text-brand-navy leading-tight">
+            {item.title}
+          </h3>
+          <p class="font-body text-base md:text-lg leading-relaxed text-brand-navy/85 font-normal">
+            {item.description}
+          </p>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -228,156 +250,150 @@ const ctaButtons: HeroCTA[] = hero.cta || [
 <slot name="after-deliverables" />
 
 <!-- 4. CTA Banner -->
-{
-  ctaBanner && (
-    <CTABanner
-      heading={ctaBanner.heading}
-      subtext={ctaBanner.subtext}
-      buttonText={ctaBanner.buttonText}
-      buttonHref={ctaBanner.buttonHref}
-    />
-  )
-}
+{ctaBanner && (
+  <CTABanner
+    heading={ctaBanner.heading}
+    subtext={ctaBanner.subtext}
+    buttonText={ctaBanner.buttonText}
+    buttonHref={ctaBanner.buttonHref}
+  />
+)}
 
 <!-- 5. How It Works Section -->
-{
-  howItWorks && howItWorks.steps && howItWorks.steps.length > 0 && (
-    <section class="bg-brand-navy text-white py-16 px-8">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-10 font-bold tracking-tight">
-          {howItWorks.heading || "How it works"}
-        </h2>
+{howItWorks && howItWorks.steps && howItWorks.steps.length > 0 && (
+  <section class="bg-brand-navy text-white py-16 px-8">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-10 font-bold tracking-tight">
+        {howItWorks.heading || "How it works"}
+      </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {howItWorks.steps.map((step, index) => (
-            <div class="bg-brand-blue rounded-lg p-10 flex flex-col min-h-[350px]">
-              <div class="mb-6 h-12 flex items-center text-white">
-                {step.icon === "workshop" || (!step.icon && index === 0) ? (
-                  /* 1. Workshop / Discovery: People around meeting table */
-                  <svg
-                    class="w-12 h-12"
-                    viewBox="0 0 48 48"
-                    fill="none"
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {howItWorks.steps.map((step, index) => (
+          <div class="bg-brand-blue rounded-lg p-10 flex flex-col min-h-[350px]">
+            <div class="mb-6 h-12 flex items-center text-white">
+              {step.icon === "workshop" || (!step.icon && index === 0) ? (
+                /* 1. Workshop / Discovery: People around meeting table */
+                <svg
+                  class="w-12 h-12"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  {/* Center person */}
+                  <circle cx="24" cy="12" r="3.5" />
+                  <path d="M19 22 C19 19.5 21 18 24 18 C27 18 29 19.5 29 22" />
+                  {/* Left person */}
+                  <circle cx="13" cy="16" r="3" />
+                  <path d="M9 25 C9 23 11 22 13 22 C15 22 16.5 23 17 24.5" />
+                  {/* Right person */}
+                  <circle cx="35" cy="16" r="3" />
+                  <path d="M39 25 C39 23 37 22 35 22 C33 22 31.5 23 31 24.5" />
+                  {/* Meeting Table */}
+                  <ellipse cx="24" cy="28" rx="18" ry="5.5" />
+                  {/* Table Legs */}
+                  <path d="M12 32 L10 40" />
+                  <path d="M17 33.5 L16 41" />
+                  <path d="M31 33.5 L32 41" />
+                  <path d="M36 32 L38 40" />
+                </svg>
+              ) : step.icon === "concepts" || (!step.icon && index === 1) ? (
+                /* 2. Concepts + Refinement: Laptop / Design mockups on screen */
+                <svg
+                  class="w-12 h-12"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  {/* Laptop screen */}
+                  <rect x="8" y="10" width="32" height="22" rx="2" />
+                  {/* Mockup frames inside screen */}
+                  <rect
+                    x="12"
+                    y="14"
+                    width="10"
+                    height="9"
+                    rx="1"
+                    stroke-width="1.5"
+                  />
+                  <rect
+                    x="26"
+                    y="14"
+                    width="10"
+                    height="9"
+                    rx="1"
+                    stroke-width="1.5"
+                    stroke-dasharray="2 2"
+                  />
+                  <line x1="12" y1="27" x2="20" y2="27" stroke-width="1.5" />
+                  <circle cx="28" cy="27" r="1.5" fill="currentColor" />
+                  {/* Laptop base */}
+                  <path d="M4 36 L44 36" stroke-width="2.5" />
+                  <path
+                    d="M20 36 L28 36"
+                    stroke-width="2.5"
                     stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    {/* Center person */}
-                    <circle cx="24" cy="12" r="3.5" />
-                    <path d="M19 22 C19 19.5 21 18 24 18 C27 18 29 19.5 29 22" />
-                    {/* Left person */}
-                    <circle cx="13" cy="16" r="3" />
-                    <path d="M9 25 C9 23 11 22 13 22 C15 22 16.5 23 17 24.5" />
-                    {/* Right person */}
-                    <circle cx="35" cy="16" r="3" />
-                    <path d="M39 25 C39 23 37 22 35 22 C33 22 31.5 23 31 24.5" />
-                    {/* Meeting Table */}
-                    <ellipse cx="24" cy="28" rx="18" ry="5.5" />
-                    {/* Table Legs */}
-                    <path d="M12 32 L10 40" />
-                    <path d="M17 33.5 L16 41" />
-                    <path d="M31 33.5 L32 41" />
-                    <path d="M36 32 L38 40" />
-                  </svg>
-                ) : step.icon === "concepts" || (!step.icon && index === 1) ? (
-                  /* 2. Concepts + Refinement: Laptop / Design mockups on screen */
-                  <svg
-                    class="w-12 h-12"
-                    viewBox="0 0 48 48"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    {/* Laptop screen */}
-                    <rect x="8" y="10" width="32" height="22" rx="2" />
-                    {/* Mockup frames inside screen */}
-                    <rect
-                      x="12"
-                      y="14"
-                      width="10"
-                      height="9"
-                      rx="1"
-                      stroke-width="1.5"
-                    />
-                    <rect
-                      x="26"
-                      y="14"
-                      width="10"
-                      height="9"
-                      rx="1"
-                      stroke-width="1.5"
-                      stroke-dasharray="2 2"
-                    />
-                    <line x1="12" y1="27" x2="20" y2="27" stroke-width="1.5" />
-                    <circle cx="28" cy="27" r="1.5" fill="currentColor" />
-                    {/* Laptop base */}
-                    <path d="M4 36 L44 36" stroke-width="2.5" />
-                    <path
-                      d="M20 36 L28 36"
-                      stroke-width="2.5"
-                      stroke="currentColor"
-                    />
-                  </svg>
-                ) : (
-                  /* 3. Final files / Handover book */
-                  <svg
-                    class="w-11 h-11"
-                    viewBox="0 0 44 48"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2.2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect x="8" y="5" width="28" height="38" rx="3" />
-                    <line x1="14" y1="5" x2="14" y2="43" stroke-width="1.5" />
-                    {/* Brand text placeholder & lines */}
-                    <line x1="19" y1="14" x2="29" y2="14" stroke-width="2" />
-                    <line x1="19" y1="20" x2="26" y2="20" stroke-width="1.5" />
-                    <line x1="19" y1="25" x2="31" y2="25" stroke-width="1.5" />
-                  </svg>
-                )}
-              </div>
-              <h3 class="font-heading text-3xl font-bold mb-6 text-white">
-                {step.title}
-              </h3>
-              <p class="font-body text-lg text-white font-light leading-relaxed">
-                {step.description}
-              </p>
+                  />
+                </svg>
+              ) : (
+                /* 3. Final files / Handover book */
+                <svg
+                  class="w-11 h-11"
+                  viewBox="0 0 44 48"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="8" y="5" width="28" height="38" rx="3" />
+                  <line x1="14" y1="5" x2="14" y2="43" stroke-width="1.5" />
+                  {/* Brand text placeholder & lines */}
+                  <line x1="19" y1="14" x2="29" y2="14" stroke-width="2" />
+                  <line x1="19" y1="20" x2="26" y2="20" stroke-width="1.5" />
+                  <line x1="19" y1="25" x2="31" y2="25" stroke-width="1.5" />
+                </svg>
+              )}
             </div>
-          ))}
-        </div>
+            <h3 class="font-heading text-3xl font-bold mb-6 text-white">
+              {step.title}
+            </h3>
+            <p class="font-body text-lg text-white font-light leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        ))}
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+)}
 
 <!-- 6. FAQs Section -->
-{
-  faqs && faqs.items && faqs.items.length > 0 && (
-    <section class="bg-brand-navy text-white py-16 px-8 border-t border-gray-800">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-10 font-bold tracking-tight">
-          {faqs.heading || "FAQs"}
-        </h2>
+{faqs && faqs.items && faqs.items.length > 0 && (
+  <section class="bg-brand-navy text-white py-16 px-8 border-t border-gray-800">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-heading text-4xl md:text-5xl text-brand-green mb-10 font-bold tracking-tight">
+        {faqs.heading || "FAQs"}
+      </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-          {faqs.items.map((faq) => (
-            <div class="bg-brand-green rounded-2xl p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-xl">
-              <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6 text-brand-navy leading-tight">
-                {faq.question}
-              </h3>
-              <div
-                class="font-body text-base md:text-lg leading-relaxed text-brand-navy/95 font-medium"
-                set:html={faq.answer}
-              />
-            </div>
-          ))}
-        </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        {faqs.items.map((faq) => (
+          <div class="bg-brand-green rounded-2xl p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-xl">
+            <h3 class="font-heading text-2xl md:text-3xl font-bold mb-6 text-brand-navy leading-tight">
+              {faq.question}
+            </h3>
+            <div
+              class="font-body text-base md:text-lg leading-relaxed text-brand-navy/95 font-medium"
+              set:html={faq.answer}
+            />
+          </div>
+        ))}
       </div>
-    </section>
-  )
-}
+    </div>
+  </section>
+)}

@@ -22,30 +22,24 @@ const stats = [
 
 <section id="stats-section" class="bg-brand-blue text-white py-14 px-8">
   <div class="max-w-6xl mx-auto">
-    <h2
-      class="font-heading text-[36px] md:text-[44px] leading-tight font-semibold mb-16 text-brand-green"
-    >
+    <h2 class="font-heading text-[36px] md:text-[40px] leading-tight font-semibold mb-16 text-brand-green">
       {heading}
     </h2>
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left"
-    >
-      {
-        stats.map((stat) => (
-          <div>
-            <div class="text-6xl md:text-8xl font-body font-black mb-4 text-center">
-              <span class="stat-number" data-target={stat.target}>
-                0
-              </span>
-              {stat.suffix}
-            </div>
-            <p
-              class="text-xl font-bold font-body text-center"
-              set:html={stat.label}
-            />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+      {stats.map((stat) => (
+        <div>
+          <div class="text-6xl md:text-8xl font-body font-black mb-4 text-center">
+            <span class="stat-number" data-target={stat.target}>
+              0
+            </span>
+            {stat.suffix}
           </div>
-        ))
-      }
+          <p
+            class="text-xl font-bold font-body text-center"
+            set:html={stat.label}
+          />
+        </div>
+      ))}
     </div>
   </div>
 </section>

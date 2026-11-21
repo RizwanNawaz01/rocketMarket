@@ -21,8 +21,9 @@ const {
 
 const cta = {
   heading: ctaHeading || "Get clear. Get confident.<br />Grow faster.",
-  subtext: ctaSubtext || "Tell us what you're working on. No pitch, no pressure.",
-  buttonText: ctaButtonText || "Book a call",
+  subtext:
+    ctaSubtext || "Tell us what you're working on. No pitch, no pressure.",
+  buttonText: ctaButtonText || "Book a clarity call",
   buttonHref: ctaButtonHref || "https://meetings-eu1.hubspot.com/taz-b",
 };
 
@@ -51,48 +52,42 @@ const socials = [
 ];
 
 const copyright = {
-  company: "Rocket Marketing Ltd",
+  company: " Rocket Marketing Ltd",
   sitemapHref: "/sitemap",
 };
 ---
 
 <footer class="w-full">
   <!-- CTA Banner -->
-  {
-    showCTA && (
-      <CTABanner
-        heading={cta.heading}
-        subtext={cta.subtext}
-        buttonText={cta.buttonText}
-        buttonHref={cta.buttonHref}
-      />
-    )
-  }
+  {showCTA && (
+    <CTABanner
+      heading={cta.heading}
+      subtext={cta.subtext}
+      buttonText={cta.buttonText}
+      buttonHref={cta.buttonHref}
+    />
+  )}
 
   <!-- Main Footer -->
   <div class="bg-brand-navy py-16 px-8 text-white">
-    <div
-      class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12 md:gap-8"
-    >
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-12 md:gap-8">
       <!-- Services -->
       <div class="mb-8 md:mb-0">
         <h3 class="text-brand-green font-heading text-3xl font-semibold mb-6">
           Services
         </h3>
         <ul class="space-y-4 font-body">
-          {
-            services.map((item) => (
-              <li class="flex items-center gap-3">
-                <span class="text-white font-bold shrink-0">—</span>
-                <a
-                  href={item.href}
-                  class="text-white hover:text-brand-green transition-colors font-light text-xl"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))
-          }
+          {services.map((item) => (
+            <li class="flex items-center gap-3">
+              <span class="text-white font-bold shrink-0">—</span>
+              <a
+                href={item.href}
+                class="text-white hover:text-brand-green transition-colors font-light text-xl"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -102,18 +97,16 @@ const copyright = {
           Contact
         </h3>
         <ul class="space-y-4 font-body font-light text-white">
-          {
-            contact.map((item) => (
-              <li>
-                <a
-                  href={item.href}
-                  class="hover:text-brand-green transition-colors text-xl"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))
-          }
+          {contact.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="hover:text-brand-green transition-colors text-xl"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -126,36 +119,34 @@ const copyright = {
     </div>
 
     <!-- Copyright Bar -->
-    <div
-      class="max-w-6xl mx-auto border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400 font-body font-light"
-    >
+    <div class="max-w-6xl mx-auto border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400 font-body font-light">
       <div class="mb-4 md:mb-0 text-center md:text-left">
         © {new Date().getFullYear()}
         {copyright.company}. All rights reserved |{" "}
         <a
           href={copyright.sitemapHref}
-          class="hover:text-white transition-colors">Sitemap</a
+          class="hover:text-white transition-colors"
         >
+          Sitemap
+        </a>
       </div>
       <div class="flex items-center space-x-6">
-        {
-          socials.map((s) => (
-            <a
-              href={s.href}
-              aria-label={s.label}
-              class="hover:text-brand-green transition-colors"
+        {socials.map((s) => (
+          <a
+            href={s.href}
+            aria-label={s.label}
+            class="hover:text-brand-green transition-colors"
+          >
+            <svg
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
             >
-              <svg
-                class="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path fill-rule="evenodd" d={s.path} clip-rule="evenodd" />
-              </svg>
-            </a>
-          ))
-        }
+              <path fill-rule="evenodd" d={s.path} clip-rule="evenodd" />
+            </svg>
+          </a>
+        ))}
       </div>
     </div>
   </div>

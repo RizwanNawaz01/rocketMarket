@@ -3,50 +3,37 @@ import Layout from "../layouts/Layout.astro";
 import HomeServices from "../components/home/HomeServices.astro";
 import CTABanner from "../components/CTABanner.astro";
 import { leadgenData as pageData } from "../data/leadgen";
-
-
 ---
 
 <Layout showCTA={false}>
   <!-- Hero Section with Form (Slide 53) -->
   <section class="bg-brand-navy pt-20 pb-28 px-8 border-b border-gray-800">
-    <div
-      class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start"
-    >
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
       <!-- Left Column: Typography & bullet highlights -->
       <div class="lg:col-span-7 flex flex-col items-start">
-        <h1
-          class="text-5xl md:text-7xl lg:text-7xl xl:text-[80px] font-heading mb-8 font-semibold leading-[1.05] text-white"
-        >
-          {pageData.hero.headingWhite}<br />
+        <h1 class="text-5xl md:text-7xl lg:text-7xl xl:text-[80px] font-heading mb-8 font-semibold leading-[1.05] text-white">
+          {pageData.hero.headingWhite}
+          <br />
           <span class="text-brand-green">{pageData.hero.headingGreen}</span>
         </h1>
 
-        <p class="hero-subtext max-w-2xl mb-8">
-          {pageData.hero.body}
-        </p>
+        <p class="hero-subtext max-w-2xl mb-8">{pageData.hero.body}</p>
 
         <ul class="space-y-3.5 text-base md:text-lg font-body text-gray-200 font-light mt-2">
-          {
-            pageData.hero.trustPoints.map((point) => (
-              <li class="flex items-start gap-3">
-                <span class="text-white font-bold select-none">•</span>
-                <span>{point}</span>
-              </li>
-            ))
-          }
+          {pageData.hero.trustPoints.map((point) => (
+            <li class="flex items-start gap-3">
+              <span class="text-white font-bold select-none">•</span>
+              <span>{point}</span>
+            </li>
+          ))}
         </ul>
       </div>
 
       <!-- Right Column: Form Card -->
       <div class="lg:col-span-5 w-full">
-        <div
-          class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 shadow-2xl relative"
-        >
+        <div class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 shadow-2xl relative">
           <div class="mb-6">
-            <h2
-              class="text-2xl md:text-3xl font-heading font-bold text-white mb-2"
-            >
+            <h2 class="text-2xl md:text-3xl font-heading font-bold text-white mb-2">
               {pageData.hero.form.title}
             </h2>
             <p class="text-sm md:text-base text-gray-400 font-body font-light">
@@ -97,9 +84,7 @@ import { leadgenData as pageData } from "../data/leadgen";
               {pageData.hero.form.buttonText}
             </button>
 
-            <p
-              class="text-center text-xs text-gray-400 font-body font-light pt-1"
-            >
+            <p class="text-center text-xs text-gray-400 font-body font-light pt-1">
               {pageData.hero.form.privacyNote}
             </p>
           </form>
@@ -111,28 +96,28 @@ import { leadgenData as pageData } from "../data/leadgen";
   <!-- What's Included (3 Cards - Slide 54) -->
   <section class="bg-brand-navy py-20 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto">
-      <h2
-        class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-12 leading-tight"
-      >
+      <h2 class="font-heading text-[34px] md:text-[40px] text-brand-green font-semibold mb-12 leading-tight">
         What’s included... 👀
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {
-          pageData.pillars.map((pillar) => (
-            <div class="bg-brand-ice rounded-[10px] p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-lg">
-               <div class="mb-6 h-12 flex items-center text-brand-navy">
-                 <img src={pillar.image} alt={pillar.title} class="h-12 w-auto object-contain" />
-              </div>
-              <h3 class="font-heading text-2xl md:text-3xl font-semibold mb-4 text-brand-navy leading-tight">
-                {pillar.title}
-              </h3>
-              <p class="font-body text-base md:text-lg leading-relaxed text-brand-navy/85 font-normal">
-                {pillar.body}
-              </p>
+        {pageData.pillars.map((pillar) => (
+          <div class="bg-brand-ice rounded-[10px] p-8 md:p-10 text-brand-navy flex flex-col justify-start shadow-lg">
+            <div class="mb-6 h-12 flex items-center text-brand-navy">
+              <img
+                src={pillar.image}
+                alt={pillar.title}
+                class="h-12 w-auto object-contain"
+              />
             </div>
-          ))
-        }
+            <h3 class="font-heading text-2xl md:text-3xl font-semibold mb-4 text-brand-navy leading-tight">
+              {pillar.title}
+            </h3>
+            <p class="font-body text-base md:text-lg leading-relaxed text-brand-navy/85 font-normal">
+              {pillar.body}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -140,7 +125,7 @@ import { leadgenData as pageData } from "../data/leadgen";
   <!-- What's Inside (Detailed lists - Slides 55, 56) -->
   <section class="bg-brand-navy text-white py-20 px-8 border-b border-gray-800">
     <div class="max-w-5xl mx-auto">
-      <h2 class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-6 leading-tight">
+      <h2 class="font-heading text-[34px] md:text-[40px] text-brand-green font-semibold mb-6 leading-tight">
         {pageData.whatsInside.heading}
       </h2>
       <p class="font-body text-lg md:text-xl text-white/90 leading-relaxed font-light mb-12 max-w-4xl">
@@ -196,14 +181,13 @@ import { leadgenData as pageData } from "../data/leadgen";
     </div>
   </section>
 
- 
   <HomeServices heading="3 ways to go further... ✅" />
 
   <!-- CTA Banner Slide 58 -->
   <CTABanner
     heading="Making your growth feel easier"
     subtext="Book a discovery call — 30 minutes to work out what you need and what it’ll cost."
-    buttonText="Book a fit call"
+    buttonText="Book a free clarity call"
     buttonHref="https://meetings-eu1.hubspot.com/taz-b"
   />
 </Layout>

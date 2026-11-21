@@ -65,7 +65,7 @@ const ctaBanner = {
   heading: "Want results like these?",
   subtext:
     "Book a discovery call — 30 minutes to work out what you need and what it'll cost.",
-  buttonText: "Book a fit call",
+  buttonText: "Book a free clarity call",
   buttonHref: "https://meetings-eu1.hubspot.com/taz-b",
 };
 ---
@@ -74,71 +74,64 @@ const ctaBanner = {
   <!-- Hero Section -->
   <section class="bg-brand-navy pt-20 pb-24 px-8 border-b border-gray-800">
     <div class="max-w-6xl mx-auto flex flex-col items-start">
-      <h1
-        class="text-5xl md:text-7xl lg:text-7xl xl:text-[80px] font-heading mb-8 font-semibold leading-[1.05] text-white"
-      >
-        {hero.headingWhite}<br />
+      <h1 class="text-5xl md:text-7xl lg:text-7xl xl:text-[80px] font-heading mb-8 font-semibold leading-[1.05] text-white">
+        {hero.headingWhite}
+        <br />
         <span class="text-brand-green">{hero.headingGreen}</span>
       </h1>
 
-      <p class="hero-subtext max-w-5xl mb-12">
-        {hero.body}
-      </p>
+      <p class="hero-subtext max-w-5xl mb-12">{hero.body}</p>
 
-      <div
-        class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6"
-      >
-        {
-          hero.cta.map((btn) => (
-            <Button
-              href={btn.href}
-              variant={btn.variant as "primary" | "secondary"}
-            >
-              {btn.label}
-            </Button>
-          ))
-        }
+      <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+        {hero.cta.map((btn) => (
+          <Button
+            href={btn.href}
+            variant={btn.variant as "primary" | "secondary"}
+          >
+            {btn.label}
+          </Button>
+        ))}
       </div>
     </div>
   </section>
 
   <!-- Grid Section -->
-  <section id="case-studies" class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800">
+  <section
+    id="case-studies"
+    class="bg-brand-navy text-white py-16 px-8 border-b border-gray-800"
+  >
     <div class="max-w-6xl mx-auto">
-      <h2 class="font-heading text-4xl lg:text-4xl xl:text-5xl mb-10 text-brand-green">Browse our case studies</h2>
+      <h2 class="font-heading text-4xl lg:text-4xl xl:text-5xl mb-10 text-brand-green">
+        Browse our case studies
+      </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-        {
-          caseStudies.map((cs) => (
-            <a href={cs.href} class="block group">
-              <div class="bg-gray-800 h-64 w-full mb-6 rounded overflow-hidden relative">
-                {cs.image ? (
-                  <img
-                    src={cs.image}
-                    alt={cs.title}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                ) : (
-                  <div class="w-full h-full bg-gray-700 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
-                    {/* Image placeholder */}
-                    <span class="font-heading text-xl text-gray-500 font-bold group-hover:text-brand-green transition-colors">
-                      {cs.title}
-                    </span>
-                  </div>
-                )}
-              </div>
-              <h3 class="font-heading text-2xl font-bold mb-2 group-hover:text-brand-green transition-colors text-white">
-                {cs.title}
-              </h3>
-              <p class="font-body text-gray-400 mb-4">{cs.industry}</p>
-              <p class="font-body text-gray-300">
-                {cs.description}
-              </p>
-            </a>
-          ))
-        }
+        {caseStudies.map((cs) => (
+          <a href={cs.href} class="block group">
+            <div class="bg-gray-800 h-64 w-full mb-6 rounded overflow-hidden relative">
+              {cs.image ? (
+                <img
+                  src={cs.image}
+                  alt={cs.title}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <div class="w-full h-full bg-gray-700 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                  {/* Image placeholder */}
+                  <span class="font-heading text-xl text-gray-500 font-bold group-hover:text-brand-green transition-colors">
+                    {cs.title}
+                  </span>
+                </div>
+              )}
+            </div>
+            <h3 class="font-heading text-2xl font-bold mb-2 group-hover:text-brand-green transition-colors text-white">
+              {cs.title}
+            </h3>
+            <p class="font-body text-gray-400 mb-4">{cs.industry}</p>
+            <p class="font-body text-gray-300">{cs.description}</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>
-
 </Layout>

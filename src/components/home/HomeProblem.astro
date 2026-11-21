@@ -13,34 +13,30 @@ const items = [
 
 <section class="bg-brand-navy text-white pt-20 pb-12 px-8">
   <div class="max-w-6xl mx-auto">
-    <h2
-      class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-12 leading-tight"
-    >
+    <h2 class="font-heading text-[34px] md:text-[40px] text-brand-green font-semibold mb-12 leading-tight">
       {heading}
     </h2>
     <ul class="space-y-1">
-      {
-        items.map((item) => (
-          <li class="flex items-start">
-            <svg
-              class="w-6 h-6 text-white  mr-4 flex-shrink-0 mt-[7px]"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="4.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5"
-              />
-            </svg>
-            <span class="font-body text-[20px] md:text-[22px] leading-[39px] text-white/95 font-normal">
-              {item}
-            </span>
-          </li>
-        ))
-      }
+      {items.map((item) => (
+        <li class="flex items-start">
+          <svg
+            class="w-6 h-6 text-white mr-4 flex-shrink-0 mt-[7px]"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="4.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.5 12.75l6 6 9-13.5"
+            />
+          </svg>
+          <span class="font-body text-[20px] md:text-[22px] leading-[39px] text-white/95 font-normal">
+            {item}
+          </span>
+        </li>
+      ))}
     </ul>
   </div>
 </section>

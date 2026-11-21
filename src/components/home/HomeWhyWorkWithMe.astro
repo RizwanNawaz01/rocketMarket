@@ -4,7 +4,7 @@ const heading = "Why work with me... 🧑‍💻";
 const points = [
   {
     bold: "Seamlessly connected.",
-    text: "Your LinkedIn profile, content, outreach, and website all speak the same language",
+    text: "Your LinkedIn content, outreach, and website speak the same language",
   },
   {
     bold: "Transparently organised.",
@@ -28,24 +28,20 @@ const audience = {
 
 <section class="bg-brand-navy text-white py-20 px-8 border-t border-gray-800">
   <div class="max-w-6xl mx-auto">
-    <h2
-      class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-12 leading-tight"
-    >
+    <h2 class="font-heading text-[34px] md:text-[40px] text-brand-green font-semibold mb-12 leading-tight">
       {heading}
     </h2>
 
     <ul class="space-y-5 mb-16">
-      {
-        points.map((point) => (
-          <li class="flex items-start text-[20px] md:text-[22px] leading-relaxed text-white/95">
-            <span class="text-white font-bold mr-4 text-xl select-none">•</span>
-            <div>
-              <strong class="font-bold text-white">{point.bold}</strong>{" "}
-              <span class="font-light">{point.text}</span>
-            </div>
-          </li>
-        ))
-      }
+      {points.map((point) => (
+        <li class="flex items-start text-[20px] md:text-[22px] leading-relaxed text-white/95">
+          <span class="text-white font-bold mr-4 text-xl select-none">•</span>
+          <div>
+            <strong class="font-bold text-white">{point.bold}</strong>{" "}
+            <span class="font-light">{point.text}</span>
+          </div>
+        </li>
+      ))}
     </ul>
 
     <div class="border-t border-gray-800/80">
@@ -58,4 +54,3 @@ const audience = {
     </div>
   </div>
 </section>
-

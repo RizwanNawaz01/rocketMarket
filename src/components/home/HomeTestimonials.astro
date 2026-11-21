@@ -44,13 +44,11 @@ const testimonials = [
 ];
 ---
 
-<section
-  class="bg-brand-navy text-white pb-24 pt-0 px-8 border-t border-gray-800"
->
+<section class="bg-brand-navy text-white pb-24 pt-0 px-8 border-t border-gray-800">
   <!-- Mini Notification Banner matching meetbob -->
   <div class="bg-[#121c32] py-4 px-8 border-b border-gray-800/80 mb-16 -mx-8 text-center">
     <p class="font-body text-base md:text-lg text-gray-200">
-      Want to know how much branding costs generally?{" "}
+      want to know how much b2b marketing costs generally?{" "}
       <a
         href="/how-much-does-branding-cost-uk"
         class="text-white underline font-medium hover:text-brand-green transition-colors"
@@ -61,53 +59,47 @@ const testimonials = [
   </div>
 
   <div class="max-w-6xl mx-auto">
-    <h2
-      class="font-heading text-[34px] md:text-[44px] text-brand-green font-semibold mb-16 text-left leading-tight"
-    >
+    <h2 class="font-heading text-[34px] md:text-[40px] text-brand-green font-semibold mb-16 text-left leading-tight">
       {heading}
     </h2>
 
     <!-- Infinite Marquee for Companies -->
     <div class="mb-24 mask-edges w-full overflow-hidden">
       <div class="marquee-track flex items-center gap-12 md:gap-24">
-        {
-          companies.map((company) => (
-            <span class="font-bold text-lg md:text-xl uppercase tracking-widest text-gray-400 shrink-0">
-              {company}
-            </span>
-          ))
-        }
+        {companies.map((company) => (
+          <span class="font-bold text-lg md:text-xl uppercase tracking-widest text-gray-400 shrink-0">
+            {company}
+          </span>
+        ))}
       </div>
     </div>
 
     <!-- 2 Testimonials Side-by-Side -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
-      {
-        testimonials.map((t) => (
-          <div class="flex items-start bg-brand-charcoal p-10">
-            <div class="text-brand-green text-[5rem] md:text-[6rem] font-serif font-black leading-none mr-6 md:mr-8 mt-[-1rem] shrink-0">
-              “
-            </div>
-            <div class="flex-grow pr-4">
-              <p class="text-xl md:text-2xl font-heading mb-8 leading-snug font-semibold text-white/95">
-                {t.quote}
-              </p>
-              <p class="text-brand-green text-lg md:text-xl font-heading font-semibold mb-1">
-                {t.author}
-              </p>
-              <p class="text-base md:text-lg font-body mb-6 text-white/80">
-                {t.title}
-              </p>
-              <a
-                href={t.link}
-                class="text-brand-green underline font-semibold text-base hover:text-white transition-colors inline-block"
-              >
-                Read full case study
-              </a>
-            </div>
+      {testimonials.map((t) => (
+        <div class="flex items-start bg-brand-charcoal p-10">
+          <div class="text-brand-green text-[5rem] md:text-[6rem] font-serif font-black leading-none mr-6 md:mr-8 mt-[-1rem] shrink-0">
+            “
           </div>
-        ))
-      }
+          <div class="flex-grow pr-4">
+            <p class="text-xl md:text-2xl font-heading mb-8 leading-snug font-semibold text-white/95">
+              {t.quote}
+            </p>
+            <p class="text-brand-green text-lg md:text-xl font-heading font-semibold mb-1">
+              {t.author}
+            </p>
+            <p class="text-base md:text-lg font-body mb-6 text-white/80">
+              {t.title}
+            </p>
+            <a
+              href={t.link}
+              class="text-brand-green underline font-semibold text-base hover:text-white transition-colors inline-block"
+            >
+              Read full case study
+            </a>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
