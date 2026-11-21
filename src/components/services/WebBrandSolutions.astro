@@ -53,14 +53,14 @@ const {
       {solutionHeading}
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
-      {options.map((opt, idx) => (
-        <div class={`bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 flex flex-col justify-between shadow-xl h-full ${idx === 1 ? 'md:mt-6' : ''}`}>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+      {options.map((opt) => (
+        <div class="bg-[#121c32] border border-gray-800/90 rounded-2xl p-8 md:p-10 flex flex-col justify-between shadow-xl h-full">
           <div>
             <h3 class="font-heading text-2xl md:text-3xl font-bold mb-4 text-white">
               {opt.title}
             </h3>
-            <p class="font-body text-base md:text-lg text-white/85 mb-6 leading-relaxed font-light">
+            <p class="font-body text-base md:text-lg text-white/85 mb-6 leading-relaxed font-light min-h-[56px] sm:min-h-[56px] md:min-h-[60px]">
               {opt.description}
             </p>
             <ul class="space-y-3 font-body text-base md:text-lg mb-8">
