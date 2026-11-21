@@ -95,7 +95,7 @@ export const leadgenData: LeadgenData = {
       "Professional E-Book Template - ready to brand and reuse for your own lead magnet",
       "400+ Curated Stock Images - keep your feed looking polished all year",
     ],
-    communityHeading: "🔥 Community & Extras",
+    communityHeading: "Community Fun",
     community: [
 
       "Free Invite to the Inner Circle WhatsApp Community - 250+ UK/EU/US founders supporting each other, sharing wins, and building momentum together",

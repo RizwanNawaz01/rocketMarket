@@ -57,12 +57,12 @@ export const caseStudiesData: Record<string, CaseStudyItem> = {
     quoteRole: "Founder & CEO, Earnly",
     initials: "EA",
     resultsText:
-      "We published 52 posts, generating over 310,000 impressions and reaching 28,000 unique LinkedIn members within their ICP. The most successful posts achieved 10,000+ impressions and sparked in-depth comment threads.",
+      "We published 52 posts, generating over 310k+ impressions and reaching 28k unique LinkedIn members within their ICP. The most successful posts achieved 10k+ impressions and sparked in-depth comment threads.",
     stats: [
       { val: "52", lbl: "Posts published" },
-      { val: "310,000+", lbl: "Total impressions" },
-      { val: "28,000", lbl: "Unique ICP members" },
-      { val: "10,000+", lbl: "Best post impressions" },
+      { val: "310k+", lbl: "Total impressions" },
+      { val: "28k", lbl: "Unique ICP members" },
+      { val: "10k+", lbl: "Best post impressions" },
     ],
     benefits: [
       {

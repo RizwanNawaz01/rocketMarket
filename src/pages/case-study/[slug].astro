@@ -37,23 +37,35 @@ const ctaBanner = {
     </div>
   </section>
 
-  <!-- 2. Numbers Section (Same as numbers section on Home page: bg-brand-blue, 3-column stats) -->
+  <!-- 2. Numbers Section (Same as numbers section on Home page: bg-brand-blue, 4-column stats) -->
   <section
     id="stats-section"
     class="bg-brand-blue text-white py-14 px-8 border-b border-gray-800"
   >
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        {study.stats.map((stat) => (
-          <div class="flex flex-col items-center">
-            <span class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-body font-black text-white mb-2">
-              {stat.val}
-            </span>
-            <span class="text-base md:text-lg font-bold font-body text-white/95">
-              {stat.lbl}
-            </span>
-          </div>
-        ))}
+        {study.stats.map((stat) => {
+          // Parse numeric target and suffix/prefix if any
+          const match = stat.val.match(/^([^0-9]*)([0-9,.]+)(.*)$/);
+          const prefix = match ? match[1] : "";
+          const numRaw = match ? match[2].replace(/,/g, "") : "0";
+          const suffix = match ? match[3] : "";
+          const targetNum = parseFloat(numRaw) || 0;
+          return (
+            <div class="flex flex-col items-center">
+              <span class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-body font-black text-white mb-2">
+                {prefix}
+                <span class="stat-number" data-target={targetNum} data-original={stat.val}>
+                  0
+                </span>
+                {suffix}
+              </span>
+              <span class="text-base md:text-lg font-bold font-body text-white/95">
+                {stat.lbl}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -234,4 +246,49 @@ const ctaBanner = {
       </div>
     </div>
   </section>
+
+  <script>
+    const statsSection = document.getElementById("stats-section");
+    const statNumbers = document.querySelectorAll(".stat-number");
+
+    if (statsSection && statNumbers.length > 0) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            statNumbers.forEach((stat) => {
+              const target = parseFloat(
+                stat.getAttribute("data-target") || "0",
+              );
+              const duration = 2500; // smooth 2.5s duration
+              const startTime = performance.now();
+
+              const updateNumber = (currentTime: DOMHighResTimeStamp) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // easeOutQuart for smooth decelerating animation
+                const easeOut = 1 - Math.pow(1 - progress, 4);
+
+                const current = Math.floor(easeOut * target);
+                stat.textContent = current.toLocaleString();
+
+                if (progress < 1) {
+                  requestAnimationFrame(updateNumber);
+                } else {
+                  stat.textContent = target.toLocaleString();
+                }
+              };
+
+              requestAnimationFrame(updateNumber);
+            });
+
+            observer.unobserve(statsSection);
+          }
+        },
+        { threshold: 0.3 },
+      );
+
+      observer.observe(statsSection);
+    }
+  </script>
 </Layout>
